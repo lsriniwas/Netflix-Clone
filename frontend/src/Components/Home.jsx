@@ -4,6 +4,7 @@ import styles from '../Styles/Home.module.css'
 import HomeMid from './HomeMid'
 import HomeAccordion from './HomeAccordion'
 import TextField from '@material-ui/core/TextField';
+import HomeFooter from './HomeFooter'
 
 const data = 
 [
@@ -13,7 +14,7 @@ const data =
     "subTitle": "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
     "image": "/images/tv.png",
     "video": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v",
-    "alt": "Tiger King on Netflix",
+    "alt": "Watch on Netflix",
     "direction": "row"
   },
   {
@@ -30,7 +31,7 @@ const data =
     "subTitle": "Stream unlimited movies and TV shows on your phone, tablet, laptop and TV.",
     "image": "/images/imac.png",
     "video": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-devices-in.m4v",
-    "alt": "Money Heist on Netflix",
+    "alt": "TV shows on Netflix",
     "direction": "row"
   }
 ]
@@ -83,6 +84,7 @@ const Home = () => {
                 <button>GET STARTED &gt;</button>
             </div>
           </div>
+          <HomeFooter/>
         </div>
     )
 }

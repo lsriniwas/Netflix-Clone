@@ -164,3 +164,29 @@
     font-size: 19px;
 }
 /* Home Accordion End */
+
+/* Home Footer Start */
+.home_footer {
+    margin-top: 5px;
+    background-color: #000;
+    color: #666;
+    padding: 2rem;
+    font-family: sans-serif;
+}
+.home_footer_content {
+    width: 60%;
+    margin: auto;
+}
+.home_footer_content_links {
+    display: flex;
+    justify-content: space-between;
+}
+.home_footer_content_links p {
+    margin-bottom: 1rem;
+    font-size: 13px;
+}
+.home_footer_content_links p:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* Home Footer End */
