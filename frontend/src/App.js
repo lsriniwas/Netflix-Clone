@@ -1,11 +1,12 @@
-import './App.css';
-
+import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import { Login } from "./Pages/Login/Login";
 function App() {
   return (
-    <div className="App">
-      Netflix
-    </div>
-  );
+    <BrowserRouter>
+      <Login/>
+    </BrowserRouter>
+  )
 }
 
 export default App;
