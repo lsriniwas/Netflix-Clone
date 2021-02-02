@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema(
+const profileSchema = new Schema(
   {
     name: {
       type: String,
       default: "Add User",
     },
-    userId: { type: Schema.Types.ObjectId, ref: "Profile" },
+    userId: { type: Schema.Types.ObjectId, ref: "User" },
     profilePic: {
       type: String,
       default: "/images/profile1.png",
@@ -23,4 +23,4 @@ const userSchema = new Schema(
   }
 );
 
-module.exports = mongoose.model("User", userSchema);
+module.exports = mongoose.model("Profile", profileSchema);

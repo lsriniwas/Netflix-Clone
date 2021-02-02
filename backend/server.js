@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const registerRoute = require("./Routes/register");
 const loginRoute = require("./Routes/login");
-
+const profileRoute = require("./Routes/profile");
 const connectDB = require("./Config/db");
 
 const dotenv = require("dotenv");
@@ -20,6 +20,7 @@ app.use(cors());
 
 app.use("/api", registerRoute);
 app.use("/api", loginRoute);
+app.use("/api", profileRoute);
 
 app.listen(port, () => {
   console.log("Listeing at port", port);
