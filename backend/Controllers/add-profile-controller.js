@@ -3,17 +3,21 @@ const Profile = require("../Model/ProfileModel");
 const addProfileController = async (req, res) => {
   //logged user id
   const { data: _id } = req.id;
+  const { name } = req.body;
   console.log(_id);
   Profile.create({
-    userId: _id,
+    name,
   })
     .then(async (newProfile) => {
-      res.status(200).json({
+      await User.findByIdAndUpdate(_id, {
+        $addToSet: { profiles: [newProfile._id] },
+      });
+      return res.status(200).json({
         newProfile,
       });
     })
     .catch((err) => {
-      res.state(404).json({
+      res.status(404).json({
         message: err.message,
       });
     });
