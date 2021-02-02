@@ -6,6 +6,7 @@ async function getUrl(id){
                {
                     return url.data.results[0].key
                }
+               return "";
 }
 
 
