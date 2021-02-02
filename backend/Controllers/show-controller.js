@@ -5,7 +5,7 @@ const pushShows=async(req,res)=> {
     try {
       let temp= new Show(req.body);
       await temp.save().then(()=>{
-        return res.status(200).send("Successfully Added the Show/Movie")
+        return res.status(200).send("Successfully Added the Show/Movie"+temp)
       })
       .catch(err=>{
         return res.status(400).send("Error"+err)
