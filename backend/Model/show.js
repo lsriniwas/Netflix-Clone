@@ -7,7 +7,7 @@ const showSchema = new Schema(
         required:true,
         trim:true     
     },
-    "genre_ids": [{ type: Schema.Types.ObjectId, ref: "Genre" }] ,
+    "genre_ids": [{ type: Schema.Types.ObjectId, ref: "Genre" }],
     "id":{
         type:Number,
         required:true

@@ -14,5 +14,4 @@ const getProfileController = async (req, res) => {
       });
     });
 };
-
 module.exports = getProfileController;

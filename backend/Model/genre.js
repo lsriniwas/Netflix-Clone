@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const genreSchema = new Schema(
   {
     name:{
-        name:String,
+        type:String,
         required:true
     }
   },
