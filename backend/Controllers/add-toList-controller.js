@@ -1,7 +1,7 @@
 const Profile = require("../Model/ProfileModel");
 const Show = require("../Model/show");
 
-const likeShowController = async (req, res, next) => {
+const addToListController = async (req, res, next) => {
   //User Id
   try {
     const { data: userId } = req.id;
@@ -11,15 +11,14 @@ const likeShowController = async (req, res, next) => {
 
     const profile = await Profile.findOne({ _id: profileId });
 
-    const isLiked = profile.likes && profile.likes.includes(showId);
-    console.log(isLiked);
+    const inList = profile.likes && profile.myList.includes(showId);
+    console.log(inList);
+    const option = inList ? "$pull" : "$addToSet";
 
-    const option = isLiked ? "$pull" : "$addToSet";
-    console.log(option);
     //Insert user like; pull delets and addToSet adds unique values to the likes array
     const newProfile = await Profile.findByIdAndUpdate(
       profileId,
-      { [option]: { likes: showId } },
+      { [option]: { myList: showId } },
       { useFindAndModify: false }
     );
 
@@ -36,4 +35,4 @@ const likeShowController = async (req, res, next) => {
   }
 };
 
-module.exports = likeShowController;
+module.exports = addToListController;
