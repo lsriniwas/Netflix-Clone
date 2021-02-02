@@ -20,6 +20,7 @@ app.use(cors());
 
 app.use("/api", registerRoute);
 app.use("/api", loginRoute);
+app.use("/api", profileRoute);
 
 app.listen(port, () => {
   console.log("Listeing at port", port);
