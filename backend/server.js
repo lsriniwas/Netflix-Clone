@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const registerRoute = require("./Routes/register");
 const loginRoute = require("./Routes/login");
-
+const profileRoute = require("./Routes/profile");
 const connectDB = require("./Config/db");
 
 const dotenv = require("dotenv");
