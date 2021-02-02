@@ -1,6 +1,12 @@
 import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import { Login } from "./Pages/Login/Login";
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <Login/>
+    </BrowserRouter>
+  )
 }
 
 export default App;
