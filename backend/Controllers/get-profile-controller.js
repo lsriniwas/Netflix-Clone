@@ -1,5 +1,6 @@
 const User = require("../Model/UserModel");
 const Profile = require("../Model/ProfileModel");
+
 const getProfileController = async (req, res) => {
   const { profileId } = req.query;
   Profile.findOne(profileId)

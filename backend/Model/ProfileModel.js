@@ -12,9 +12,9 @@ const profileSchema = new Schema(
       type: String,
       default: "/images/profile1.png",
     },
-    likes: [{ type: Schema.Types.ObjectId, ref: "Movies" }],
-    dislikes: [{ type: Schema.Types.ObjectId, ref: "Movies" }],
-    myList: [{ type: Schema.Types.ObjectId, ref: "Movies" }],
+    likes: [{ type: Schema.Types.ObjectId, ref: "Show" }],
+    dislikes: [{ type: Schema.Types.ObjectId, ref: "Show" }],
+    myList: [{ type: Schema.Types.ObjectId, ref: "Show" }],
   },
   {
     versionKey: false,
