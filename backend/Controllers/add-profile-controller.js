@@ -7,6 +7,7 @@ const addProfileController = async (req, res) => {
   console.log(_id);
   Profile.create({
     name,
+    userId: _id,
   })
     .then(async (newProfile) => {
       await User.findByIdAndUpdate(_id, {

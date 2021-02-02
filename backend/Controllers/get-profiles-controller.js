@@ -3,7 +3,7 @@ const Profile = require("../Model/ProfileModel");
 const getProfilesController = async (req, res) => {
   //logged user id
   const { data: _id } = req.id;
-
+  console.log(_id);
   Profile.find({
     userId: _id,
   })
