@@ -1,17 +1,15 @@
 const User = require("../Model/UserModel");
 const Profile = require("../Model/ProfileModel");
-const addProfileController = async (req, res) => {
+const getProfilesController = async (req, res) => {
   //logged user id
   const { data: _id } = req.id;
-  const { name } = req.body;
-  console.log(_id);
-  Profile.create({
+
+  Profile.find({
     userId: _id,
-    name,
   })
-    .then(async (newProfile) => {
+    .then(async (profiles) => {
       res.status(200).json({
-        newProfile,
+        profiles,
       });
     })
     .catch((err) => {
@@ -21,4 +19,4 @@ const addProfileController = async (req, res) => {
     });
 };
 
-module.exports = addProfileController;
+module.exports = getProfilesController;
