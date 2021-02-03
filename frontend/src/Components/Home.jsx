@@ -13,7 +13,7 @@ const data =
     "title": "Enjoy on your TV.",
     "subTitle": "Watch on smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.",
     "image": "/images/tv.png",
-    "video": "https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v",
+    "video": "https://r1---sn-h5576n7k.googlevideo.com/videoplayback?expire=1612370318&ei=Ln0aYPaqHqSz3LUPnqezuAo&ip=202.131.157.90&id=o-AEcr8a2wrq5wqmoEd4id_cHBN_nFGYQlhEuICXJiQECU&itag=18&source=youtube&requiressl=yes&vprv=1&mime=video%2Fmp4&ns=IIHEM13BcWdLuMGxkMv2cyEF&gir=yes&clen=7898824&ratebypass=yes&dur=134.907&lmt=1525818967463035&fvip=1&c=MWEB&n=_7DZaQqZ8OKrPQ&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cratebypass%2Cdur%2Clmt&sig=AOq0QJ8wRAIgddsEJEsRMBDDoPQPX1tELxbDkPrIBPeWTlfXG5nnHiICICqsLuLandcqGx-8lX7FuNDXrI-wEaQBN2G6wDs3n_Jo&cpn=15eRoQsAswLWwsAD&cver=2.20210127.04.00&ptk=youtube_single&oid=Bkd4zRq-gbbBbUyWpkumnQ&ptchn=WOA1ZGywLbqmigxE4Qlvuw&pltype=content&redirect_counter=1&cm2rm=sn-q8vpn-cage7e&req_id=ce31c1392ce036e2&cms_redirect=yes&mh=BO&mm=29&mn=sn-h5576n7k&ms=rdu&mt=1612348603&mv=m&mvi=1&pl=24&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRAIgHY6RHvDDGKdF08nNZAfij2boYSSvWP41XJ1vYXGQAhACIFW0gorkBKPjueH2Lg01KP61NBS9nWiWG_31kuBosIBN",
     "alt": "Watch on Netflix",
     "direction": "row"
   },
