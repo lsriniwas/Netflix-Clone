@@ -2,7 +2,6 @@ const Show=require('../Model/show')
 
 const fetchMovieInfo=async(req,res)=>{
     const param=req.params
-  
    await Show.findOne(param)
     .populate("genre_ids")
     .then((info) => {
