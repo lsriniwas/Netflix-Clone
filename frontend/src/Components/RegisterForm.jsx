@@ -1,27 +1,28 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import RegisterLayout from './RegisterLayout'
 import styles from '../Styles/Register.module.css'
 import TextField from '@material-ui/core/TextField';
-import { useHistory } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
+import { registerUser } from '../Redux/register/actions';
 
 
 const RegisterForm = (props) => {
-    const history = useHistory()
+    const dispatch = useDispatch()
+
     const [email, setEmail] = useState(props.location.state.email)
     const [password, setPassword] = useState('')
-    const [error, setError] = useState(false)
 
+    const error = useSelector(state => state.register.error)
+    const isAuth = useSelector(state => state.register.isAuth)
 
     const handleContinue = () => {
-        // post the user details to the server here
-        if (email && password) {
-            history.push('/signup/planform')
-        } else {
-            setError(true)   
-        }
+        const payload = { email, password }
+
+        dispatch(registerUser(payload))
     }
 
-    return (
+    return !isAuth ? (
         <RegisterLayout>
             <div className={styles.register_form}>
                 <p>STEP <strong>1</strong> OF <strong>3</strong></p>
@@ -50,12 +51,14 @@ const RegisterForm = (props) => {
                         onChange={(e) => setPassword(e.target.value)}
                         />
                 </div>
-                { error && <div style={{color: 'red', fontSize: 'small'}}>Please fill all required fields</div> }
+                { error && <div style={{color: 'red', fontSize: 'small'}}>Please fill all required fields correctly</div> }
                 <div>
                     <button onClick={() => handleContinue()}>CONTINUE</button>
                 </div>
             </div>
         </RegisterLayout>
+    ) : (
+        <Redirect to="/signup/planform" />
     )
 }
 
