@@ -1,6 +1,6 @@
 const Show=require('../Model/show')
 
-//Returns entire data about a movie
+//Returns entire data of a movie
 
 const fetchMovieInfo=async(req,res)=>{
     const param=req.params
