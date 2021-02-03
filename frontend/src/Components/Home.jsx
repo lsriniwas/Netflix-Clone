@@ -79,7 +79,7 @@ const Home = () => {
             <h4>Ready to watch? Enter your email to create or restart your membership.</h4>
             <div className={styles.cover_content_get_started}>
                 <div>
-                  <TextField variant="filled" label="Email address" className={styles.input} />
+                  <TextField variant="filled" label="Email address" className={styles.input} color='secondary' type='email' />
                 </div>
                 <button>GET STARTED &gt;</button>
             </div>

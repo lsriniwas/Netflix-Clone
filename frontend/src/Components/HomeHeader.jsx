@@ -18,7 +18,7 @@ const HomeHeader = () => {
                 </div>
                 <div className={styles.cover_content_get_started}>
                     <div>
-                        <TextField variant="filled" label="Email address" className={styles.input} />
+                        <TextField variant="filled" label="Email address" className={styles.input}  color='secondary' type='email'/>
                     </div>
                     <button>GET STARTED &gt;</button>
                 </div>
