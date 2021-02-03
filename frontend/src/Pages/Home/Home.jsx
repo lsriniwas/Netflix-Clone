@@ -121,7 +121,7 @@ function Home(props) {
         </Slider>
          </div>
             <div>
-            <h2>Shows</h2>
+                
             <Slider>
           {movies.map(movie => (
             <Slider.Item movie={movie} key={movie.id}>item1</Slider.Item>
