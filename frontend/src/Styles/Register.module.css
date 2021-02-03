@@ -210,6 +210,11 @@
     font-family: sans-serif;
 }
 
+.register_payment_container h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
 .register_payment_container img {
     width: 50px;
 }
