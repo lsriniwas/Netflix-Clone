@@ -26,7 +26,7 @@ const HomeHeader = () => {
             <div className={styles.cover_content}>
                 <div className={styles.cover_content_header}>
                     <img src="/images/logo_big.png" alt="logo"/>
-                    <button><NavLink to="/register">Sign In</NavLink></button>
+                    <button className={styles.sign__in__btn} >Sign In</button>
                 </div>
                 <div className={styles.cover_content_register}>
                     <h1>Unlimited movies, TV <br/> shows and more</h1>

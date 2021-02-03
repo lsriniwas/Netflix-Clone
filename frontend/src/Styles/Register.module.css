@@ -58,11 +58,11 @@
     text-decoration: underline;
 }
 
-@media (max-width: 950px) {
+/* @media (max-width: 950px) {
     .register_layout_footer_content {
         width: 90%;
     }
-}
+} */
 
 /* Register Layout End */
 
@@ -192,12 +192,12 @@
     border-radius: 3px;
     cursor: pointer;
 }
-@media (max-width: 950px) {
+/* @media (max-width: 950px) {
     .plan_table_th {
         width: 50px;
         height: 50px;
     }
-}
+} */
 
 /* Register Plan End */
 
@@ -229,12 +229,12 @@
 .register_payment_base img {
     width: 250px;
 }
-@media (max-width: 950px) {
+/* @media (max-width: 950px) {
     .register_payment_container {
         width: 80%;
     }
     .register_payment_base {
         flex-direction: column;
     }
-}
+} */
 /* Payment Page End */

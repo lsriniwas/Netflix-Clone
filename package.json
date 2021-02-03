@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/lsriniwas/Netflix-Clone#readme",
   "dependencies": {
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "concurrently": "^5.3.0",
@@ -30,6 +32,9 @@
     "joi": "^17.3.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.14",
-    "react-router-dom": "^5.2.0"
+    "razorpay": "^2.0.6",
+    "react-router-dom": "^5.2.0",
+    "request": "^2.88.2",
+    "uuid": "^8.3.2"
   }
 }
