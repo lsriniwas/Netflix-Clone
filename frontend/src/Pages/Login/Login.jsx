@@ -69,7 +69,7 @@ export const Login = () => {
             axios(config)
             .then((res) => {
                 dispatch(fetchLoginSuccess(res.data))
-                history.push("/browse")
+                history.push("/profiles")
             })
             .catch((err) => setErr(err.response.data.message))
         }
@@ -84,7 +84,7 @@ export const Login = () => {
                     <div>
                         <h2>Sign in</h2>
                     </div>
-                    {err && <div className = {styles.error1}>  {err} <Link to = "/register" > create a new account. </Link> </div> }
+                    {err && <div className = {styles.error1}>  {err} <Link > create a new account. </Link> </div> }
                     <div>
                         <input placeholder = "Email or phone number" className = { email.length > 0 ? styles.inputbox : styles.floating} type = "text" onChange = {handleEmail}/>
                         {emailErr && <div className = {styles.error}> <div className = {styles.line}></div> <div className = {styles.errtext}>Please enter a valid email address or phone number.</div> </div> }
@@ -109,7 +109,7 @@ export const Login = () => {
                     </div>
                     <div className = {styles.new} >
                         <div className = {styles.new1}>New To Netflix?</div>
-                        <div onClick = {history.push("/register")} className = {styles.new2}>Sign up now.</div>
+                        <div  className = {styles.new2}>Sign up now.</div>
                     </div>
                     <div className = {styles.secure}>
                         <div>This page is protected by Google reCAPTCHA to ensure you're not a bot. <div className = {styles.blue}>Learn more.</div> </div>
