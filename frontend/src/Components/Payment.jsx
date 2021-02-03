@@ -57,7 +57,7 @@ const Payment = (props) => {
             <div className={styles.register_payment_container}>
                 <img src="/images/lock.png" alt="secure"/>
                 <p className={styles.register_payment_p}>STEP <strong>3</strong> OF <strong>3</strong></p>
-                <h2>Set up your payment</h2>
+                <h3>Set up your payment</h3>
                 <p> Your membership starts as <br/> soon as you set up payment </p>
                 <h4>No commitments. <br/> Cancel online anytime.</h4>
                 <div className={styles.register_payment_base} onClick={(e) => handlePayment()}>
