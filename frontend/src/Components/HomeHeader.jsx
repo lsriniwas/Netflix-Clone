@@ -1,8 +1,25 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from '../Styles/Home.module.css'
 import TextField from '@material-ui/core/TextField';
+import validator from 'email-validator'
+import { useHistory } from 'react-router-dom';
 
 const HomeHeader = () => {
+    const [email, setEmail] = useState('')
+    const [emailValidate, setEmailValidate] = useState(false)
+    const history = useHistory()
+
+    const handleSubmit = () => {
+        if (validator.validate(email)) {
+            history.push({
+                pathname: '/signup',
+                state: { email }
+            })
+        } else {
+            setEmailValidate(true)
+        }
+    }
+
     return (
         <div className={styles.cover_container}>
             <img src="/images/bg_main.jpg" alt="cover" className={styles.cover_image}/>
@@ -18,10 +35,18 @@ const HomeHeader = () => {
                 </div>
                 <div className={styles.cover_content_get_started}>
                     <div>
-                        <TextField variant="filled" label="Email address" className={styles.input}  color='secondary' type='email'/>
+                        <TextField 
+                            variant="filled" 
+                            label="Email address" 
+                            className={styles.input}  
+                            color='secondary' 
+                            type='email' 
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)} />
                     </div>
-                    <button>GET STARTED &gt;</button>
+                    <button onClick={() => handleSubmit()}>GET STARTED &gt;</button>
                 </div>
+                { emailValidate &&  <div className={styles.error}>Please enter a valid email address.</div>}
             </div>
         </div>
     )

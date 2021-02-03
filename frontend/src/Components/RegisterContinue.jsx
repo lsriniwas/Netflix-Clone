@@ -3,10 +3,15 @@ import { useHistory } from 'react-router-dom'
 import styles from '../Styles/Register.module.css'
 import RegisterLayout from './RegisterLayout'
 
-const RegisterContinue = () => {
-    const history = useHistory()
+const RegisterContinue = (props) => {
+    const history = useHistory();
+    const email = props.location.state.email
+
     const handleContinue = () => {
-        history.push("/signup/regform")
+        history.push({
+            pathname: '/signup/regform',
+            state: { email }
+        })
     }
     return (
         <RegisterLayout>

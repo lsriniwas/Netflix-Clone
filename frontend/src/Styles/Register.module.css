@@ -200,3 +200,41 @@
 }
 
 /* Register Plan End */
+
+/* Payment Page Start */
+
+.register_payment_container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.register_payment_container img {
+    width: 50px;
+}
+.register_payment_p {
+    font-size: small;
+}
+.register_payment_base {
+    margin: 2.5rem 0rem;
+    padding: 3px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.register_payment_base img {
+    width: 250px;
+}
+@media (max-width: 950px) {
+    .register_payment_container {
+        width: 80%;
+    }
+    .register_payment_base {
+        flex-direction: column;
+    }
+}
+/* Payment Page End */
