@@ -15,7 +15,10 @@ const RegisterForm = (props) => {
     const handleContinue = () => {
         // post the user details to the server here
         if (email && password) {
-            history.push('/signup/planform')
+            history.push('/signup/planform',{
+                email,
+                password
+            })
         } else {
             setError(true)   
         }

@@ -4,14 +4,15 @@ import RegisterPlanTable from './RegisterPlanTable'
 import styles from '../Styles/Register.module.css'
 import { useHistory } from 'react-router-dom'
 
-const RegisterPlan = () => {
+const RegisterPlan = (props) => {
     const history = useHistory()
     const [plan, setPlan] = useState(199)
-    
+    const {email,password} = props.location.state
+    console.log(email,password)
     const handleContinue = () => {
         history.push({
             pathname: '/signup/payment',
-            state: { plan },
+            state: { plan,email,password },
         })
     }
 
