@@ -44,11 +44,11 @@ input {
 }
 
 input::placeholder {
-    color: #8C8C8C !important;
+    color: #8c8c8c !important;
 }
 
 .signin {
-    background-color: #E63631;
+    background-color: #e63631;
     width: 90%;
     padding: 15px 50px;
     border: none;
@@ -60,7 +60,7 @@ input::placeholder {
     cursor: pointer;
 }
 
-input:focus  {
+input:focus {
     background-color: white;
 }
 
@@ -90,8 +90,8 @@ input:focus  {
     text-decoration: underline;
 }
 
-input[type="checkbox"]{
-    width: 17px; 
+input[type="checkbox"] {
+    width: 17px;
     height: 17px;
     margin: 0px 5px 0px 10px !important;
 }
@@ -162,7 +162,7 @@ input[type="checkbox"]{
     display: flex;
     flex-direction: column;
     margin-top: 0px !important;
-    padding: 0px 20px
+    padding: 0px 20px;
 }
 
 .inputbox {
@@ -184,7 +184,7 @@ input[type="checkbox"]{
 .errtext {
     font-size: 12px;
     text-align: left;
-    letter-spacing: .2px;
+    letter-spacing: 0.2px;
     margin-top: 3px;
 }
 
@@ -201,4 +201,5 @@ input[type="checkbox"]{
 
 a{
     color: white;
- }
+
+}
