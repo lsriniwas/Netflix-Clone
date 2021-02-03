@@ -69,7 +69,7 @@ export const Login = () => {
             axios(config)
             .then((res) => {
                 dispatch(fetchLoginSuccess(res.data))
-                history.push("/browse")
+                history.push("/profiles")
             })
             .catch((err) => setErr(err.response.data.message))
         }

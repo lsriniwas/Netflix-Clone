@@ -1,0 +1,178 @@
+.full {
+    background-color: rgb(21, 21, 21);
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.logo {
+    height: 10%;
+}
+
+.logo img {
+    width: 115px;
+    margin-right: 1000px;
+    margin-left: 50px !important;
+}
+
+.page {
+    height: 100%;
+    text-align: center;
+}
+
+.page h2 {
+    text-align: center;
+    margin-top: 12%;
+    color: white;
+    font-size: 56px;
+    margin-bottom: 10px !important;
+    font-weight: 400;
+    letter-spacing: 1.8px;
+}
+
+.box {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(19, 19, 19);
+    display: flex;
+    flex-direction: row;
+    padding: 0px 0px;
+}
+
+.profilebox {
+    width: 145px;
+    margin: 0px 15px;
+    height: 145px;
+    transition: .3s;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.profilebox:hover {
+    border: 2px solid white;
+    width: 143px;
+    height: 143px;
+}
+
+.addprofile:hover {
+    background-color: white;
+}
+
+.addprofile {
+    width: 145px;
+    height: 145px;
+    border-radius: 3px;
+    transition: .3s;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.profilename {
+    color: grey;
+    letter-spacing: .3px;
+    font-size: 20px;
+}
+
+.profilename1 {
+    color: grey;
+    letter-spacing: .3px;
+    font-size: 20px;
+    text-align: left;
+    margin-top: 0px;
+}
+
+.modal {
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.page h1 {
+    color: white;
+    font-size: 53px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 20px !important;
+}
+
+.line {
+    background-color: grey;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0px;
+}
+
+.modalbox {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalbox > img {
+    width: 120px;
+    border-radius: 5px;
+}
+
+.inputbox {
+    height: 10px;
+    border-radius: 0px;
+    font-size: 18px;
+}
+
+.page input[type=checkbox] {
+    margin-top: 20px;
+    width: 40px;
+    height: 30px;
+    padding: 6px;
+    background-color: transparent;
+    color: transparent;
+}
+
+.error {
+    color: red;
+    font-size: 20px;
+}
+
+.btns {
+    padding: 10px 0px;
+    float: left;
+}
+
+.btns button {
+    width: 150px;
+    padding: 10px 13px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-left: 0px;
+}
+
+.cont {
+    margin-right: 20px;
+    margin-left: 0px !important;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+}
+
+.cancel {
+    margin-right: auto;
+    border: .5px solid grey;
+    background-color: transparent;
+    color: grey;
+    cursor: pointer;
+}
+
+.cont:hover {
+    background-color: red;
+    color: white;
+}
+
+.cancel:hover {
+    color: white;
+    border: .5px solid white;
+}
