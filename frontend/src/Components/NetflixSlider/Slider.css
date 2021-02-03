@@ -1,0 +1,43 @@
+.slider {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  -webkit-transition: -webkit-transform 300ms ease 100ms;
+  transition: -webkit-transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms, -webkit-transform 300ms ease 100ms;
+}
+
+.slider__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 55px;
+  -webkit-transition: -webkit-transform 300ms ease 100ms;
+  transition: -webkit-transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms;
+  transition: transform 300ms ease 100ms, -webkit-transform 300ms ease 100ms;
+  z-index: 3;
+  width: 100%;
+}
+
+.slider:not(.slider--open) .item:hover .show-details-button {
+  opacity: 1;
+}
+
+.slider:not(.slider--open) .item:hover {
+  -webkit-transform: scale(1.5) !important;
+          transform: scale(1.5) !important;
+}
+
+.slider:not(.slider--open):hover .item {
+  -webkit-transform: translateX(-25%);
+          transform: translateX(-25%);
+}
+
+.slider:not(.slider--open) .item:hover ~ .item {
+  -webkit-transform: translateX(25%);
+          transform: translateX(25%);
+}
+/*# sourceMappingURL=Slider.css.map */

@@ -1,0 +1,29 @@
+.item {
+    flex: 0 0 200px;
+    transition: transform 300ms ease 100ms;
+    margin: 0 2px;
+    position: relative;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+   
+    .movie-info{
+        display: none;
+        transition: opacity 300ms ease 100ms;
+        opacity: 0;
+    }
+
+    &:hover{
+        .movie-info {
+            display: flex;
+            opacity: 1;
+            
+        }
+    }
+    img {
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+      width: 100%;
+      vertical-align: top;
+    }
+  }
+  
