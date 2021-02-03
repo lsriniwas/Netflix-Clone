@@ -79,12 +79,13 @@ export const Login = () => {
     return (
         <div className = {styles.full}> 
             <div className = {styles.layer} >
+
                 <img className = {styles.logo} src = "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="cover" />
                 <div className = {styles.box}>
                     <div>
                         <h2>Sign in</h2>
                     </div>
-                    {err && <div className = {styles.error1}>  {err} <Link to = "/register" > create a new account. </Link> </div> }
+                    {err && <div className = {styles.error1}>  {err} <Link to = "/login" > create a new account. </Link> </div> }
                     <div>
                         <input placeholder = "Email or phone number" className = { email.length > 0 ? styles.inputbox : styles.floating} type = "text" onChange = {handleEmail}/>
                         {emailErr && <div className = {styles.error}> <div className = {styles.line}></div> <div className = {styles.errtext}>Please enter a valid email address or phone number.</div> </div> }
@@ -104,6 +105,7 @@ export const Login = () => {
                         </div>
                     </div>
                     <div className = {styles.fb}>
+
                         <img src = "https://i.pinimg.com/originals/30/99/af/3099aff4115ee20f43e3cdad04f59c48.png" alt="fb" className = {styles.fbimg} />
                         <div> Login with Facebook </div>
                     </div>
