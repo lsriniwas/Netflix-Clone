@@ -14,7 +14,7 @@
     height: 100%;
 }
 
-h2 {
+.full h2 {
     text-align: left;
     font-size: 2.1rem;
     margin-left: 20px;
@@ -31,7 +31,7 @@ h2 {
     padding: 30px 50px 100px 50px;
 }
 
-input {
+.full input {
     width: 80%;
     padding: 16px 14px;
     background-color: #333333;
@@ -43,7 +43,7 @@ input {
     padding-left: 20px;
 }
 
-input::placeholder {
+.full input::placeholder {
     color: #8c8c8c !important;
 }
 
@@ -60,7 +60,7 @@ input::placeholder {
     cursor: pointer;
 }
 
-input:focus {
+.full input:focus {
     background-color: white;
 }
 
@@ -90,7 +90,7 @@ input:focus {
     text-decoration: underline;
 }
 
-input[type="checkbox"] {
+.full input[type="checkbox"] {
     width: 17px;
     height: 17px;
     margin: 0px 5px 0px 10px !important;
@@ -199,7 +199,7 @@ input[type="checkbox"] {
     text-align: left;
 }
 
-a{
+.full a{
     color: white;
 
 }
