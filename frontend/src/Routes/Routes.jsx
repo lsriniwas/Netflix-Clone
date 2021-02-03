@@ -4,6 +4,7 @@ import Home from '../Components/Home'
 import Payment from '../Components/Payment'
 import RegisterContinue from '../Components/RegisterContinue'
 import RegisterForm from '../Components/RegisterForm'
+import {Login} from '../Pages/Login/Login'
 import RegisterPlan from '../Components/RegisterPlan'
 
 const Routes = () => {
@@ -11,6 +12,7 @@ const Routes = () => {
         <div>
             <Switch>
                 <Route path="/" exact render={(props) => <Home {...props}/>} />
+                <Route path="/register" exact render={(props) => <Login {...props}/>} />
                 <Route path="/signup" exact render={(props) => <RegisterContinue {...props}/>} />
                 <Route path="/signup/regform" exact render={(props) => <RegisterForm {...props}/>} />
                 <Route path="/signup/planform" exact render={(props) => <RegisterPlan {...props}/>} />

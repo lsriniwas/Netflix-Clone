@@ -79,7 +79,7 @@ export const Login = () => {
     return (
         <div className = {styles.full}> 
             <div className = {styles.layer} >
-                <img className = {styles.logo} src = "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"/>
+                <img className = {styles.logo} src = "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="cover" />
                 <div className = {styles.box}>
                     <div>
                         <h2>Sign in</h2>
@@ -104,12 +104,12 @@ export const Login = () => {
                         </div>
                     </div>
                     <div className = {styles.fb}>
-                        <img src = "https://i.pinimg.com/originals/30/99/af/3099aff4115ee20f43e3cdad04f59c48.png" className = {styles.fbimg} />
+                        <img src = "https://i.pinimg.com/originals/30/99/af/3099aff4115ee20f43e3cdad04f59c48.png" alt="fb" className = {styles.fbimg} />
                         <div> Login with Facebook </div>
                     </div>
                     <div className = {styles.new} >
                         <div className = {styles.new1}>New To Netflix?</div>
-                        <div onClick = {history.push("/register")} className = {styles.new2}>Sign up now.</div>
+                        <div onClick = {() =>history.push("/register")} className = {styles.new2}>Sign up now.</div>
                     </div>
                     <div className = {styles.secure}>
                         <div>This page is protected by Google reCAPTCHA to ensure you're not a bot. <div className = {styles.blue}>Learn more.</div> </div>

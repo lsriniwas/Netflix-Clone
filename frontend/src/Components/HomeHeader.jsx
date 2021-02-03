@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../Styles/Home.module.css'
 import TextField from '@material-ui/core/TextField';
 import validator from 'email-validator'
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 const HomeHeader = () => {
     const [email, setEmail] = useState('')
@@ -26,7 +26,7 @@ const HomeHeader = () => {
             <div className={styles.cover_content}>
                 <div className={styles.cover_content_header}>
                     <img src="/images/logo_big.png" alt="logo"/>
-                    <button>Sign In</button>
+                    <button><NavLink to="/register">Sign In</NavLink></button>
                 </div>
                 <div className={styles.cover_content_register}>
                     <h1>Unlimited movies, TV <br/> shows and more</h1>
