@@ -2,7 +2,7 @@ const TVShow = require("../Model/tvShow");
 const Seasons = require("../Model/seasons");
 const Episodes=require("../Model/episode")
 
-
+//returns all the tv shows
 const handleFetchTvShow=async(req,res)=>{
     await TVShow.find()
     .populate("genre_ids")
@@ -16,7 +16,7 @@ const handleFetchTvShow=async(req,res)=>{
     })
 
 }
-
+//returns single tv show info.
 const handleFetchTvShowInfo=async(req,res)=>{
  await TVShow.findById(req.params._id)
  .populate("genre_ids")
