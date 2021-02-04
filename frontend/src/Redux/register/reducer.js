@@ -1,42 +1,45 @@
 import {
+  REGISTER_RESET,
   REGISTER_FAILURE,
   REGISTER_REQUEST,
   REGISTER_SUCCESS,
-} from "./actionTypes";
+} from "./actionConstants";
 
-const initialState = {
+const initState = {
   isLoading: false,
-  isAuth: false,
   error: false,
+  success: false,
   message: "",
 };
 
-export const registerReducer = (state = initialState, { type, payload }) => {
+export const registerReducer = (state = initState, { type, payload }) => {
   switch (type) {
     case REGISTER_REQUEST:
       return {
         ...state,
         isLoading: true,
-        isAuth: false,
-        error: false,
+      };
+    case REGISTER_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        error: true,
+        message: payload,
       };
     case REGISTER_SUCCESS:
       return {
         ...state,
         isLoading: false,
-        isAuth: true,
-        message: payload.message,
-        error: false,
+        success: true,
+        message: payload,
       };
-    case REGISTER_FAILURE:
+    case REGISTER_RESET: {
       return {
         ...state,
-        error: true,
-        isLoading: false,
-        message: payload.message,
-        isAuth: false,
+        error: false,
+        success: false,
       };
-
+    }
     default:
       return state;
   }

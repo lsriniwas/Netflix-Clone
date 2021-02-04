@@ -63,41 +63,9 @@ function Browse(props) {
 
      
       <div className={styles.root}>
-      {/* <nav
-        className={`${styles.navbar}  ${
-          scrolled ? styles.blackBackGround : styles.backgroundTransparent
-        }`}
-      >
-        <ul className={styles.left}>
-          <li>
-            <a href="/" >
-              <img
-                height="75"
-                src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-                alt=""
-              />
-            </a>
-          </li>
-          {links.map((link) => (
-            <li key={link} 
-            >
-              <a href="/"
-              style={{textDecoration:'none'}}
-              >{link}</a>
-            </li>
-          ))}
-        </ul>
-        <ul className={styles.right}>
-          <li>
-            <i className="Icon fa fa-search search" />
-          </li>
-          <li>
-            <i className="Icon fa fa-bell-o" />
-          </li>
-        </ul>
-      </nav> */}
+      
       <div className={styles.reactplayer}>
-        <video aloop="1" autoplay={`${play}`} muted={mute} width="100%"
+        <video aloop="1" autoPlay={`${play}`} muted={mute} width="100%"
          poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
    >
@@ -133,17 +101,44 @@ function Browse(props) {
                }}/>}
                </div>
         </div>
+        <div
+        className={styles.video__bottom}
+        >
+        {
+    movieList.length ? <section className="lists">
+    {[movieList].map((item, key)=>(
+      <MovieRow key={key} title="My List" items={item} />
+    ))}
+   </section> : <></>
+    }
+        </div>
       </div>
     </div>
+
+    
+    
+    {/* {
+    movieList.length ? <section className="lists">
+    {["Action","Drama","Family"].map((item, key)=>(
+      <MovieRow key={key}  title={item}  items={movieList} />
+    ))}
+  </section> : <></>
+   } */}
+    {
+    movieList.length ? <section className="lists">
+    {[movieList].map((item, key)=>(
+      <MovieRow key={key}  title="Action"  items={item} />
+    ))}
+  </section> : <></>
+   }
 
   {
     movieList.length ? <section className="lists">
     {[movieList].map((item, key)=>(
-      <MovieRow key={key}  items={item} />
+      <MovieRow key={key}  title="Comedy"  items={item} />
     ))}
   </section> : <></>
   }
-    
 
      
 
@@ -168,3 +163,14 @@ function Browse(props) {
 }
 
 export default Browse;
+
+
+/**
+ * 
+ * 
+["A","F","c",D].map(item=>{
+  <Movie Row genre="ad" movieList=""/>
+})
+
+
+ */
