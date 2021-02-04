@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import styles from "./carousel.module.css";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { useHistory } from "react-router-dom";
 
 function MovieRow({ items, title }) {
   const [scrollX, setScrollX] = useState(0);
-
+  const history = useHistory();
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);
     if (x > 0) {
@@ -24,7 +25,7 @@ function MovieRow({ items, title }) {
   };
   return (
     <div className={styles.carousel}>
-      <h2 style={{color:'#fff'}}>{title}</h2>
+      <h2 style={{ color: "#fff" }}>{title}</h2>
       <div className={styles.carousel__left} onClick={handleLeftArrow}>
         <NavigateBeforeIcon style={{ fontSize: 50 }} />
       </div>
@@ -39,16 +40,20 @@ function MovieRow({ items, title }) {
             width: items.length * 150,
           }}
         >
-          {items.length > 0 &&
-            items.map((item, key) =>  item.genre_ids.map(genre=> genre.name===title &&(
-              <div key={key} className={styles.carousel__item}>
+          {items.map((item, key) => {
+            return (
+              <div
+                onClick={() => history.push(`/video/${item.video}`)}
+                key={key}
+                className={styles.carousel__item}
+              >
                 <img
                   src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                   alt={item.original_title}
                 />
               </div>
-              ))
-            )}
+            );
+          })}
         </div>
       </div>
     </div>

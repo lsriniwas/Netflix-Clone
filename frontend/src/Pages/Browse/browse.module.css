@@ -124,6 +124,10 @@
   overflow: scroll;
 }
 
+.lists{
+    background-color: #141414;
+    display: none;
+}
 
 ::-webkit-scrollbar {width: 1px; height: 1px; background: none; }
 ::-webkit-scrollbar-thumb { background-color: #000000 }

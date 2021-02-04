@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
 import ReactJWPlayer from 'react-jw-player';
+import { useParams } from 'react-router-dom';
 import YouTube from 'react-youtube'
 
 function VideoPlayer(props) {
+    const {id} = useParams()
     let playlist = [{
       title: "Bumblebee",
       //description: "###",
@@ -20,7 +22,7 @@ function VideoPlayer(props) {
    
 		
     return (
-        <iframe width="100%" title="hello" height="99%" src="https://www.youtube.com/embed/psFf4KXJZoQ?autoplay=1&showinfo=0&controls=0&mute=1&rel=0" frameborder="0" autoplay="1"
+        <iframe width="100%" title="hello" height="99%" src={`https://www.youtube.com/embed/${id}?autoplay=1&showinfo=0&controls=0&mute=1&rel=0`} frameBorder="0" autoplay="1"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen></iframe>
   

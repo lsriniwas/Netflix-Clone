@@ -23,22 +23,61 @@ function Browse(props) {
   useEffect(()=>{
 
     axios.get(`${process.env.REACT_APP_BASE_URL}/api/show`).then(res=>{
-      setMovieList(res.data)
+      let actionData = {
+        title:"Action",
+        data:[]
+      }
+
+      let romanceData = {
+        title:"Romance",
+        data:[]
+      }
+
+      let comedyData = {
+        title:"Comedy",
+        data:[]
+      }
+
+      let horrorData = {
+        title:"Horror",
+        data:[]
+      }
+
+      res.data.forEach((data)=>{
+        const genere = data.genre_ids.map(genere=>genere.name)
+        if(genere.includes("Action")){
+          actionData.data.push(data)
+        }
+        if(genere.includes("Comedy")){
+          comedyData.data.push(data)
+        }
+        if(genere.includes("Romance")){
+          romanceData.data.push(data)
+        }
+        if(genere.includes("Horror")){
+          horrorData.data.push(data)
+        }
+
+        
+      })
+      let results = [actionData,horrorData,comedyData,romanceData]
+      
+      setMovieList(results)
     })
-    const loadAll = async () => {
-      // Pegando a lista TOTAL
-      let list = await Tmdb.getHomeList();
-     console.log(list)
+    // const loadAll = async () => {
+    //   // Pegando a lista TOTAL
+    //   let list = await Tmdb.getHomeList();
+    //  console.log(list)
 
-      // Pegando o Featured
-      let originals = list.filter(i=>i.slug === 'originals');
-      let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
-      let chosen = originals[0].items.results[randomChosen];
-      let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
-      setFeaturedData(chosenInfo);
-    }
+    //   // Pegando o Featured
+    //   let originals = list.filter(i=>i.slug === 'originals');
+    //   let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
+    //   let chosen = originals[0].items.results[randomChosen];
+    //   let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
+    //   setFeaturedData(chosenInfo);
+    // }
 
-    loadAll();
+    // loadAll();
   }, []);
 
   useEffect(()=>{
@@ -65,7 +104,7 @@ function Browse(props) {
       <div className={styles.root}>
       
       <div className={styles.reactplayer}>
-        <video aloop="1" autoPlay={`${play}`} muted={mute} width="100%"
+        <video aloop="1" autoPlay={play} muted={mute} width="100%"
          poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
    >
@@ -104,59 +143,30 @@ function Browse(props) {
         <div
         className={styles.video__bottom}
         >
-        {
-    movieList.length ? <section className="lists">
+        {/* {
+    movieList.length ? <section className={styles.lists}>
     {[movieList].map((item, key)=>(
       <MovieRow key={key} title="My List" items={item} />
     ))}
    </section> : <></>
-    }
+    } */}
         </div>
       </div>
     </div>
 
     
     
-    {/* {
-    movieList.length ? <section className="lists">
-    {["Action","Drama","Family"].map((item, key)=>(
-      <MovieRow key={key}  title={item}  items={movieList} />
-    ))}
-  </section> : <></>
-   } */}
+  
+  
     {
     movieList.length ? <section className="lists">
-    {[movieList].map((item, key)=>(
-      <MovieRow key={key}  title="Action"  items={item} />
+    {movieList.map((item, key)=>(
+      <MovieRow key={key}  title={item.title}  items={item.data} />
     ))}
   </section> : <></>
    }
 
-  {
-    movieList.length ? <section className="lists">
-    {[movieList].map((item, key)=>(
-      <MovieRow key={key}  title="Comedy"  items={item} />
-    ))}
-  </section> : <></>
-  }
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-      
-
+ 
      
     </div>
   );
@@ -165,12 +175,3 @@ function Browse(props) {
 export default Browse;
 
 
-/**
- * 
- * 
-["A","F","c",D].map(item=>{
-  <Movie Row genre="ad" movieList=""/>
-})
-
-
- */
