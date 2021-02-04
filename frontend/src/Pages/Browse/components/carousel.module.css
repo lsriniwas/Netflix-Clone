@@ -1,6 +1,7 @@
 .carousel {
     margin-bottom: 30px;
     overflow: hidden;
+    position: relative;
 }
 .carousel h2 {
     margin: 0px 0px 0px 30px;
@@ -29,6 +30,7 @@
 .carousel__left,
 .carousel__right {
     position: absolute;
+   bottom: 0;
     width: 40px;
     height: 225px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -39,6 +41,8 @@
     overflow: hidden;
     cursor: pointer;
     opacity: 0;
+  
+    color: white;
     transition: all ease 0.5s;
 }
 .carousel__left {
