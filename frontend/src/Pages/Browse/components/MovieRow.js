@@ -22,10 +22,9 @@ function MovieRow({ items, title }) {
     }
     setScrollX(x);
   };
-
   return (
     <div className={styles.carousel}>
-      <h2>{title}</h2>
+      <h2 style={{color:'#fff'}}>{title}</h2>
       <div className={styles.carousel__left} onClick={handleLeftArrow}>
         <NavigateBeforeIcon style={{ fontSize: 50 }} />
       </div>
@@ -41,14 +40,15 @@ function MovieRow({ items, title }) {
           }}
         >
           {items.length > 0 &&
-            items.map((item, key) => (
+            items.map((item, key) =>  item.genre_ids.map(genre=> genre.name===title &&(
               <div key={key} className={styles.carousel__item}>
                 <img
                   src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
                   alt={item.original_title}
                 />
               </div>
-            ))}
+              ))
+            )}
         </div>
       </div>
     </div>
