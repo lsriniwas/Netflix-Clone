@@ -73,8 +73,7 @@ function Browse(props) {
         <div className={styles.video__info}>
             <div className={styles.synopsis}>
                <p>
-                   All he wants to do is leave town and start over. But first, he needs to
-                   deal with his ex, his new roomie and the enemies who want him dead.
+               A large and lovable rabbit deals with three tiny bullies, led by a flying squirrel, who are determined to squelch his happiness.
                </p>
                <button className={styles.play_btn} >
                    <i className = "Icon fa fa-play play" />
