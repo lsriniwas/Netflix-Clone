@@ -19,10 +19,12 @@ const pushShows = async (req, res) => {
 
 //get all tv-shows/movie from collections
 const handleFetchShows = async (req, res) => {
-  await Show.find()
-    .populate("genre_ids")
+  
+  let temp=await Show.find()
+     temp.populate("genre_ids")
     .then((Shows) => res.status(200).json(Shows))
     .catch((err) => res.status(400).json("Error:" + err));
 };
+
 
 module.exports = { pushShows, handleFetchShows };
