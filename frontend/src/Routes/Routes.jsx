@@ -5,6 +5,7 @@ import Payment from '../Components/Payment'
 import RegisterContinue from '../Components/RegisterContinue'
 import RegisterForm from '../Components/RegisterForm'
 import RegisterPlan from '../Components/RegisterPlan'
+import Browse from '../Pages/Browse/Browse'
 import { Login } from "../Pages/Login/Login";
 import { ProfilePage } from "../Pages/Profiles/ProfilePage";
 import PrivateRoute from './PrivateRoute'
@@ -20,6 +21,7 @@ const Routes = () => {
                 <Route path="/signup/planform" exact render={(props) => <RegisterPlan {...props}/>} />
                 <Route path="/signup/payment" exact  render={(props) => <Payment {...props} />} />
                 <Route path = "/login" component = {Login}/>
+                <Route path = "/browse" component = {Browse}/>
                 <PrivateRoute exact path = "/profiles" Component={ProfilePage}/>
             </Switch>
         </div>

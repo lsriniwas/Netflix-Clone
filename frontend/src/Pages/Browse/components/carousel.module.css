@@ -1,0 +1,62 @@
+.carousel {
+    margin-bottom: 30px;
+    overflow: hidden;
+}
+.carousel h2 {
+    margin: 0px 0px 0px 30px;
+}
+.carousel__listarea {
+    overflow-x: hidden;
+    padding-left: 30px;
+}
+.carousel__list {
+    transition: all ease 0.5s;
+}
+.carousel__item {
+    display: inline-block;
+    width: 150px;
+    cursor: pointer;
+}
+.carousel__item img {
+    width: 100%;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+}
+.carousel__item img:hover {
+    transform: scale(1);
+}
+
+.carousel__left,
+.carousel__right {
+    position: absolute;
+    width: 40px;
+    height: 225px;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+.carousel__left {
+    left: 0;
+}
+.carousel__right {
+    right: 0;
+}
+.carousel:hover .carousel__left,
+.carousel:hover .carousel__right {
+    opacity: 1;
+}
+
+@media (max-width:760px) {
+    .carousel__left,
+    .carousel__right {
+        opacity: 1;
+    }
+}
+
+
