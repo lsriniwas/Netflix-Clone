@@ -61,8 +61,8 @@ function Home(props) {
           window.removeEventListener('scroll', onScroll)
         }
       }, [])
-    
-    return (
+
+      return (
        
         <>
             <nav className={`${styles.navbar}  ${scrolled ? styles.blackBackGround : styles.backgroundTransparent }`} >
