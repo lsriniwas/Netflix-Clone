@@ -102,7 +102,7 @@ export const ProfilePage = () => {
                     style={customStyles}
                     ariaHideApp={false} 
                     >
-                        <h1> Add Profile </h1> 
+                        <h1 className = {styles.h1} > Add Profile </h1> 
                         <div className = {styles.profilename1}>Add a profile for another person watching Netflix.</div>
                         <div className = {styles.line}></div>
                         <div className = {styles.modalbox}>

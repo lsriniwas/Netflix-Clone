@@ -7,6 +7,8 @@ import Header from './components/Header';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import axios from 'axios';
+
+
 const links = ["Home", "TV Shows", "Movies", "My List"];
 
 
@@ -21,10 +23,11 @@ function Browse(props) {
   
 
   useEffect(()=>{
-
-    axios.get(`${process.env.REACT_APP_BASE_URL}/api/show`).then(res=>{
+    console.log("hello use effect")
+    axios.get("http://localhost:8000/api/show").then(res=>{
       setMovieList(res.data)
     })
+    .catch((err) => console.log(err))
     // const loadAll = async () => {
     //   // Pegando a lista TOTAL
     //   let list = await Tmdb.getHomeList();
@@ -55,6 +58,8 @@ function Browse(props) {
       window.removeEventListener('scroll', scrollListener);
     }
   }, []);
+
+  console.log(movieList)
 
   return (
     <div className="page">

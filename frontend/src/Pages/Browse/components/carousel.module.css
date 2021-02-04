@@ -1,7 +1,6 @@
 .carousel {
     margin-bottom: 30px;
     overflow: hidden;
-    position: relative;
 }
 .carousel h2 {
     margin: 0px 0px 0px 30px;
@@ -17,7 +16,41 @@
     display: inline-block;
     width: 150px;
     cursor: pointer;
+    position: static;
 }
+
+
+
+.divitem {
+    width: 150px;
+    margin: 0px 5px;
+    position: relative;
+    cursor: pointer;
+}
+
+.divbottom {
+    height: 150px;
+    width: 100%;
+    background-color: grey;
+}
+
+
+.divitem:hover {
+    transform: scale(1);
+}
+
+.divitem > img {
+    width: 150px;
+}
+
+.divitem > img:hover {
+    width: 200px;
+}
+
+.carousel__item:hover + .carousel {
+    position: absolute;
+}
+
 .carousel__item img {
     width: 100%;
     transform: scale(0.9);

@@ -2,9 +2,19 @@ import React, { useState } from "react";
 import styles from "./carousel.module.css";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import Carousel from "react-elastic-carousel"
+import Slider from "react-slick";
+import { ShowMovies } from "../ShowMovies";
 
 function MovieRow({ items, title }) {
   const [scrollX, setScrollX] = useState(0);
+  const [show, setShow] = useState(false)
+
+  const settings = {
+      slidesToShow: 9,
+      slidesToScroll: 8,
+
+  }
 
   const handleLeftArrow = () => {
     let x = scrollX + Math.round(window.innerWidth / 2);
@@ -23,34 +33,26 @@ function MovieRow({ items, title }) {
     setScrollX(x);
   };
 
+  const handleEnter = () => {
+    setShow(true)
+  }
+
+  const handleLeave = () => {
+    setShow(false)
+  }
+
   return (
-    <div className={styles.carousel}>
-      <h2>{title}</h2>
-      <div className={styles.carousel__left} onClick={handleLeftArrow}>
-        <NavigateBeforeIcon style={{ fontSize: 50 }} />
+    <div>
+        
+      <ShowMovies items = {items}/>
+      <ShowMovies items = {items}/>
+
+      <div>
+        
       </div>
-      <div className={styles.carousel__right} onClick={handleRightArrow}>
-        <NavigateNextIcon style={{ fontSize: 50 }} />
-      </div>
-      <div className={styles.carousel__listarea}>
-        <div
-          className={styles.carousel__list}
-          style={{
-            marginLeft: scrollX,
-            width: items.length * 150,
-          }}
-        >
-          {items.length > 0 &&
-            items.map((item, key) => (
-              <div key={key} className={styles.carousel__item}>
-                <img
-                  src={`https://image.tmdb.org/t/p/w300${item.poster_path}`}
-                  alt={item.original_title}
-                />
-              </div>
-            ))}
-        </div>
-      </div>
+
+
+
     </div>
   );
 }

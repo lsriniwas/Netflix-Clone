@@ -89,7 +89,7 @@
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-.page h1 {
+.h1 {
     color: white;
     font-size: 53px;
     letter-spacing: 2px;
@@ -103,14 +103,16 @@
     height: 1px;
     width: 100%;
     margin: 15px 0px;
+    clear: both;
 }
 
 .modalbox {
     display: flex;
     flex-direction: row;
     padding: 10px 0px;
-    justify-content: center;
-    align-items: center;
+    justify-content: left;
+    align-items: left;
+    width: 100%;
 }
 
 .modalbox > img {
@@ -119,19 +121,23 @@
 }
 
 .inputbox {
-    height: 10px;
+    height: 35px;
     border-radius: 0px;
+    width: 340px;
     font-size: 18px;
+    margin-top: 35px;
+    margin-left: 20px;
+    padding: 0px 10px;
+    background-color: grey;
+    color: white;
+    border: none;
+    outline: none;
 }
 
-.page input[type=checkbox] {
-    margin-top: 20px;
-    width: 40px;
-    height: 30px;
-    padding: 6px;
-    background-color: transparent;
-    color: transparent;
+.inputbox::placeholder {
+    color: white;
 }
+
 
 .error {
     color: red;
