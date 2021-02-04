@@ -57,7 +57,7 @@
   
   .card_wrapper {
     position: relative;
-    margin: 10px;
+   
     padding: 0 10px;
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -69,7 +69,7 @@
   }
   
   .card {
-    width: 100%;
+    transform: scale(0.7);
     height: 450px;
     border-radius: 6px;
     overflow: hidden;
@@ -125,7 +125,7 @@
     list-style: none;
   }
   
-  .icons li a {
+  .icons li  {
     position: relative;
     display: block;
     width: 50px;
@@ -146,50 +146,50 @@
     opacity: 0;
   }
   
-  .card:hover .icons li a {
+  .card:hover .icons li {
     -webkit-transform: translateY(0px);
             transform: translateY(0px);
     opacity: 1;
   }
   
-  .icons li a:hover {
+  .icons li:hover {
     background: #151515;
     -webkit-transition: .2s;
     transition: .2s;
     border: 2px solid white;
   }
   
-  .icons li a:hover .fa {
+  .icons li:hover .fa {
     color: #fff;
   }
   
-  .icons li a .fa {
+  .icons li  .fa {
     -webkit-transition: .8s;
     transition: .8s;
   }
   
-  .icons li a .fa:hover {
+  .icons li  .fa:hover {
     -webkit-transform: rotateY(360deg);
             transform: rotateY(360deg);
     color: #fff;
   }
   
-  .card:hover li:nth-child(1) a {
+  .card:hover li:nth-child(1)  {
     -webkit-transition-delay: .1s;
             transition-delay: .1s;
   }
   
-  .card:hover li:nth-child(2) a {
+  .card:hover li:nth-child(2)  {
     -webkit-transition-delay: .2s;
             transition-delay: .2s;
   }
   
-  .card:hover li:nth-child(3) a {
+  .card:hover li:nth-child(3)  {
     -webkit-transition-delay: .3s;
             transition-delay: .3s;
   }
   
-  .card:hover li:nth-child(4) a {
+  .card:hover li:nth-child(4)  {
     -webkit-transition-delay: .4s;
             transition-delay: .4s;
   }

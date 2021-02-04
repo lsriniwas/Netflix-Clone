@@ -19,7 +19,7 @@ const dislikeShowController = async (req, res, next) => {
     const newProfile = await Profile.findByIdAndUpdate(
       profileId,
       { [option]: { dislikes: showId } },
-      { useFindAndModify: false }
+      { useFindAndModify: false, returnOriginal: false }
     );
 
     //Insert post like; pull delets and addToSet adds adds unique values to the likes array

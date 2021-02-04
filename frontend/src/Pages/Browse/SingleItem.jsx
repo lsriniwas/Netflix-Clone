@@ -6,23 +6,67 @@ import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import VideoPlayer from './VideoPlayer';
+import { useHistory } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 
-export const SingleItem = ({item}) => {
+const highlightStyle = {backgroundColor:"white",color:"black"}
 
-    const [show, setShow] = useState(false)
+export const SingleItem = ({item,handleLike,handleDislike,handleAddToList}) => {
+        const {currentProfile} = useSelector(state=>state.profiles);
+        const [show, setShow] = useState(false);
+        
+        const history = useHistory();
 
+        const isLiked = (id)=>{
+           
+           return currentProfile.likes.includes(id) 
+        }
+
+        const isDisLiked = (id)=>{
+           
+            return currentProfile.dislikes.includes(id) 
+         }
+
+         const inList = (id)=>{
+           const index = currentProfile.myList.findIndex(list=>list._id===id)
+           return index > -1 ? true : false
+         }
+
+        useEffect(()=>{
+           
+          
+        },[currentProfile])
     return (
         <div className= {styles.card_wrapper}>
                 <div className={styles.card}>
-                    <div className= {styles.card_image} >
-                        <img src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
+                    <div  className= {styles.card_image} >
+                        <img alt="movie poster" src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
                     </div>
                     <ul className={styles.icons}>
-                        <li><a href="#"> <PlayArrowIcon/> </a> </li>
-                        <li><a href="#"> <CheckIcon/> </a></li>
-                        <li><a href="#"> <ThumbUpAltIcon/> </a></li>
-                        <li><a href="#"><ThumbDownAltIcon/> </a></li>
+                        <li onClick={()=>history.push(`/video/${item.video}`)}><PlayArrowIcon/>  </li>
+                        
+                        {
+                           inList(item._id) ? 
+                           <li style={highlightStyle} onClick={()=>handleAddToList(item._id)}><CheckIcon/></li> : 
+                           <li onClick={()=>handleAddToList(item._id)}><CheckIcon/> </li> 
+                       }
+                       {
+                           isLiked(item._id) ?   
+                           <li style={highlightStyle} onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> : 
+                           <li onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> 
+                       }
+
+                        {
+                           isDisLiked(item._id) ?   
+                           <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> : 
+                           <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> 
+                       }
+
+                     
+                        
+                        
                     </ul>
                     <div className= {styles.details} >
                         <div className = {styles.downbad}>

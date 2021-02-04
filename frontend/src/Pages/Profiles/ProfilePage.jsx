@@ -47,7 +47,7 @@ export const ProfilePage = () => {
 
     useEffect(() => {
         dispatch(getProfiles(token))
-    }, [dispatch,profiles])
+    }, [])
 
     const handleAddProfile = (e) => {
         e.preventDefault();

@@ -52,7 +52,6 @@ const addProfileReq = () => {
 };
 
 const addProfileSuccess = (data) => {
-  console.log(data);
   return {
     type: ADD_PROFILE_SUCCESS,
     payload: data,

@@ -1,72 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import styles from './browse.module.css'
 import Tmdb from './Tmdb';
+
+import {useDispatch, useSelector} from 'react-redux'
 import MovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
 import Header from './components/Header';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import axios from 'axios';
+import { makeGetMoviesRequest } from '../../Redux/Movies/action.js';
 
 
 const links = ["Home", "TV Shows", "Movies", "My List"];
 
 
 function Browse(props) {
+  
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
   const [blackHeader, setBlackHeader] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [mute, setMute] = useState(true);
-  const [play,setPlay]=useState(true)
+  const [play,setPlay]=useState(true);
+  const dispatch = useDispatch();
+  const {movies} = useSelector(state=>state.movies)
   // console.log(movieList);
   
 
   useEffect(()=>{
-
-    axios.get(`${process.env.REACT_APP_BASE_URL}/api/show`).then(res=>{
-      let actionData = {
-        title:"Action",
-        data:[]
-      }
-
-      let romanceData = {
-        title:"Romance",
-        data:[]
-      }
-
-      let comedyData = {
-        title:"Comedy",
-        data:[]
-      }
-
-      let horrorData = {
-        title:"Horror",
-        data:[]
-      }
-
-      res.data.forEach((data)=>{
-        const genere = data.genre_ids.map(genere=>genere.name)
-        if(genere.includes("Action")){
-          actionData.data.push(data)
-        }
-        if(genere.includes("Comedy")){
-          comedyData.data.push(data)
-        }
-        if(genere.includes("Romance")){
-          romanceData.data.push(data)
-        }
-        if(genere.includes("Horror")){
-          horrorData.data.push(data)
-        }
-
-        
-      })
-      let results = [actionData,horrorData,comedyData,romanceData]
-      
-      setMovieList(results)
-    })
-    .catch((err) => console.log(err))
+    dispatch(makeGetMoviesRequest())
+   
     // const loadAll = async () => {
     //   // Pegando a lista TOTAL
     //   let list = await Tmdb.getHomeList();
@@ -164,8 +128,8 @@ function Browse(props) {
   
   
     {
-    movieList.length ? <section className="lists">
-    {movieList.map((item, key)=>(
+    movies.length ? <section className="lists">
+    {movies.map((item, key)=>(
       <MovieRow key={key}  title={item.title}  items={item.data} />
     ))}
   </section> : <></>
