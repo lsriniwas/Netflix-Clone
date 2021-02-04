@@ -23,15 +23,54 @@ function Browse(props) {
   
 
   useEffect(()=>{
-    console.log("hello use effect")
-    axios.get("http://localhost:8000/api/show").then(res=>{
-      setMovieList(res.data)
+
+    axios.get(`${process.env.REACT_APP_BASE_URL}/api/show`).then(res=>{
+      let actionData = {
+        title:"Action",
+        data:[]
+      }
+
+      let romanceData = {
+        title:"Romance",
+        data:[]
+      }
+
+      let comedyData = {
+        title:"Comedy",
+        data:[]
+      }
+
+      let horrorData = {
+        title:"Horror",
+        data:[]
+      }
+
+      res.data.forEach((data)=>{
+        const genere = data.genre_ids.map(genere=>genere.name)
+        if(genere.includes("Action")){
+          actionData.data.push(data)
+        }
+        if(genere.includes("Comedy")){
+          comedyData.data.push(data)
+        }
+        if(genere.includes("Romance")){
+          romanceData.data.push(data)
+        }
+        if(genere.includes("Horror")){
+          horrorData.data.push(data)
+        }
+
+        
+      })
+      let results = [actionData,horrorData,comedyData,romanceData]
+      
+      setMovieList(results)
     })
     .catch((err) => console.log(err))
     // const loadAll = async () => {
     //   // Pegando a lista TOTAL
     //   let list = await Tmdb.getHomeList();
-    //   setMovieList(list);
+    //  console.log(list)
 
     //   // Pegando o Featured
     //   let originals = list.filter(i=>i.slug === 'originals');
@@ -68,41 +107,9 @@ function Browse(props) {
 
      
       <div className={styles.root}>
-      {/* <nav
-        className={`${styles.navbar}  ${
-          scrolled ? styles.blackBackGround : styles.backgroundTransparent
-        }`}
-      >
-        <ul className={styles.left}>
-          <li>
-            <a href="/" >
-              <img
-                height="75"
-                src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png"
-                alt=""
-              />
-            </a>
-          </li>
-          {links.map((link) => (
-            <li key={link} 
-            >
-              <a href="/"
-              style={{textDecoration:'none'}}
-              >{link}</a>
-            </li>
-          ))}
-        </ul>
-        <ul className={styles.right}>
-          <li>
-            <i className="Icon fa fa-search search" />
-          </li>
-          <li>
-            <i className="Icon fa fa-bell-o" />
-          </li>
-        </ul>
-      </nav> */}
+      
       <div className={styles.reactplayer}>
-        <video aloop="1" autoplay={`${play}`} muted={mute} width="100%"
+        <video aloop="1" autoPlay={play} muted={mute} width="100%"
          poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
       src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
    >
@@ -138,38 +145,38 @@ function Browse(props) {
                }}/>}
                </div>
         </div>
+        <div
+        className={styles.video__bottom}
+        >
+        {/* {
+    movieList.length ? <section className={styles.lists}>
+    {[movieList].map((item, key)=>(
+      <MovieRow key={key} title="My List" items={item} />
+    ))}
+   </section> : <></>
+    } */}
+        </div>
       </div>
     </div>
 
-  {
+    
+    
+  
+  
+    {
     movieList.length ? <section className="lists">
-    {[movieList].map((item, key)=>(
-      <MovieRow key={key}  items={item} />
+    {movieList.map((item, key)=>(
+      <MovieRow key={key}  title={item.title}  items={item.data} />
     ))}
   </section> : <></>
-  }
-    
+   }
 
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-   
-      
-
+ 
      
     </div>
   );
 }
 
 export default Browse;
+
+

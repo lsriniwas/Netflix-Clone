@@ -1,4 +1,5 @@
 .root{
+  /* border: 10px solid gray; */
 }
 .navbar {
   position: fixed;
@@ -113,3 +114,20 @@
   align-content: flex-end;        
   align-items: flex-end; 
 }
+.video__bottom{
+  position: absolute;
+  bottom: 0;
+  margin-top: 100px !important;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  overflow: scroll;
+}
+
+.lists{
+    background-color: #141414;
+    display: none;
+}
+
+::-webkit-scrollbar {width: 1px; height: 1px; background: none; }
+::-webkit-scrollbar-thumb { background-color: #000000 }
