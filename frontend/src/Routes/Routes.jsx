@@ -7,6 +7,7 @@ import RegisterForm from '../Components/RegisterForm'
 import RegisterPlan from '../Components/RegisterPlan'
 import { Login } from "../Pages/Login/Login";
 import { ProfilePage } from "../Pages/Profiles/ProfilePage";
+import PrivateRoute from './PrivateRoute'
 
 const Routes = () => {
     return (
@@ -19,7 +20,7 @@ const Routes = () => {
                 <Route path="/signup/planform" exact render={(props) => <RegisterPlan {...props}/>} />
                 <Route path="/signup/payment" exact  render={(props) => <Payment {...props} />} />
                 <Route path = "/login" component = {Login}/>
-                <Route exact path = "/profiles" component = {ProfilePage}/>
+                <PrivateRoute exact path = "/profiles" Component={ProfilePage}/>
             </Switch>
         </div>
     )
