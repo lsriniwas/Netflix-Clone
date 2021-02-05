@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import styles from "./ShowMovies.module.css"
 import { SingleItem } from "./SingleItem";
 import Slider from "react-slick";
@@ -8,20 +8,44 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setCurrentProfile } from "../../Redux/Profile/actions/profileActions";
 
-export const ShowMovies = ({items}) => {
+export const ShowMovies = ({items,tile}) => {
     const {currentProfile} = useSelector(state=>state.profiles)
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+    const {width} = windowDimensions;
+    console.log(width)
+    function getWindowDimensions() {
+        const { innerWidth: width, innerHeight: height } = window;
+        return {
+          width,
+          height
+        };
+      }
+    
+    useEffect(() => {
+        function handleResize() {
+          setWindowDimensions(getWindowDimensions());
+        }
+    
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+      }, []);
+    
+     
+      console.log(width)
    
     let settings = {
         dots: false,
-        infinite: true,
+        infinite: false,
+        arrows:true,
         speed: 1000,
-        slidesToShow: 5,
-        slidesToScroll: 4,
+        slidesToShow:  5,
+        slidesToScroll:  5,
         cssEase: "linear"
     }
 
+    
     const headers = {
            
         'Authorization': `bearer ${token}`
@@ -61,6 +85,8 @@ export const ShowMovies = ({items}) => {
 
 
     return (
+        <>
+          
             <Slider {...settings} >
                 {
                     items.map((item) => (
@@ -68,5 +94,6 @@ export const ShowMovies = ({items}) => {
                     ))
                 }
             </Slider>
+        </>
     )
 }

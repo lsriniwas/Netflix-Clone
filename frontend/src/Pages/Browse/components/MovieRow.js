@@ -37,6 +37,9 @@ function MovieRow({ items, title }) {
 
   return (
     <div>
+      <h2 style={{ margin: 0, padding: 0, marginLeft: "6vw", color: "#fff" }}>
+        {title}
+      </h2>
       <ShowMovies items={items} />
     </div>
   );

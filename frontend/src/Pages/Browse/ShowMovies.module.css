@@ -70,12 +70,13 @@
   
   .card {
     transform: scale(0.7);
-    height: 450px;
+    height: 400px;
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
     position: relative;
   }
+
   
   .card .card_image {
     position: absolute;
