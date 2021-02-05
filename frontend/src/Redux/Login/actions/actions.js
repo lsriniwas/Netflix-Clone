@@ -31,6 +31,7 @@ export const makeLoginRequest = ({ email, password, history }) => (
   dispatch
 ) => {
   dispatch(loginRequest());
+
   axios
     .post(`${process.env.REACT_APP_BASE_URL}/api/login`, {
       email,

@@ -6,9 +6,14 @@ import axios from "axios"
 import {Link, Redirect, useHistory} from "react-router-dom"
 import * as EmailValidator from "email-validator"
 
-export const Login = () => {
+export const Login = (props) => {
     const token = localStorage.getItem("token")
-    const [email, setEmail] = useState("")
+    console.log( props.location.state)
+    let emailHistory = props.location.state?.email || ""
+
+    
+    const [email, setEmail] = useState(emailHistory)
+   
     const [password, setPassword] = useState("")
     const [emailErr, setEmailErr] = useState(false)
     const [passErr, setPassErr] = useState(false)
@@ -90,11 +95,11 @@ export const Login = () => {
                     </div>
                     {err && <div className = {styles.error1}>  {err} <Link to = "/login" > create a new account. </Link> </div> }
                     <div>
-                        <input placeholder = "Email or phone number" className = { email.length > 0 ? styles.inputbox : styles.floating} type = "text" onChange = {handleEmail}/>
+                        <input placeholder = "Email or phone number" className = { email.length > 0 ? styles.inputbox : styles.floating} type = "text" value={email}  onChange = {handleEmail}/>
                         {emailErr && <div className = {styles.error}> <div className = {styles.line}></div> <div className = {styles.errtext}>Please enter a valid email address or phone number.</div> </div> }
                     </div>
                     <div>
-                        <input placeholder = "Password" className = {password.length > 0 ? styles.inputbox : styles.floating } type = "password" onChange = {handlePassword}/>
+                        <input placeholder = "Password" className = {password.length > 0 ? styles.inputbox : styles.floating } type = "password" value={password} onChange = {handlePassword}/>
                         {passErr && <div className = {styles.error}> <div className = {styles.line}></div> <div className = {styles.errtext}>Your password must contain between 4 and 60 characters.</div> </div> }
                     </div>
                     <div>
