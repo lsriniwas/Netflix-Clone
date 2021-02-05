@@ -1,7 +1,5 @@
 import React, { useEffect } from 'react';
-import ReactJWPlayer from 'react-jw-player';
 import { useParams } from 'react-router-dom';
-import YouTube from 'react-youtube'
 
 function VideoPlayer(props) {
     const {id} = useParams()

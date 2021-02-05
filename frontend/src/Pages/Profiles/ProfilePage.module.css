@@ -49,12 +49,12 @@
     border-radius: 3px;
     cursor: pointer;
     margin-bottom: 10px;
+    border: 1px solid transparent;
+
 }
 
 .profilebox:hover {
-    border: 2px solid white;
-    width: 143px;
-    height: 143px;
+    border: 1px solid white;
 }
 
 .addprofile:hover {
@@ -181,5 +181,5 @@
 
 .cancel:hover {
     color: white;
-    border: .5px solid white;
+    border: .5px solid #fff;
 }
