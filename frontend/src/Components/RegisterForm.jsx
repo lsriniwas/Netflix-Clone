@@ -29,7 +29,7 @@ const RegisterForm = (props) => {
 
         const payload = { email, password }
 
-        dispatch(registerUser(payload))
+       
 
     }
 

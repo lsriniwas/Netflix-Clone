@@ -136,9 +136,9 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                 timeout: 500,
                 }}
             >   
-                     <Paper className={styles.root} elevation={24} >
+                     <div className={styles.root}  >
                      <MovieModal handleLike={handleLike} handleDislike={handleDislike} handleAddToList= {handleAddToList} liked={liked} disliked={disliked} inList={inList} handleClose={handleClose} Movie={item}/>
-                     </Paper>
+                     </div>
                     
             </Modal>
             </>

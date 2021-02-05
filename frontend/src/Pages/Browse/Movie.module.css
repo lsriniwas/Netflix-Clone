@@ -1,6 +1,6 @@
 
 .highlight{
-  background:white !important;
+  /* background:white !important; */
   color:black
 }
 
@@ -128,6 +128,7 @@
   .movie_info_right{
     font-family: sans-serif;
     padding: 10px;
+    word-wrap: break-word;
   }
 .movie_info_left__first{
     display: flex;
@@ -275,4 +276,149 @@
     color: #fff;
     margin: 0px;
     padding: 20px 0px;
+}
+
+@media screen and (max-width:515px){
+  .movie_info_left{
+    margin-right: 15px ;
+  }
+  .movie_info_left__first p{
+    font-size: 12px;
+    line-height: 20px;
+}
+  .movie_info_right span{
+    font-size: 10px;
+  }
+  .synopsis button {
+    padding: 3px 10px !important;
+    border-radius: 0.2vw !important;
+    font-size: 1vw !important;
+    margin-right: 10px !important;
+    letter-spacing: 0.2px !important;
+    width: 100px !important;
+
+  }
+  .reactplayer{
+    position: relative;
+    width: 100%;
+    max-height: 240px !important;
+    overflow: hidden;
+}
+
+.synopsis_tooltips_single{
+  padding: 5px;
+  display: grid;
+}
+
+.video__info{
+  bottom: 5%;
+  left: 4%;
+}
+.video__info__right{
+  bottom: 5%;
+  right: 4%;
+}
+
+.video__info__right_volume{
+    padding: 5px;
+}
+
+.episode_selector{
+  padding: 1px 0px;
+  display:flex;
+  justify-content: space-between;
+  place-items: center;
+  align-items: center;
+  position: relative;
+} 
+
+.episode_selector_left h2{
+  color: #fff;
+  font-size: 15px;
+}
+.episode_selector_right button {
+  color: #fff;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  padding: 1px 10px;
+  font-weight: 500;
+
+}
+.episode_selector_right button::after {
+content: "";
+border-left: 0.3em solid transparent;
+border-right: 0.3em solid transparent;
+border-top: 0.4em solid rgb(255, 255, 255);
+margin-left: 1em;
+}
+.episode_selector_right_ul{
+width: 150px;
+right: 1px; 
+height: 200px;
+overflow: scroll;
+position: absolute;
+top:78%;
+z-index: 100;
+color: white;
+
+}
+.episode_selector_right_ul ul{
+border: 1px solid rgb(77, 77, 77);
+background-color: rgb(36, 36, 36);
+margin-top: 1em;
+
+
+}
+.episode_selector_right_ul li{
+padding: 5px 1px;
+  
+}
+.episode_selector_right_ul li h3{
+font-size: 14px !important;
+padding: 0px;
+padding:0;
+margin: 0 5px 0 0;
+}
+.episode_selector_right_ul li p{
+font-size: 12px !important;
+padding: 0;
+margin: 0 ;
+}
+
+
+.episodelist ul{
+padding: 0px !important;
+}
+
+.episodelist ul li{
+
+padding: 12px;
+
+}
+.episodelist ul li:hover{
+background-color: rgb(77, 77, 77);
+
+}
+.episodelist_ul_li_h1{
+color: #d2d2d2;
+margin-right: 13px;
+font-size: 8px;
+}
+.episodelist_ul_li_img{
+width: 200px;
+margin-right: 15px;
+
+}
+.episodelist_ul_li_img img{
+width: 100%;
+height: 100%;
+}
+.episodelist_ul_li_info h4{
+color: #fff;
+font-size: 12px;
+}
+.episodelist_ul_li_info p {
+color: #d2d2d2;
+font-size: 8px;
+}
 }

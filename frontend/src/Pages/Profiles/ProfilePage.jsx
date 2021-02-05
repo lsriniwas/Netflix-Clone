@@ -5,7 +5,7 @@ import { getProfiles, addProfile, setCurrentProfile } from '../../Redux/Profile/
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Modal from "react-modal"
 import { useState } from 'react';
-import {useHistory} from "react-router-dom"
+import {Link, useHistory} from "react-router-dom"
 
 export const ProfilePage = () => {
 
@@ -86,12 +86,12 @@ export const ProfilePage = () => {
 
     return (
         <div className = {styles.full}>
-            <div className = {styles.logo}>
+            <Link to="/browse" className = {styles.logo}>
             <img
               src="https://www.freepnglogos.com/uploads/netflix-logo-0.png"
               alt="Netflix"
             />
-            </div>
+            </Link>
             <div className = {styles.page}>
                 <h2>Who's watching?</h2>
                 <div className = {styles.box}>

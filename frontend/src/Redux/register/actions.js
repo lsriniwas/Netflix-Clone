@@ -1,4 +1,5 @@
 import axios from "axios";
+import { makeLoginRequest } from "../Login/actions/actions";
 import {
   REGISTER_FAILURE,
   REGISTER_REQUEST,
@@ -38,6 +39,7 @@ export const registerUser = (userDetails) => (dispatch) => {
   return axios(config)
     .then((res) => {
       dispatch(registerSuccess(res.data));
+      dispatch(makeLoginRequest(userDetails));
     })
     .catch((err) => {
       dispatch(registerFailure(err));
