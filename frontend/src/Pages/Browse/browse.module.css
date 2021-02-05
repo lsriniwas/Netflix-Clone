@@ -81,7 +81,7 @@
 
 @media (min-width:600px){
   .synopsis p {
-    display: none;
+    font-size: 1.5vw;
   } 
 }
 .synopsis i {

@@ -20,10 +20,10 @@ const highlightStyle = {backgroundColor:"white",color:"black"}
 
 export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvShow,applyClass=""}) => {
         const {currentProfile} = useSelector(state=>state.profiles);
+        const [show, setShow] = useState(false);
         
       
         const [modalOpen,setModalOpen]=useState(false);
-        // const [item,setItem]=useState();
         const handleModalButton=()=>{
             setModalOpen(true)
           

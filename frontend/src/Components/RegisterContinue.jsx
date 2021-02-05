@@ -5,12 +5,14 @@ import RegisterLayout from './RegisterLayout'
 
 const RegisterContinue = (props) => {
     const history = useHistory();
-    const {email,password} = props.location.state
-    console.log(email,password)
-    const handleContinue = () => {
+    
+   let email = props.location.state?.email || ""
+    
+   const handleContinue = () => {
+       
         history.push({
             pathname: '/signup/regform',
-            state: { email,password }
+            state: email
         })
     }
     return (

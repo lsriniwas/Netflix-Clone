@@ -6,7 +6,6 @@ import RegisterContinue from '../Components/RegisterContinue'
 import RegisterForm from '../Components/RegisterForm'
 import RegisterPlan from '../Components/RegisterPlan'
 import Browse from '../Pages/Browse/Browse'
-import MyList from '../Pages/List/MyList'
 import { Login } from "../Pages/Login/Login";
 import VideoPlayer from '../Pages/PlayVedio/VideoPlayer'
 import { ProfilePage } from "../Pages/Profiles/ProfilePage";
@@ -25,7 +24,6 @@ const Routes = () => {
                 <Route path = "/login" exact component = {Login}/>
                 <Route path = "/browse" exact component = {Browse}/>
                 <Route path = "/video/:id" exact component = {VideoPlayer}/>
-                <PrivateRoute path = "/myList" exact component = {MyList}/>
                 <PrivateRoute exact path = "/profiles" Component={ProfilePage}/>
             </Switch>
        

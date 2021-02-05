@@ -6,7 +6,7 @@ function PrivateRoute({Component,...rest}) {
     const token = localStorage.getItem('token')
     const {isAuth} = useSelector(state=>state.login)
     return (
-        
+                    
             token ? <Route {...rest} render={()=><Component/>} />  : <Redirect to = "/login" />
     
     );

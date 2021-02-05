@@ -31,8 +31,6 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
       }, []);
-    
-     
    
     let settings = {
         dots: false,
@@ -99,3 +97,5 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         </>
     )
 }
+
+
