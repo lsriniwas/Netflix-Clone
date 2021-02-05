@@ -84,6 +84,7 @@ export const addProfile = ({ name, token }) => (dispatch) => {
 };
 
 export const setCurrentProfile = (user) => {
+  localStorage.setItem("currentProfile", JSON.stringify(user));
   return {
     type: CURRENT_PROFILE,
     payload: user,

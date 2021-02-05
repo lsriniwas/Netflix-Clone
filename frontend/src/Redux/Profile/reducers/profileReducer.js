@@ -12,7 +12,7 @@ const initState = {
   profile: [],
   loading: false,
   error: false,
-  currentProfile: {},
+  currentProfile: null,
 };
 
 export const profileReducer = (state = initState, { type, payload }) => {

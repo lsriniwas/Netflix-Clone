@@ -1,4 +1,4 @@
-import { Button, Divider, MenuItem, Paper, Select } from '@material-ui/core'
+import { Box, Button, Divider, MenuItem, Paper, Select } from '@material-ui/core'
 import CancelIcon from '@material-ui/icons/Cancel';
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react'
@@ -11,16 +11,28 @@ import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@material-ui/icons/ThumbDownAltOutlined';
 import { useState } from 'react';
 import axios from "axios"
-export const MovieModal = ({ modalClose, Movie,handleClose }) => {
-    const [mute, setMute] = React.useState(true);
-    const [seasons, setSeasons] = useState(false);
-    const [episodeList, setEpisodeList] = useState([]);
+
+
+
+export const MovieModal = ({ Movie,handleClose,handleLike,handleDislike,handleAddToList,liked,disliked,inList }) => {
+    const [mute, setMute] = useState(true);
+    const [seasons, setSeasons] =  useState(false);
+
+    const episodes = Movie.seasons ? Movie.seasons[0].episodes : [];
+
+    const [episodeList, setEpisodeList] = useState(episodes)
+    
     const [index, setIndex] = useState(0)
-    const [movie, setMovie] = useState(Movie)
+    
+   console.log("liked",liked)
+   console.log("inList",inList)
    
-    const handleSeasons = (index) => {
+   console.log("disliked",disliked)
+    
+   
+   const handleSeasons = (index) => {
         setIndex(index)
-        setEpisodeList(movie.seasons[index].episodes)
+        setEpisodeList(Movie.seasons[index].episodes)
         setSeasons(prev => !prev)
     }
 
@@ -31,11 +43,11 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
    
     
     return (
-        <Paper className={styles.root} elevation={24} >
-
-            <div className={styles.reactplayer}>
+       
+<>
+            <Box className={styles.reactplayer}>
                 {/* <video aloop="1" autoPlay={true} muted={1} width="100%" height="100%"
-                    poster={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path || movie.poster_path}`}
+                    poster={`https://image.tmdb.org/t/p/w500/${Movie.backdrop_path || Movie.poster_path}`}
                     src="https://drive.google.com/file/d/1ZI1x_sx4jjMG-e7hn4Dn_fHwRX5lslG3/view"
                 >
                 </video>
@@ -43,10 +55,10 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
                   <iframe style={{
                       marginTop:'-70px',
                     //   marginBottom:'-70px'
-                  }}  width="100%" title="hello" height="576" src={`https://www.youtube.com/embed/${movie.video}?autoplay=1&showinfo=0&controls=0&mute=1&rel=0`} 
+                  }}  width="100%" title="hello" height="576" src={`https://www.youtube.com/embed/${Movie.video}?autoplay=1&showinfo=0&controls=0&mute=1&rel=0`} 
                   frameBorder="0" autoPlay="1"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen></iframe>
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen></iframe>
                 <div className={styles.video__info}>
                     <div className={styles.synopsis}>
                         <button className={styles.play_btn} >
@@ -54,32 +66,80 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
                                  Play
                          </button>
                         <div className={styles.synopsis_tooltips}>
-                            <Tooltip title="Add to My List"
+                            {
+                                inList ?  <Tooltip title="In List"
+                                            className={`${styles.synopsis_tooltips_single}` }
+                                            placement="top"
+                                            arrow
+                                            >
+                                                
+                                                    <AddIcon onClick={()=>handleAddToList(Movie._id)} className={styles.highlight} style={{ fontSize: '24px'}} />
+                                                
+                                            </Tooltip>
+                                            :
+                                        <Tooltip title="Add to My List"
+                                        className={styles.synopsis_tooltips_single}
+                                        placement="top"
+                                        arrow
+                                        >
+                                            <AddIcon onClick={()=>handleAddToList(Movie._id)} style={{ fontSize: '24px' }} />
+                                        </Tooltip>
+                            }
+
+
+                            {
+
+                                    liked ?  <Tooltip title="I like this"
+                                    className={`${styles.synopsis_tooltips_single}` }
+                                    placement="top"
+                                    arrow
+                                    >
+                                        
+                                        <ThumbUpAltOutlinedIcon onClick={()=>handleLike(Movie._id)} className={styles.highlight} style={{ fontSize: '24px' }} />
+                                        
+                                    </Tooltip>
+                                    :
+                                    <Tooltip title="Like this"
+                                    className={styles.synopsis_tooltips_single}
+                                    placement="top"
+                                    arrow
+                                    >
+                                    <ThumbUpAltOutlinedIcon onClick={()=>handleLike(Movie._id)} style={{ fontSize: '24px' }} />
+                                    </Tooltip>
+
+
+                            }
+
+                            {
+
+                            disliked ?  
+
+                                <Tooltip title="I dislike this"
+                                className={styles.synopsis_tooltips_single}
+                                placement="top"
+                                arrow
+                                >
+                                <ThumbDownAltOutlinedIcon onClick={()=>handleDislike(Movie._id)} className={styles.highlight} style={{ fontSize: '24px' }} />
+                                </Tooltip> :
+
+                                <Tooltip title="dislike this"
                                 className={styles.synopsis_tooltips_single}
                                 placement="top"
                                 arrow
                             >
-                                <AddIcon style={{ fontSize: '24px' }} />
+                                <ThumbDownAltOutlinedIcon  onClick={()=>handleDislike(Movie._id)} style={{ fontSize: '24px' }} />
                             </Tooltip>
-                            <Tooltip title="I like this"
-                                className={styles.synopsis_tooltips_single}
-                                placement="top"
-                                arrow
-                            >
-                                <ThumbUpAltOutlinedIcon style={{ fontSize: '24px' }} />
-                            </Tooltip>
-                            <Tooltip title="Rated"
-                                className={styles.synopsis_tooltips_single}
-                                placement="top"
-                                arrow
-                            >
-                                <ThumbDownAltOutlinedIcon style={{ fontSize: '24px' }} />
-                            </Tooltip>
+
+
+                            }
+                           
+                          
+                           
                         </div>
                     </div>
                 </div>
-                <div className={styles.close} onClick={() => handleClose()}>
-                    <CloseIcon onClick={handleClose} />
+                <div className={styles.close} onClick={handleClose}>
+                    <CloseIcon />
                 </div>
                 <div className={styles.video__info__right}>
                     <div
@@ -97,29 +157,29 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
                             }} />}
                     </div>
                 </div>
-            </div>
-            <div className={styles.wrapper}>
+            </Box>
+            <Box className={styles.wrapper}>
                 <div className={styles.movie_info}>
                     <div className={styles.movie_info_left}>
                         <div className={styles.movie_info_left__first}>
-                            <p className={styles.movie_info_left__first_green}>{`${movie.vote_average * 10}% Match `}</p>
+                            <p className={styles.movie_info_left__first_green}>{`${Movie.vote_average * 10}% Match `}</p>
                             {
 
-                                movie.type !== "Scripted" && <p>{movie.release_date.split("-")[0]}</p>
+                                Movie.type !== "Scripted" && <p>{Movie.release_date.split("-")[0]}</p>
                             }
 
                         </div>
                         <div className={styles.movie_info_left__first}>
-                            <p>{movie.overview}</p>
+                            <p>{Movie.overview}</p>
                         </div>
                     </div>
                     <div className={styles.movie_info_right}>
                         <div>
                             <span>Genres:</span>
                             {
-                                movie.genre_ids.length !== 0 && movie.genre_ids.map((genre, i) => {
+                                Movie.genre_ids.length !== 0 && Movie.genre_ids.map((genre, i) => {
                                     return (
-                                        <span className={styles.movie_info_right_links} key={genre._id}>{genre.name}{`${movie.genre_ids.length - 1 !== i ? ',' : ''}`}</span>
+                                        <span className={styles.movie_info_right_links} key={genre._id}>{genre.name}{`${Movie.genre_ids.length - 1 !== i ? ',' : ''}`}</span>
                                     )
                                 })
                             }</div>
@@ -127,7 +187,7 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
                     </div>
                 </div>
                 {
-                    movie.type === "Scripted" && movie.seasons.length !== 0 &&
+                    Movie.type === "Scripted" && Movie.seasons.length !== 0 &&
 
                     <div>
                         <div className={styles.episode_selector}>
@@ -143,7 +203,7 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
                                 <div className={styles.episode_selector_right_ul}>
                                     <ul>
                                         {
-                                            movie.seasons.map((item, i) =>
+                                            Movie.seasons.map((item, i) =>
                                                 <li key={item._id} onClick={() => handleSeasons(i)}>
                                                     <h3>{`Season ${i + 1}`}</h3>
                                                     <p>{`(${item.episodes.length} Episodes)`}</p>
@@ -180,7 +240,7 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
                                 <li>
                                     <div className={styles.footer}>
                                         <h1>
-                                            Title: {movie.name}
+                                            Title: {Movie.name}
                                         </h1>
                                     </div>
                                 </li>
@@ -190,15 +250,15 @@ export const MovieModal = ({ modalClose, Movie,handleClose }) => {
                     </div>
                 }
                 {
-                    movie.type !== "Scripted" &&
+                    Movie.type !== "Scripted" &&
                     <div className={styles.footer}>
                         <h1>
-                            Title: {movie.title}
+                            Title: {Movie.title}
                         </h1>
                     </div>
                 }
-            </div>
-        </Paper>
+            </Box>
+        </>
     )
 }
 

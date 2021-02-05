@@ -11,8 +11,8 @@ const addToListController = async (req, res, next) => {
 
     const profile = await Profile.findOne({ _id: profileId });
 
-    const inList = profile.likes && profile.myList.includes(showId);
-    console.log(inList);
+    const inList = profile.myList && profile.myList.includes(showId);
+
     const option = inList ? "$pull" : "$addToSet";
 
     //Insert user like; pull delets and addToSet adds unique values to the likes array
@@ -23,7 +23,10 @@ const addToListController = async (req, res, next) => {
     );
 
     newProfile = await Profile.populate(newProfile, "myList");
+
     newProfile = await Profile.populate(newProfile, "myList.genre_ids");
+
+    console.log(inList);
 
     //Insert post like; pull delets and addToSet adds adds unique values to the likes array
 
