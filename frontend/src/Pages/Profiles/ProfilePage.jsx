@@ -53,7 +53,6 @@ export const ProfilePage = () => {
 
     },[profiles])
 
-    console.log(profiles)
     const handleAddProfile = (e) => {
         e.preventDefault();
 

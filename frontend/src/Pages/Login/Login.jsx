@@ -8,7 +8,6 @@ import * as EmailValidator from "email-validator"
 
 export const Login = (props) => {
     const token = localStorage.getItem("token")
-    console.log( props.location.state)
     let emailHistory = props.location.state?.email || ""
 
     
