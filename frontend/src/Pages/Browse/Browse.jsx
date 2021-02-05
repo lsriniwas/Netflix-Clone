@@ -5,7 +5,7 @@ import Tmdb from './Tmdb';
 import {useDispatch, useSelector} from 'react-redux'
 import MovieRow from './components/MovieRow';
 import FeaturedMovie from './components/FeaturedMovie';
-import Header from './components/Header';
+import {Header} from "./components/Header"
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import axios from 'axios';
