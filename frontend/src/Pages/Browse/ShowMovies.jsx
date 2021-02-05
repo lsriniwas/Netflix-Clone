@@ -14,7 +14,7 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
     const dispatch = useDispatch()
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const {width} = windowDimensions;
-   console.log(items)
+  
     function getWindowDimensions() {
         const { innerWidth: width, innerHeight: height } = window;
         return {
@@ -39,10 +39,12 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         infinite: false,
         arrows:true,
         speed: 1000,
-        slidesToShow:  5,
+        slidesToShow: width > 900 ? 5 : width > 700 ? 3 :  width > 600 ? 2 : 2 ,
         slidesToScroll:  5,
         cssEase: "linear"
     }
+
+    
 
     
     const headers = {
@@ -89,7 +91,8 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
             <Slider {...settings} >
                 {
                     items.map((item) => (
-                        <SingleItem isTvShow={isTvShow} key={item._id} handleAddToList={handleAddToList} handleLike={handleLike} handleDislike={handleDislike} item = {item}/>
+                        <SingleItem isTvShow={isTvShow} key={item._id} handleAddToList={handleAddToList} handleLike={handleLike} handleDislike={handleDislike}  
+                        item = {item}/>
                     ))
                 }
             </Slider>

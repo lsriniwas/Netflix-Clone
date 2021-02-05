@@ -12,7 +12,7 @@ const initState = {
   profile: [],
   loading: false,
   error: false,
-  currentProfile: {},
+  currentProfile: null,
 };
 
 export const profileReducer = (state = initState, { type, payload }) => {
@@ -51,7 +51,7 @@ export const profileReducer = (state = initState, { type, payload }) => {
         ...state,
         loading: false,
         error: false,
-        profiles: [...state.profiles, payload],
+        profile: [...state.profile, payload],
       };
 
     case ADD_PROFILE_FAIL:

@@ -3,7 +3,9 @@
 }
 
 
-
+a{
+  text-decoration: none;
+}
 
   .slick-list{
     padding-left: 5vw !important;
