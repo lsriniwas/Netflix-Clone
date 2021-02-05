@@ -14,15 +14,17 @@ const likeShowController = async (req, res, next) => {
     const isLiked = profile.likes && profile.likes.includes(showId);
 
     const option = isLiked ? "$pull" : "$addToSet";
-    console.log(option, isLiked);
+
     //Insert user like; pull delets and addToSet adds unique values to the likes array
-    const newProfile = await Profile.findByIdAndUpdate(
+    let newProfile = await Profile.findByIdAndUpdate(
       profileId,
       { [option]: { likes: showId } },
       { useFindAndModify: false, returnOriginal: false }
     );
 
-    console.log(newProfile);
+    newProfile = await Profile.populate(newProfile, "myList");
+
+    newProfile = await Profile.populate(newProfile, "myList.genre_ids");
 
     //Insert post like; pull delets and addToSet adds adds unique values to the likes array
 

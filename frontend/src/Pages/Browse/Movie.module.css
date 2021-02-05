@@ -1,10 +1,9 @@
-.root{
-    margin:3% 21% 10% 21%;
-    overflow: scroll;
-    background-color: #181818;
-    height: 100vh;
-    
+
+.highlight{
+  background:white !important;
+  color:black
 }
+
 .close{
     position: absolute;
     right: 1%;

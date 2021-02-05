@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import styles from './browse.module.css'
-import Tmdb from './Tmdb';
+;
 
 import {useDispatch, useSelector} from 'react-redux'
 import MovieRow from './components/MovieRow';
-import FeaturedMovie from './components/FeaturedMovie';
+
 import Header from './components/Header';
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
-import axios from 'axios';
+
 import { makeGetMoviesRequest } from '../../Redux/Movies/action.js';
 import { makeGetSeriesRequest } from '../../Redux/TvShows/action';
+import { getProfiles, setCurrentProfile } from '../../Redux/Profile/actions/profileActions';
 
 
 const links = ["Home", "TV Shows", "Movies", "My List"];
@@ -27,12 +28,20 @@ function Browse(props) {
   const dispatch = useDispatch();
   const {movies} = useSelector(state=>state.movies)
   const {series} = useSelector(state=>state.series)
-  console.log(series);
-  
+  const {currentProfile} = useSelector(state=>state.profiles)
+
 
   useEffect(()=>{
     dispatch(makeGetMoviesRequest())
     dispatch(makeGetSeriesRequest())
+
+    if(!currentProfile){
+      let token = localStorage.getItem("token")
+      dispatch(getProfiles(token))
+
+      
+      dispatch(setCurrentProfile(JSON.parse(localStorage.getItem("currentProfile"))))
+  }
     // const loadAll = async () => {
     //   // Pegando a lista TOTAL
     //   let list = await Tmdb.getHomeList();
@@ -69,7 +78,7 @@ function Browse(props) {
   return (
     <div className="page">
 
-      <Header black={blackHeader} />
+     <Header black={blackHeader} />
 
      
       <div className={styles.root}>

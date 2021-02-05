@@ -1,3 +1,11 @@
+.root{
+  margin:3% 21% 10% 21%;
+  overflow: scroll;
+  background-color: #181818;
+  height: 100vh;
+  
+}
+
 .carousel {
     display: flex;
     flex-direction: row;
