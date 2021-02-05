@@ -2,6 +2,7 @@
 
 .register_layout_header {
     display: flex;
+    position: unset;
     align-items: center;
     justify-content: space-between;
     font-family: sans-serif;
@@ -31,12 +32,15 @@
     margin: 2rem auto;
     width: 70%;
     padding: 4rem;
+    flex:1
 }
 
 .register_layout_footer {
     background-color: #ddd;
-    position: absolute;
+    
+    bottom: 0;
     width: 100%;
+    
     border-top: 1px solid rgba(128, 128, 128, 0.261);
     color: #757575;
     font-size: 16px;
@@ -161,6 +165,13 @@
     width: 100px;
     height: 100px;
 }
+
+@media (max-width:600px){
+    .plan_table_th {
+        
+       
+    }   
+}
 .plan_table_th:hover {
     cursor: pointer;
 }
@@ -177,7 +188,7 @@
     margin: auto;
 }
 .plan_table thead tr th {
-    position: sticky;
+    
     top: 10px;
     z-index: 1000;
 }

@@ -9,7 +9,7 @@ import { registerUser } from '../Redux/Register/actions';
 
 const RegisterForm = (props) => {
     const dispatch = useDispatch()
-
+    console.log(props.location.state)
     const [email, setEmail] = useState(props.location.state.email)
     const [password, setPassword] = useState('')
     const history = useHistory()

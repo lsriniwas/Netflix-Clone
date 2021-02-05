@@ -47,7 +47,7 @@ export default function RegisterPlanTable({ plan, setPlan }) {
   }
 
   return (
-    <table className={styles.plan_table}>
+    <table  className={styles.plan_table}>
         <thead>
             <tr>
                 <th></th>

@@ -7,12 +7,12 @@ const RegisterContinue = (props) => {
     const history = useHistory();
     
    let email = props.location.state?.email || ""
-    
+    console.log(email)
    const handleContinue = () => {
        
         history.push({
             pathname: '/signup/regform',
-            state: email
+            state: {email}
         })
     }
     const token = localStorage.getItem("token")

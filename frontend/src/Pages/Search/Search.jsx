@@ -9,9 +9,10 @@ import axios from "axios";
 import styles from "./Search.module.css"
 import HomeFooter from '../../Components/HomeFooter';
 import { useState } from 'react';
+import Loader from '../../Components/Loader/Loader';
 
 export const Search = () => {
-const searchList=useSelector((state)=>state.search.searchResults)
+  const {searchResults:searchList,isLoading:searchLoading}=useSelector((state)=>state.search)
 const loading=useSelector((state)=>state.search.isLoading)
 const {currentProfile} = useSelector(state=>state.profiles);
 
@@ -64,7 +65,7 @@ useEffect(()=>{
 },[])
 
 
-return !loading?(
+return !searchLoading?(
     <div className={styles.bgGrey} >
        <h2 className={styles.heading}>
           Search Results
@@ -84,7 +85,7 @@ return !loading?(
         
     </div>
 ):(
-    <h1 style={{color:'#fff'}}>Loading</h1>
+    <Loader />
 )
 }
 

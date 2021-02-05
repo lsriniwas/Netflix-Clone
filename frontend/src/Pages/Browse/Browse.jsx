@@ -34,7 +34,7 @@ function Browse(props) {
   const dispatch = useDispatch();
   const {movies,isLoading} = useSelector(state=>state.movies)
   const {series} = useSelector(state=>state.series)
-  const searchList=useSelector((state)=>state.search.searchResults)
+  const {searchResults:searchList,isLoading:searchLoading}=useSelector((state)=>state.search)
   const {currentProfile} = useSelector(state=>state.profiles)
   
 
