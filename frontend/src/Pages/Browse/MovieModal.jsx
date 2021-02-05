@@ -139,7 +139,7 @@ export const MovieModal = ({ Movie,handleClose,handleLike,handleDislike,handleAd
                     </div>
                 </div>
                 <div className={styles.close} onClick={handleClose}>
-                    <CloseIcon />
+                    <CloseIcon onClick={handleClose} />
                 </div>
                 <div className={styles.video__info__right}>
                     <div
