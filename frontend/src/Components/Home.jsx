@@ -5,6 +5,7 @@ import HomeMid from './HomeMid'
 import HomeAccordion from './HomeAccordion'
 import TextField from '@material-ui/core/TextField';
 import HomeFooter from './HomeFooter'
+import { Redirect } from 'react-router-dom'
 
 const data = 
 [
@@ -65,7 +66,9 @@ const faq = [
 ]
 
 const Home = () => {
+  const token = localStorage.getItem("token")
     return (
+      token ? <Redirect to="/browse" /> :
         <div className={styles.home}>
           <HomeHeader/>
           {

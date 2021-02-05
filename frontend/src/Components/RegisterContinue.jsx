@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import styles from '../Styles/Register.module.css'
 import RegisterLayout from './RegisterLayout'
 
@@ -15,7 +15,9 @@ const RegisterContinue = (props) => {
             state: email
         })
     }
+    const token = localStorage.getItem("token")
     return (
+      token ? <Redirect to="/browse" /> :
         <RegisterLayout>
             <div className={styles.register_step_one_wrapper}>
                 <img src="/images/devices.png" alt="devices"/>
