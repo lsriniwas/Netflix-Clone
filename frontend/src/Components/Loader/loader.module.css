@@ -10,24 +10,36 @@
     background: #000;
   }
   
-  .spinner {
+
+  .spinner{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  /*   margin: 37px 0 0 -25px; */
+    width: 100px;
+    height: 100px;
+  
+  }
+  .spinner::after {
+  
     width: 50px;
     height: 50px;
-    border-width: 3px;
-    border-left: 1px;
-    border-style: solid;
-    border-color: hsl(0, 100%, 47%) hsla(0, 0%, 0%, 0) hsla(0, 0%, 0%, 0)
-      hsl(0, 100%, 47%);
-    border-radius: 50%;
-    margin: 100px auto;
-    -webkit-animation: loader 0.5s infinite linear;
-    -moz-animation: loader 0.5s infinite linear;
-    -ms-animation: loader 0.5s infinite linear;
-    -o-animation: loader 0.5s infinite linear;
-    animation: loader 0.5s infinite linear;
+    content: "";
+    background-image: url(https://assets.nflxext.com/en_us/pages/wiplayer/site-spinner.png);
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    background-size: 100%;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    animation: nfLoader-spin 1.1s linear infinite,1!important;
+
+    
+
   }
   
-  @keyframes loader {
+  @keyframes nfLoader-spin {
     100% {
       -webkit-transform: rotate(360deg);
     }

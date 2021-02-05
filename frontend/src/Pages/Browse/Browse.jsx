@@ -81,7 +81,7 @@ function Browse(props) {
       
       <div className={styles.reactplayer}>
         <video aloop="1" autoPlay={play} muted={mute} width="100%"
-         poster="https://pad.mymovies.it/filmclub/2017/09/180/locandina.jpg"
+         poster="https://i.ytimg.com/vi/htvVnHnroQ4/maxresdefault.jpg"
       src="https://mphomeservices.it/videos/Ad%20Astra%20_%20Official%20Trailer%20%5BHD%5D%20_%2020th%20Century%20FOX.mp4"
    >
         </video>
