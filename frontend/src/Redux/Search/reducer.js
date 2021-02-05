@@ -21,8 +21,8 @@ export const searchReducer = (state = initState, { type, payload }) => {
     case GET_SEARCH_SUCCESS:
       return {
         ...state,
-        isLoading: false,
         searchResults: payload,
+        isLoading: false,
       };
     case GET_SEARCH_FAILURE:
       return {

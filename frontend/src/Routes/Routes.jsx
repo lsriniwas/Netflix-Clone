@@ -10,11 +10,12 @@ import MyList from '../Pages/List/MyList'
 import { Login } from "../Pages/Login/Login";
 import VideoPlayer from '../Pages/PlayVedio/VideoPlayer'
 import { ProfilePage } from "../Pages/Profiles/ProfilePage";
+import { Search } from '../Pages/Search/Search'
 import PrivateRoute from './PrivateRoute'
 
 const Routes = () => {
     return (
-        
+
             <Switch>
                 <Route path="/" exact render={(props) => <Home {...props}/>} />
                 <Route path="/register" exact render={(props) => <Login {...props}/>} />

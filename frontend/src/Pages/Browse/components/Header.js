@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,13 +10,14 @@ import { makeGetSearchRequest } from "../../../Redux/Search/action";
 import { Search } from "../../Search/Search";
 
 
-export const Header = ({ black,search,setSearch }) => {
+export const Header = ({ black}) => {
   const [searchBox, setSearchBox] = useState(false)
   const dispatch = useDispatch()
-
   const profiles = useSelector((state) => state.profiles.profile)
   const currentProf = useSelector((state) => state.profiles.currentProfile)
-
+  const params=useParams();
+  const history=useHistory();
+  const [search,setSearch]=useState(history.location.search.split("=")[1]||"");
   const showProfiles = profiles.filter((item) => {
     return item._id !== currentProf._id;
   });
@@ -34,15 +35,19 @@ export const Header = ({ black,search,setSearch }) => {
   const handleClick = (item, e) => {
     e.preventDefault();
 
-    dispatch(setCurrentProfile(item));
   };
 
 const Debouncer=(e)=>{
- 
-    dispatch(makeGetSearchRequest(e))
-    console.log(search,"asdasd")
- 
-  
+ if(e.length>0){
+   dispatch(makeGetSearchRequest(e))
+   history.push(`/browse?q=${e}`)
+   
+ }
+ else{
+  dispatch(makeGetSearchRequest(""))
+  history.push(`/browse`)
+ }
+    setSearch(e)
 }
   const handleOpen = () => {
     open ? setOpen(false) : setOpen(true);
@@ -77,11 +82,6 @@ const Debouncer=(e)=>{
         <div className = "search-bar-right">
         <div className={`${searchBox ? "searchBox" : "searchIcon"}`}>
                           <span className="icon" onClick={() => toggleSearchBox()}><FontAwesomeIcon color = "white" icon={faSearch} /></span>
-                          {/* <input className="searchInput"
-                              value={search}
-                              onChange={(e) => setSearch(e.currentTarget.value)}
-                              onBlur={() => setSearchBox(false)}
-                              type="text" placeholder="Titles, People, Genres..." maxLength="80" /> */}
                            <DebounceInput 
                             className = "searchInput"
                               minLength={2}
@@ -90,8 +90,8 @@ const Debouncer=(e)=>{
                               onBlur={() => setSearchBox(false)}
                               debounceTimeout={1000}
                               onChange={(e)=>{
-                                setSearch(e.target.value)
-                                Debouncer(e.target.value)}}
+                                Debouncer(e.target.value)
+                              }}
                             />
               </div>
               <div className="header--user">
@@ -120,7 +120,6 @@ const Debouncer=(e)=>{
           }
         </div>
       </div>
-     <Search/> 
     </header>
   );
 }
