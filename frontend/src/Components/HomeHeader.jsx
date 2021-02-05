@@ -20,13 +20,17 @@ const HomeHeader = () => {
         }
     }
 
+    const handleClick = () => {
+        history.push("/login")
+    }
+
     return (
         <div className={styles.cover_container}>
             <img src="/images/bg_main.jpg" alt="cover" className={styles.cover_image}/>
             <div className={styles.cover_content}>
                 <div className={styles.cover_content_header}>
                     <img src="/images/logo_big.png" alt="logo"/>
-                    <button className={styles.sign__in__btn} >Sign In</button>
+                    <button onClick = {handleClick} className={styles.sign__in__btn} >Sign In</button>
                 </div>
                 <div className={styles.cover_content_register}>
                     <h1>Unlimited movies, TV <br/> shows and more</h1>

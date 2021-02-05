@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styles from "./ProfilePage.module.css"
 import {useDispatch, useSelector} from "react-redux"
-import { getProfiles, addProfile, setCurrentProfile } from '../../Redux/actions/profileActions'
+import { getProfiles, addProfile, setCurrentProfile } from '../../Redux/Profile/actions/profileActions'
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import Modal from "react-modal"
 import { useState } from 'react';
@@ -42,12 +42,12 @@ export const ProfilePage = () => {
 
     const dispatch = useDispatch()
     const history = useHistory()
-    const token = useSelector((state) => state.login.user.token)
+    const token = localStorage.getItem("token")
     const profiles = useSelector((state) => state.profiles.profile)
 
     useEffect(() => {
         dispatch(getProfiles(token))
-    }, [dispatch, token])
+    }, [])
 
     const handleAddProfile = (e) => {
         e.preventDefault();
@@ -94,14 +94,15 @@ export const ProfilePage = () => {
                         </div>
                     ))}
                     <div>
-                    <div onClick = {handleOpen} className = {styles.addprofile}> <AddCircleIcon style={{ fontSize: "100px", color: "grey",  marginTop: "20px" }} /> </div>
+                    <div onClick = {handleOpen} className = {styles.addprofile}> 
+                    <AddCircleIcon style={{ fontSize: "100px", color: "grey",  marginTop: "20px" }} /> </div>
                     <div onClick = {handleOpen} className = {styles.profilename}> Add Profile </div>
                     <Modal 
                     isOpen = {open}
                     style={customStyles}
                     ariaHideApp={false} 
                     >
-                        <h1> Add Profile </h1> 
+                        <h1 className = {styles.h1} > Add Profile </h1> 
                         <div className = {styles.profilename1}>Add a profile for another person watching Netflix.</div>
                         <div className = {styles.line}></div>
                         <div className = {styles.modalbox}>

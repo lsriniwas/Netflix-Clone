@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchLoginSuccess } from '../../Redux/actions/loginActions';
+import { fetchLoginSuccess } from '../../Redux/Login/actions/loginActions';
 import styles from "./Login.module.css"
 import axios from "axios"
 import {Link, useHistory} from "react-router-dom"
@@ -68,6 +68,8 @@ export const Login = () => {
     
             axios(config)
             .then((res) => {
+                const {token} = res.data
+                localStorage.setItem("token",token)
                 dispatch(fetchLoginSuccess(res.data))
                 history.push("/profiles")
             })
