@@ -11,13 +11,15 @@ import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import axios from 'axios';
 import { makeGetMoviesRequest } from '../../Redux/Movies/action.js';
 import { makeGetSeriesRequest } from '../../Redux/TvShows/action';
+import { Search } from '../Search/Search';
+import { Redirect } from 'react-router-dom';
 
 
 const links = ["Home", "TV Shows", "Movies", "My List"];
 
 
 function Browse(props) {
-  
+  const [search, setSearch] = useState("")
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
   const [blackHeader, setBlackHeader] = useState(false);
@@ -27,26 +29,11 @@ function Browse(props) {
   const dispatch = useDispatch();
   const {movies} = useSelector(state=>state.movies)
   const {series} = useSelector(state=>state.series)
-  console.log(series);
-  
+const searchList=useSelector((state)=>state.search.searchResults)
 
   useEffect(()=>{
     dispatch(makeGetMoviesRequest())
     dispatch(makeGetSeriesRequest())
-    // const loadAll = async () => {
-    //   // Pegando a lista TOTAL
-    //   let list = await Tmdb.getHomeList();
-    //  console.log(list)
-
-    //   // Pegando o Featured
-    //   let originals = list.filter(i=>i.slug === 'originals');
-    //   let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
-    //   let chosen = originals[0].items.results[randomChosen];
-    //   let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
-    //   setFeaturedData(chosenInfo);
-    // }
-
-    // loadAll();
   }, []);
 
   useEffect(()=>{
@@ -67,11 +54,13 @@ function Browse(props) {
   
 
   return (
+    
     <div className="page">
 
-      <Header black={blackHeader} />
+      <Header black={blackHeader} search={search} setSearch={setSearch} />
 
-     
+     {searchList.length<1 ?
+     <>
       <div className={styles.root}>
       
       <div className={styles.reactplayer}>
@@ -128,24 +117,28 @@ function Browse(props) {
     
   
   
-    {
-    movies.length ? <section className="lists">
-    {movies.map((item, key)=>(
-      <MovieRow isTvShow={true} key={key}  title={item.title}  items={item.data} />
-    ))}
-  </section> : <></>
-   }
+          {
+          movies.length ? <section className="lists">
+          {movies.map((item, key)=>(
+            <MovieRow isTvShow={true} key={key}  title={item.title}  items={item.data} />
+          ))}
+        </section> : <></>
+        }
 
-    {
-    series.length ? <section className="lists">
-    {[series].map((item, key)=>(
-      <MovieRow key={key} isTvShow={true}  title={"Series"}  items={item} />
-    ))}
-  </section> : <></>
-   }
+          {
+          series.length ? <section className="lists">
+          {[series].map((item, key)=>(
+            <MovieRow key={key} isTvShow={true}  title={"Series"}  items={item} />
+          ))}
+        </section> : <></>
+        }
+        </>
+  :
+  <>
+         <Search/>
+  </>
 
-
-
+}
  
      
     </div>

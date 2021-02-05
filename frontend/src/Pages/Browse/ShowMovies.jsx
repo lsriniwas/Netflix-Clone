@@ -14,7 +14,6 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
     const dispatch = useDispatch()
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const {width} = windowDimensions;
-   console.log(items)
     function getWindowDimensions() {
         const { innerWidth: width, innerHeight: height } = window;
         return {
@@ -31,8 +30,6 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
       }, []);
-    
-     
    
     let settings = {
         dots: false,
@@ -96,3 +93,5 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         </>
     )
 }
+
+

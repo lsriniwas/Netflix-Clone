@@ -4,13 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentProfile } from "../../../Redux/Profile/actions/profileActions";
+import {DebounceInput} from 'react-debounce-input';
+import { makeGetSearchRequest } from "../../../Redux/Search/action";
+import { Search } from "../../Search/Search";
 
-export const Header = ({ black }) => {
-
-
+export const Header = ({ black,search,setSearch }) => {
   const [searchBox, setSearchBox] = useState(false)
-  const [search, setSearch] = useState("")
-
   const dispatch = useDispatch()
 
   const profiles = useSelector((state) => state.profiles.profile)
@@ -42,6 +41,13 @@ const handleOpen= () => {
   open ? setOpen(false) : setOpen(true)
 }
 
+const Debouncer=(e)=>{
+ 
+    dispatch(makeGetSearchRequest(e))
+    console.log(search,"asdasd")
+ 
+  
+}
 
   return (
     <header className={black ? "black" : ""}>
@@ -72,11 +78,22 @@ const handleOpen= () => {
         <div className = "search-bar-right">
         <div className={`${searchBox ? "searchBox" : "searchIcon"}`}>
                           <span className="icon" onClick={() => toggleSearchBox()}><FontAwesomeIcon color = "white" icon={faSearch} /></span>
-                          <input className="searchInput"
+                          {/* <input className="searchInput"
                               value={search}
                               onChange={(e) => setSearch(e.currentTarget.value)}
                               onBlur={() => setSearchBox(false)}
-                              type="text" placeholder="Titles, People, Genres..." maxLength="80" />
+                              type="text" placeholder="Titles, People, Genres..." maxLength="80" /> */}
+                           <DebounceInput 
+                            className = "searchInput"
+                              minLength={2}
+                              value={search}
+                              placeholder="Titles, People, Genres..."
+                              onBlur={() => setSearchBox(false)}
+                              debounceTimeout={1000}
+                              onChange={(e)=>{
+                                setSearch(e.target.value)
+                                Debouncer(e.target.value)}}
+                            />
               </div>
               <div className="header--user">
               <a>
@@ -105,6 +122,7 @@ const handleOpen= () => {
             }
         </div>
       </div>
+     <Search/> 
     </header>
   );
 };

@@ -21,15 +21,10 @@ const highlightStyle = {backgroundColor:"white",color:"black"}
 export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvShow}) => {
         const {currentProfile} = useSelector(state=>state.profiles);
         const [show, setShow] = useState(false);
-        console.log(isTvShow)
-        console.log(item)
         const [modalOpen,setModalOpen]=useState(false);
-        // const [item,setItem]=useState();
         const handleModalButton=()=>{
             setModalOpen(true)
-            console.log("hello")
-        }
-                
+        }       
         const history = useHistory();
 
         const handleClose = () => {
@@ -84,9 +79,7 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                            isDisLiked(item._id) ?   
                            <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> : 
                            <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> 
-                       }
-
-                     
+                       }                    
                         
                         
                     </ul>

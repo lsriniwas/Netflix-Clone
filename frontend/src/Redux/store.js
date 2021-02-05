@@ -6,6 +6,7 @@ import { profileReducer } from "./Profile/reducers/profileReducer";
 import { registerReducer } from "./Register/reducer";
 import { moviesReducer } from "./Movies/reducer";
 import { seriesReducer } from "./TvShows/reducer";
+import { searchReducer } from "./Search/reducer";
 
 const reducer = combineReducers({
   login: loginReducer,
@@ -13,6 +14,7 @@ const reducer = combineReducers({
   register: registerReducer,
   movies: moviesReducer,
   series: seriesReducer,
+  search:searchReducer
 });
 
 export const store = createStore(
