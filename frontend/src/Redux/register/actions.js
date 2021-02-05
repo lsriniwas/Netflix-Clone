@@ -39,7 +39,6 @@ export const registerUser = (userDetails) => (dispatch) => {
   return axios(config)
     .then((res) => {
       dispatch(registerSuccess(res.data));
-      dispatch(makeLoginRequest(userDetails));
     })
     .catch((err) => {
       dispatch(registerFailure(err));

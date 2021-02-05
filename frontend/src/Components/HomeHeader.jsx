@@ -24,6 +24,11 @@ const HomeHeader = () => {
                     state: { email }
                 })
             }).catch(err=>{
+                history.push({
+                    pathname:"/login",
+                    state: { email }
+                })
+                
                 setErrorMsg("Email alrady taken please login")
             })
         } else {
