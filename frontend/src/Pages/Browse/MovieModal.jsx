@@ -11,6 +11,7 @@ import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@material-ui/icons/ThumbDownAltOutlined';
 import { useState } from 'react';
 import axios from "axios"
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -28,7 +29,7 @@ export const MovieModal = ({ Movie,handleClose,handleLike,handleDislike,handleAd
    console.log("inList",inList)
    
    console.log("disliked",disliked)
-    
+    const history = useHistory()
    
    const handleSeasons = (index) => {
         setIndex(index)
@@ -61,7 +62,7 @@ export const MovieModal = ({ Movie,handleClose,handleLike,handleDislike,handleAd
                     allowFullScreen></iframe>
                 <div className={styles.video__info}>
                     <div className={styles.synopsis}>
-                        <button className={styles.play_btn} >
+                        <button className={styles.play_btn} onClick={()=>history.push(`/video/${Movie.video}`)} >
                             <i className="Icon fa fa-play play" />
                                  Play
                          </button>

@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { setCurrentProfile } from "../../../Redux/Profile/actions/profileActions";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 function Header({ black }) {
   const [searchBox, setSearchBox] = useState(false);
   const [search, setSearch] = useState("");
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const profiles = useSelector((state) => state.profiles.profile);
   const currentProf = useSelector((state) => state.profiles.currentProfile);
@@ -102,7 +103,13 @@ function Header({ black }) {
                     </div>
                   </div>
                 ))}
-              <div className="each-profile-box"> Manage Profiles </div>
+              <div
+                onClick={() => history.push("/profiles")}
+                className="each-profile-box"
+              >
+                {" "}
+                Manage Profiles{" "}
+              </div>
               <div className="profile-box-line"></div>
               <div className="profile-text-bottom">Account</div>
               <div className="profile-text-bottom">Help Center</div>

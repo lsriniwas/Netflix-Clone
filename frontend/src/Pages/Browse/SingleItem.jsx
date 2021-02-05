@@ -69,26 +69,26 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                         <img alt="movie poster" src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
                     </div>
                     <ul className={styles.icons}>
-                        <li onClick={()=>history.push(`/video/${item.video}`)}><PlayArrowIcon/>  </li>
+                        <li onClick={()=>history.push(`/video/${item.video}`)}><PlayArrowIcon />  </li>
                         
                         {
                           
                            inList ? 
-                           <li style={highlightStyle} onClick={()=>handleAddToList(item._id)}><CheckIcon/></li> : 
+                           <li style={highlightStyle} onClick={()=>handleAddToList(item._id)}><CheckIcon /></li> : 
                            <li onClick={()=>handleAddToList(item._id)}><CheckIcon/> </li> 
                        }
                        {
                           
                            liked ?   
                            <li style={highlightStyle} onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> : 
-                           <li onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> 
+                           <li onClick={()=>handleLike(item._id)}><ThumbUpAltIcon   /> </li> 
                        }
 
                         {
                             
                            disliked ?   
-                           <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> : 
-                           <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> 
+                           <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon  /> </li> : 
+                           <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon /> </li> 
                        }
 
                      
@@ -110,7 +110,7 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                         </div>
                         <div className = {styles.btm}>
                             <div className = {styles.btmleft}>
-                                <div style = {{marginBottom: "10px"}} > 
+                                <div  > 
                                     Votes: {item.vote_average}
                                 </div>
                                 <div>
