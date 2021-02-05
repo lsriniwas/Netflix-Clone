@@ -37,6 +37,7 @@
     background-color: #ddd;
     position: absolute;
     width: 100%;
+    bottom: 0;
     border-top: 1px solid rgba(128, 128, 128, 0.261);
     color: #757575;
     font-size: 16px;

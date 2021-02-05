@@ -1,5 +1,4 @@
-import { Box, Button, Divider, MenuItem, Paper, Select } from '@material-ui/core'
-import CancelIcon from '@material-ui/icons/Cancel';
+import { Box, Button} from '@material-ui/core'
 import CloseIcon from '@material-ui/icons/Close';
 import React from 'react'
 import styles from "./Movie.module.css"
@@ -10,7 +9,6 @@ import AddIcon from '@material-ui/icons/Add';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@material-ui/icons/ThumbDownAltOutlined';
 import { useState } from 'react';
-import axios from "axios"
 
 
 

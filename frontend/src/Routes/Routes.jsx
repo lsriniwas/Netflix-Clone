@@ -6,6 +6,7 @@ import RegisterContinue from '../Components/RegisterContinue'
 import RegisterForm from '../Components/RegisterForm'
 import RegisterPlan from '../Components/RegisterPlan'
 import Browse from '../Pages/Browse/Browse'
+import { Error } from '../Pages/Error/Error'
 import MyList from '../Pages/List/MyList'
 import { Login } from "../Pages/Login/Login";
 import VideoPlayer from '../Pages/PlayVedio/VideoPlayer'
@@ -27,6 +28,8 @@ const Routes = () => {
                 <Route path = "/video/:id" exact component = {VideoPlayer}/>
                 <PrivateRoute path = "/myList" exact component = {MyList}/>
                 <PrivateRoute exact path = "/profiles" Component={ProfilePage}/>
+                <Route  render={(props) => <Error/>} />
+
             </Switch>
        
     )
