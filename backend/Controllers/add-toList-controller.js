@@ -26,7 +26,6 @@ const addToListController = async (req, res, next) => {
 
     newProfile = await Profile.populate(newProfile, "myList.genre_ids");
 
-    console.log(inList);
 
     //Insert post like; pull delets and addToSet adds adds unique values to the likes array
 
@@ -34,7 +33,6 @@ const addToListController = async (req, res, next) => {
       newProfile,
     });
   } catch (err) {
-    console.log(err.message);
     res.status(400).json({
       message: err.message,
     });

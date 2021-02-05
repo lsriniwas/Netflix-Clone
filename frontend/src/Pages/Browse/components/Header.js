@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { Link, useHistory, useParams } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,7 +11,6 @@ import {
   getSearchSuccess,
   makeGetSearchRequest,
 } from "../../../Redux/Search/action";
-import { Search } from "../../Search/Search";
 
 function Header({ black }) {
   const [searchBox, setSearchBox] = useState(false);
@@ -22,7 +21,6 @@ function Header({ black }) {
   const profiles = useSelector((state) => state.profiles.profile);
   const currentProf = useSelector((state) => state.profiles.currentProfile);
 
-  const params = useParams();
 
   const [search, setSearch] = useState(
     history.location.search.split("=")[1] || ""

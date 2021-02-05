@@ -1,5 +1,4 @@
 import React,{useEffect,useState} from "react";
-import styles from "./ShowMovies.module.css"
 import { SingleItem } from "./SingleItem";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";

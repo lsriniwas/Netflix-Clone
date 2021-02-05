@@ -5,12 +5,11 @@ import CheckIcon from '@material-ui/icons/Check';
 import ThumbUpAltIcon from '@material-ui/icons/ThumbUpAlt';
 import ThumbDownAltIcon from '@material-ui/icons/ThumbDownAlt';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import VideoPlayer from './VideoPlayer';
 import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
-import { Backdrop, Fade, Modal, Paper } from "@material-ui/core";
+import { Backdrop, Modal } from "@material-ui/core";
 import { MovieModal } from "./MovieModal";
 
 
@@ -20,9 +19,6 @@ const highlightStyle = {backgroundColor:"white",color:"black"}
 
 export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvShow,applyClass=""}) => {
         const {currentProfile} = useSelector(state=>state.profiles);
-        const [show, setShow] = useState(false);
-        
-      
         const [modalOpen,setModalOpen]=useState(false);
         const handleModalButton=()=>{
             setModalOpen(true)

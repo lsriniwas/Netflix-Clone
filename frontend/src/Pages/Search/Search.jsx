@@ -4,16 +4,12 @@ import { SingleItem } from '../Browse/SingleItem'
 import { useEffect } from 'react';
 import { useDispatch} from 'react-redux';
 import { getProfiles, setCurrentProfile } from '../../Redux/Profile/actions/profileActions';
-import Header from '../Browse/components/Header';
 import axios from "axios";
 import styles from "./Search.module.css"
-import HomeFooter from '../../Components/HomeFooter';
-import { useState } from 'react';
 import Loader from '../../Components/Loader/Loader';
 
 export const Search = () => {
   const {searchResults:searchList,isLoading:searchLoading}=useSelector((state)=>state.search)
-const loading=useSelector((state)=>state.search.isLoading)
 const {currentProfile} = useSelector(state=>state.profiles);
 
 

@@ -39,8 +39,6 @@ export const Login = () => {
         e.preventDefault()
 
         setErr("")
-
-        console.log(history)
         const ans = EmailValidator.validate(email)
 
         if(!ans) {

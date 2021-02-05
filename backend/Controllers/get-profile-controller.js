@@ -6,7 +6,6 @@ const getProfileController = async (req, res) => {
 
   try {
     const { data: _id } = req.id;
-    console.log(_id);
     let profile = await Profile.find({
       _id: profileId,
     }).populate("myList");

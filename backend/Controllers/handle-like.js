@@ -8,7 +8,6 @@ const likeShowController = async (req, res, next) => {
 
     const { showId } = req.params;
     const { profileId } = req.query;
-    console.log(showId);
     const profile = await Profile.findOne({ _id: profileId });
 
     const isLiked = profile.likes && profile.likes.includes(showId);
@@ -41,7 +40,6 @@ const likeShowController = async (req, res, next) => {
       newProfile,
     });
   } catch (err) {
-    console.log(err.message);
     res.status(400).json({
       message: err.message,
     });

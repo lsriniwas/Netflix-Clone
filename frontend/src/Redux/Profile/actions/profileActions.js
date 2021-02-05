@@ -80,7 +80,6 @@ export const addProfile = ({ name, token }) => (dispatch) => {
 
   axios(config)
     .then((res) => {
-      console.log(res.data.newProfile);
       dispatch(addProfileSuccess(res.data.newProfile));
     })
     .catch((err) => dispatch(addProfileFail(err)));

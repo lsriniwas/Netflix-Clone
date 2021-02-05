@@ -4,7 +4,6 @@ const addProfileController = async (req, res) => {
   //logged user id
   const { data: _id } = req.id;
   const { name } = req.body;
-  console.log(_id);
   Profile.create({
     name,
     userId: _id,

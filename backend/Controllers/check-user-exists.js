@@ -14,7 +14,6 @@ const checkUserExists = async (req, res) => {
         message: "Email already exists",
       });
     }
-    console.log("User is new");
     return res.status(200).send("Proceed");
   } catch (err) {
     return res.status(400).json({

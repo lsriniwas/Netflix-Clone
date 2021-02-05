@@ -4,7 +4,6 @@ const getProfilesController = async (req, res) => {
   //logged user id
   try {
     const { data: _id } = req.id;
-    console.log(_id);
     let profiles = await Profile.find({
       userId: _id,
     }).populate("myList");

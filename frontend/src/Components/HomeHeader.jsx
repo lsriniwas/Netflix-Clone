@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from '../Styles/Home.module.css'
 import TextField from '@material-ui/core/TextField';
 import validator from 'email-validator'
-import { NavLink, useHistory } from 'react-router-dom';
+import {  useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 const HomeHeader = () => {
@@ -69,7 +69,11 @@ const HomeHeader = () => {
                     </div>
                     <button onClick={() => handleSubmit()}>GET STARTED &gt;</button>
                 </div>
-                {errorMsg && <div className={styles.error}>{errorMsg}</div>}
+                {errorMsg && 
+                
+                <div className={styles.error}>{errorMsg}</div>
+                
+                }
                 { emailValidate &&  <div className={styles.error}>Please enter a valid email address.</div>}
             </div>
         </div>

@@ -7,7 +7,6 @@ const RegisterContinue = (props) => {
     const history = useHistory();
     
    let email = props.location.state?.email || ""
-    console.log(email)
    const handleContinue = () => {
        
         history.push({

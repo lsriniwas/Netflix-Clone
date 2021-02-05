@@ -1,20 +1,14 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
 import RegisterLayout from './RegisterLayout'
 import styles from '../Styles/Register.module.css'
 import TextField from '@material-ui/core/TextField';
 import { Redirect, useHistory } from 'react-router-dom';
-import { registerUser } from '../Redux/Register/actions';
 
 
 const RegisterForm = (props) => {
-    const dispatch = useDispatch()
-    console.log(props.location.state)
     const [email, setEmail] = useState(props.location.state.email)
     const [password, setPassword] = useState('')
     const history = useHistory()
-    // const error = useSelector(state => state.register.error)
-    // const isAuth = useSelector(state => state.register.isAuth)
     const [error,setError] = useState(false)
     const handleContinue = () => {
 
@@ -26,11 +20,6 @@ const RegisterForm = (props) => {
         } else {
             setError(true)   
         }
-
-        const payload = { email, password }
-
-       
-
     }
 
     const token = localStorage.getItem("token")

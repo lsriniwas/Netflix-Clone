@@ -26,7 +26,6 @@ const getMoviesFailure = () => {
 
 export const makeGetMoviesRequest = () => (dispatch) => {
   dispatch(getMoviesRequest());
-  console.log("called");
   axios
     .get(`${process.env.REACT_APP_BASE_URL}/api/show`)
     .then((res) => dispatch(getMoviesSuccess(res.data)))

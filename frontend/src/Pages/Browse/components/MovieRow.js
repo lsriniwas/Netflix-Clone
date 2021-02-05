@@ -1,10 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { ShowMovies } from "../ShowMovies";
 import styles from "./carousel.module.css";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import { Backdrop, Fade, Modal, Paper } from "@material-ui/core";
-import { MovieModal } from "../MovieModal";
+
 
 function MovieRow({ items, title, isTvShow }) {
   return (

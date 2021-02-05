@@ -38,11 +38,9 @@ export const makeLoginRequest = ({ email, password, history }) => (
     })
     .then((res) => {
       saveTokenToLocalStorage(res.data);
-
       dispatch(loginSuccess(res.data));
     })
     .catch((err) => {
-      console.log(err.response);
       dispatch(loginFailure(err.response.data.message));
     });
 };

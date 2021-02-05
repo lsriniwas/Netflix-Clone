@@ -9,7 +9,6 @@ import AddIcon from '@material-ui/icons/Add';
 import ThumbUpAltOutlinedIcon from '@material-ui/icons/ThumbUpAltOutlined';
 import ThumbDownAltOutlinedIcon from '@material-ui/icons/ThumbDownAltOutlined';
 import { useState } from 'react';
-import axios from "axios"
 import { useHistory } from 'react-router-dom';
 
 
@@ -23,11 +22,6 @@ export const MovieModal = ({ Movie,handleClose,handleLike,handleDislike,handleAd
     const [episodeList, setEpisodeList] = useState(episodes)
     
     const [index, setIndex] = useState(0)
-    
-   console.log("liked",liked)
-   console.log("inList",inList)
-   
-   console.log("disliked",disliked)
     const history = useHistory()
    
    const handleSeasons = (index) => {
@@ -46,15 +40,8 @@ export const MovieModal = ({ Movie,handleClose,handleLike,handleDislike,handleAd
        
 <>
             <Box className={styles.reactplayer}>
-                {/* <video aloop="1" autoPlay={true} muted={1} width="100%" height="100%"
-                    poster={`https://image.tmdb.org/t/p/w500/${Movie.backdrop_path || Movie.poster_path}`}
-                    src="https://drive.google.com/file/d/1ZI1x_sx4jjMG-e7hn4Dn_fHwRX5lslG3/view"
-                >
-                </video>
-                 */}
                   <iframe style={{
                       marginTop:'-70px',
-                    //   marginBottom:'-70px'
                   }}  width="100%" title="hello" height="576" src={`https://www.youtube.com/embed/${Movie.video}?autoplay=1&showinfo=0&controls=0&mute=1&rel=0`} 
                   frameBorder="0" autoPlay="1"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
