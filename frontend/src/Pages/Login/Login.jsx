@@ -114,7 +114,7 @@ export const Login = () => {
                     </div>
                     <div className = {styles.new} >
                         <div className = {styles.new1}>New To Netflix?</div>
-                        <div onClick = {() =>history.push("/register")} className = {styles.new2}>Sign up now.</div>
+                        <div onClick = {() =>history.push("/")} className = {styles.new2}>Sign up now.</div>
                     </div>
                     <div className = {styles.secure}>
                         <div>This page is protected by Google reCAPTCHA to ensure you're not a bot. <div className = {styles.blue}>Learn more.</div> </div>
