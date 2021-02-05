@@ -5,12 +5,14 @@ import thunk from "redux-thunk";
 import { profileReducer } from "./Profile/reducers/profileReducer";
 import { registerReducer } from "./Register/reducer";
 import { moviesReducer } from "./Movies/reducer";
+import { seriesReducer } from "./TvShows/reducer";
 
 const reducer = combineReducers({
   login: loginReducer,
   profiles: profileReducer,
   register: registerReducer,
   movies: moviesReducer,
+  series: seriesReducer,
 });
 
 export const store = createStore(

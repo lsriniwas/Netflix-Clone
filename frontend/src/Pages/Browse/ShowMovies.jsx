@@ -8,13 +8,13 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { setCurrentProfile } from "../../Redux/Profile/actions/profileActions";
 
-export const ShowMovies = ({items,tile}) => {
+export const ShowMovies = ({items,tile,isTvShow}) => {
     const {currentProfile} = useSelector(state=>state.profiles)
     const token = localStorage.getItem("token")
     const dispatch = useDispatch()
     const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
     const {width} = windowDimensions;
-    console.log(width)
+   console.log(items)
     function getWindowDimensions() {
         const { innerWidth: width, innerHeight: height } = window;
         return {
@@ -33,7 +33,6 @@ export const ShowMovies = ({items,tile}) => {
       }, []);
     
      
-      console.log(width)
    
     let settings = {
         dots: false,
@@ -90,7 +89,7 @@ export const ShowMovies = ({items,tile}) => {
             <Slider {...settings} >
                 {
                     items.map((item) => (
-                        <SingleItem key={item._id} handleAddToList={handleAddToList} handleLike={handleLike} handleDislike={handleDislike} item = {item}/>
+                        <SingleItem isTvShow={isTvShow} key={item._id} handleAddToList={handleAddToList} handleLike={handleLike} handleDislike={handleDislike} item = {item}/>
                     ))
                 }
             </Slider>

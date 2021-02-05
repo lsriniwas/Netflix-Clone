@@ -10,6 +10,7 @@ import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 import axios from 'axios';
 import { makeGetMoviesRequest } from '../../Redux/Movies/action.js';
+import { makeGetSeriesRequest } from '../../Redux/TvShows/action';
 
 
 const links = ["Home", "TV Shows", "Movies", "My List"];
@@ -25,12 +26,13 @@ function Browse(props) {
   const [play,setPlay]=useState(true);
   const dispatch = useDispatch();
   const {movies} = useSelector(state=>state.movies)
-  // console.log(movieList);
+  const {series} = useSelector(state=>state.series)
+  console.log(series);
   
 
   useEffect(()=>{
     dispatch(makeGetMoviesRequest())
-   
+    dispatch(makeGetSeriesRequest())
     // const loadAll = async () => {
     //   // Pegando a lista TOTAL
     //   let list = await Tmdb.getHomeList();
@@ -62,7 +64,7 @@ function Browse(props) {
     }
   }, []);
 
-  console.log(movieList)
+  
 
   return (
     <div className="page">
@@ -81,8 +83,7 @@ function Browse(props) {
         <div className={styles.video__info}>
             <div className={styles.synopsis}>
                <p>
-                   All he wants to do is leave town and start over. But first, he needs to
-                   deal with his ex, his new roomie and the enemies who want him dead.
+               A large and lovable rabbit deals with three tiny bullies, led by a flying squirrel, who are determined to squelch his happiness.
                </p>
                <button className={styles.play_btn} >
                    <i className = "Icon fa fa-play play" />
@@ -130,10 +131,20 @@ function Browse(props) {
     {
     movies.length ? <section className="lists">
     {movies.map((item, key)=>(
-      <MovieRow key={key}  title={item.title}  items={item.data} />
+      <MovieRow isTvShow={true} key={key}  title={item.title}  items={item.data} />
     ))}
   </section> : <></>
    }
+
+    {
+    series.length ? <section className="lists">
+    {[series].map((item, key)=>(
+      <MovieRow key={key} isTvShow={true}  title={"Series"}  items={item} />
+    ))}
+  </section> : <></>
+   }
+
+
 
  
      

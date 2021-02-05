@@ -10,14 +10,31 @@ import { useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
+import { Backdrop, Fade, Modal, Paper } from "@material-ui/core";
+import { MovieModal } from "./MovieModal";
+
+
+
 
 const highlightStyle = {backgroundColor:"white",color:"black"}
 
-export const SingleItem = ({item,handleLike,handleDislike,handleAddToList}) => {
+export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvShow}) => {
         const {currentProfile} = useSelector(state=>state.profiles);
         const [show, setShow] = useState(false);
-        
+        console.log(isTvShow)
+        console.log(item)
+        const [modalOpen,setModalOpen]=useState(false);
+        // const [item,setItem]=useState();
+        const handleModalButton=()=>{
+            setModalOpen(true)
+            console.log("hello")
+        }
+                
         const history = useHistory();
+
+        const handleClose = () => {
+            setModalOpen(false)
+        }
 
         const isLiked = (id)=>{
            
@@ -38,6 +55,8 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList}) => {
            
           
         },[currentProfile])
+
+
     return (
         <div className= {styles.card_wrapper}>
                 <div className={styles.card}>
@@ -48,17 +67,20 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList}) => {
                         <li onClick={()=>history.push(`/video/${item.video}`)}><PlayArrowIcon/>  </li>
                         
                         {
+                          
                            inList(item._id) ? 
                            <li style={highlightStyle} onClick={()=>handleAddToList(item._id)}><CheckIcon/></li> : 
                            <li onClick={()=>handleAddToList(item._id)}><CheckIcon/> </li> 
                        }
                        {
+                          
                            isLiked(item._id) ?   
                            <li style={highlightStyle} onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> : 
                            <li onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> 
                        }
 
                         {
+                            
                            isDisLiked(item._id) ?   
                            <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> : 
                            <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> 
@@ -91,11 +113,25 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList}) => {
                                 </div>
                             </div>
                             <div className = {styles.btmright}>
-                                <div> <ExpandMoreIcon/></div>
+                                <div onClick={()=>{
+                                    handleModalButton()}}> <ExpandMoreIcon/></div>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <Modal
+                open={modalOpen}
+                onClose={handleClose}
+                closeAfterTransition
+                BackdropComponent={Backdrop}
+                BackdropProps={{
+                timeout: 500,
+                }}
+            >   
+                    <MovieModal handleClose={handleClose} Movie={item}/>
+                    
+            </Modal>
             </div>
     )
 }

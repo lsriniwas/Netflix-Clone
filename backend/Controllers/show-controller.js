@@ -25,6 +25,7 @@ const handleFetchShows = async (req, res) => {
     .then((shows) => {
       let actionData = {
         title: "Action",
+        type: "Movie",
         data: [],
       };
 
@@ -35,11 +36,13 @@ const handleFetchShows = async (req, res) => {
 
       let comedyData = {
         title: "Comedy",
+        type: "Movie",
         data: [],
       };
 
       let horrorData = {
         title: "Horror",
+        type: "Movie",
         data: [],
       };
 

@@ -129,5 +129,5 @@
     display: none;
 }
 
-::-webkit-scrollbar {width: 1px; height: 1px; background: none; }
+::-webkit-scrollbar {width: 0px; height: 0px; background: none; }
 ::-webkit-scrollbar-thumb { background-color: #000000 }
