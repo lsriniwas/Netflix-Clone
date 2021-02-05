@@ -39,10 +39,12 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         infinite: false,
         arrows:true,
         speed: 1000,
-        slidesToShow:  5,
+        slidesToShow: width > 900 ? 5 : width > 700 ? 3 :  width > 600 ? 2 : 2 ,
         slidesToScroll:  5,
         cssEase: "linear"
     }
+
+    
 
     
     const headers = {

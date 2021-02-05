@@ -23,7 +23,6 @@ function Browse(props) {
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
   const [blackHeader, setBlackHeader] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [mute, setMute] = useState(true);
   const [play,setPlay]=useState(true);
   const dispatch = useDispatch();

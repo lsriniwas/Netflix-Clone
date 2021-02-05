@@ -7,11 +7,28 @@ import { SingleItem } from '../Browse/SingleItem';
 import axios from "axios";
 import styles from "./myList.module.css"
 import HomeFooter from '../../Components/HomeFooter';
+import { useState } from 'react';
 
 
 function MyList(props) {
 
     const {currentProfile} = useSelector(state=>state.profiles);
+    const [blackHeader, setBlackHeader] = useState(false);
+
+    useEffect(()=>{
+        const scrollListener = () => {
+          if(window.scrollY > 10) {
+            setBlackHeader(true);
+          } else {
+            setBlackHeader(false);
+          }
+        }
+    
+        window.addEventListener('scroll', scrollListener);
+        return () => {
+          window.removeEventListener('scroll', scrollListener);
+        }
+      }, []);
    
     const dispatch = useDispatch();
     const token = localStorage.getItem("token")
@@ -61,7 +78,7 @@ function MyList(props) {
 
     return (
         <div className={styles.bgGrey} >
-           <Header />
+           <Header black={blackHeader} />
            <h2 className={styles.heading}>
                My List
            </h2>
