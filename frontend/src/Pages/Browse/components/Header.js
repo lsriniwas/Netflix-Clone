@@ -43,6 +43,12 @@ function Header({ black }) {
 
   const handleClick = (item, e) => {
     e.preventDefault();
+    dispatch(setCurrentProfile(item));
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    history.push("/login");
   };
 
   const Debouncer = (e) => {
@@ -63,7 +69,7 @@ function Header({ black }) {
     <header className={black ? "black" : ""}>
       <div className="nav-bar-bar">
         <div className="header--logo">
-          <Link href="/browse">
+          <Link to="/browse">
             <img
               src="https://www.freepnglogos.com/uploads/netflix-logo-0.png"
               alt="Netflix"
@@ -140,7 +146,9 @@ function Header({ black }) {
               <div className="profile-box-line"></div>
               <div className="profile-text-bottom">Account</div>
               <div className="profile-text-bottom">Help Center</div>
-              <div className="profile-text-bottom">Sign out of Netflix</div>
+              <div onClick={handleLogout} className="profile-text-bottom">
+                Sign out of Netflix
+              </div>
             </div>
           )}
         </div>

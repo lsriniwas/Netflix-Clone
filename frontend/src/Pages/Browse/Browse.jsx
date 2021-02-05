@@ -18,6 +18,7 @@ import { getProfiles, setCurrentProfile } from '../../Redux/Profile/actions/prof
 import HomeFooter from '../../Components/HomeFooter';
 import { makeGetSearchRequest } from '../../Redux/Search/action';
 import { MainLayout } from '../../Components/Main-Layout/MainLayout';
+import Loader from '../../Components/Loader/Loader';
 
 
 const links = ["Home", "TV Shows", "Movies", "My List"];
@@ -31,7 +32,7 @@ function Browse(props) {
   const [mute, setMute] = useState(true);
   const [play,setPlay]=useState(true);
   const dispatch = useDispatch();
-  const {movies} = useSelector(state=>state.movies)
+  const {movies,isLoading} = useSelector(state=>state.movies)
   const {series} = useSelector(state=>state.series)
   const searchList=useSelector((state)=>state.search.searchResults)
   const {currentProfile} = useSelector(state=>state.profiles)
@@ -69,7 +70,9 @@ function Browse(props) {
 
   return (
     <MainLayout>
+    
     {
+      isLoading ? <Loader /> :
       searchList.length===0?
     <div className="page">
 
@@ -78,8 +81,8 @@ function Browse(props) {
       
       <div className={styles.reactplayer}>
         <video aloop="1" autoPlay={play} muted={mute} width="100%"
-         poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
-      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+         poster="https://pad.mymovies.it/filmclub/2017/09/180/locandina.jpg"
+      src="https://mphomeservices.it/videos/Ad%20Astra%20_%20Official%20Trailer%20%5BHD%5D%20_%2020th%20Century%20FOX.mp4"
    >
         </video>
         <div className={styles.video__info}>
