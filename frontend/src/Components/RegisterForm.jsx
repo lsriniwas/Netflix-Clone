@@ -9,7 +9,7 @@ import { registerUser } from '../Redux/Register/actions';
 
 const RegisterForm = (props) => {
     const dispatch = useDispatch()
-
+    console.log(props.location.state)
     const [email, setEmail] = useState(props.location.state.email)
     const [password, setPassword] = useState('')
     const history = useHistory()
@@ -29,12 +29,14 @@ const RegisterForm = (props) => {
 
         const payload = { email, password }
 
-        dispatch(registerUser(payload))
+       
 
     }
 
+    const token = localStorage.getItem("token")
     return (
-        <RegisterLayout>
+      token ? <Redirect to="/browse" /> :
+      <RegisterLayout>
             <div className={styles.register_form}>
                 <p>STEP <strong>1</strong> OF <strong>3</strong></p>
                 <h3>Create a password to start your <br/> membership.</h3>

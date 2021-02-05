@@ -3,7 +3,6 @@ import React from 'react'
 import { useHistory } from 'react-router-dom'
 import styles from "./Error.module.css"
 export const Error = () => {
-  
     return (
         <div className={styles.root}>
             <div className={styles.header}>

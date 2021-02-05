@@ -1,4 +1,5 @@
 import axios from "axios";
+import { makeLoginRequest } from "../Login/actions/actions";
 import * as actionConstants from "./actionConstants";
 
 function registerRequest() {
@@ -27,12 +28,13 @@ export const registerReset = () => {
   };
 };
 
-export const makeRegisterRequest = (customer) => (dispatch) => {
+export const makeRegisterRequest = (userDetails) => (dispatch) => {
   dispatch(registerRequest());
   axios
-    .post(`${process.env.REACT_APP_BASE_URL}/api/register`, customer)
+    .post(`${process.env.REACT_APP_BASE_URL}/api/register`, userDetails)
     .then((res) => {
       dispatch(registerSuccess(res.data.message));
+      dispatch(makeLoginRequest(userDetails));
     })
     .catch((err) => {
       dispatch(registerFailure(err.response.data.message));

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styles from './browse.module.css'
-;
+import styles from './browse.module.css';
+
+import { getSearchSuccess} from '../../Redux/Search/action'
 
 import {useDispatch, useSelector} from 'react-redux'
 import MovieRow from './components/MovieRow';
@@ -11,51 +12,42 @@ import VolumeOffIcon from '@material-ui/icons/VolumeOff';
 
 import { makeGetMoviesRequest } from '../../Redux/Movies/action.js';
 import { makeGetSeriesRequest } from '../../Redux/TvShows/action';
+import { Search } from '../Search/Search';
+import { Redirect } from 'react-router-dom';
 import { getProfiles, setCurrentProfile } from '../../Redux/Profile/actions/profileActions';
 import HomeFooter from '../../Components/HomeFooter';
+import { makeGetSearchRequest } from '../../Redux/Search/action';
+import { MainLayout } from '../../Components/Main-Layout/MainLayout';
+import Loader from '../../Components/Loader/Loader';
 
 
 const links = ["Home", "TV Shows", "Movies", "My List"];
 
 
 function Browse(props) {
-  
+  const [search, setSearch] = useState("")
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
   const [blackHeader, setBlackHeader] = useState(false);
   const [mute, setMute] = useState(true);
   const [play,setPlay]=useState(true);
   const dispatch = useDispatch();
-  const {movies} = useSelector(state=>state.movies)
+  const {movies,isLoading} = useSelector(state=>state.movies)
   const {series} = useSelector(state=>state.series)
+  const {searchResults:searchList,isLoading:searchLoading}=useSelector((state)=>state.search)
   const {currentProfile} = useSelector(state=>state.profiles)
-
+  
 
   useEffect(()=>{
     dispatch(makeGetMoviesRequest())
     dispatch(makeGetSeriesRequest())
-
+    dispatch( getSearchSuccess([]))
     if(!currentProfile){
       let token = localStorage.getItem("token")
       dispatch(getProfiles(token))
-
-      
       dispatch(setCurrentProfile(JSON.parse(localStorage.getItem("currentProfile"))))
   }
-    // const loadAll = async () => {
-    //   // Pegando a lista TOTAL
-    //   let list = await Tmdb.getHomeList();
-    //  console.log(list)
 
-    //   // Pegando o Featured
-    //   let originals = list.filter(i=>i.slug === 'originals');
-    //   let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
-    //   let chosen = originals[0].items.results[randomChosen];
-    //   let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
-    //   setFeaturedData(chosenInfo);
-    // }
-
-    // loadAll();
   }, []);
 
   useEffect(()=>{
@@ -66,6 +58,7 @@ function Browse(props) {
         setBlackHeader(false);
       }
     }
+    
 
     window.addEventListener('scroll', scrollListener);
     return () => {
@@ -73,20 +66,23 @@ function Browse(props) {
     }
   }, []);
 
-  
+   
 
   return (
+    <MainLayout>
+    
+    {
+      isLoading ? <Loader /> :
+      searchList.length===0?
     <div className="page">
 
-     <Header black={blackHeader} />
-
-     
-      <div className={styles.root}>
+      {/* <Header black={blackHeader} search={search} setSearch={setSearch} /> */}
+       <div className={styles.root}>
       
       <div className={styles.reactplayer}>
         <video aloop="1" autoPlay={play} muted={mute} width="100%"
-         poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
-      src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+         poster="https://i.ytimg.com/vi/htvVnHnroQ4/maxresdefault.jpg"
+      src="https://mphomeservices.it/videos/Ad%20Astra%20_%20Official%20Trailer%20%5BHD%5D%20_%2020th%20Century%20FOX.mp4"
    >
         </video>
         <div className={styles.video__info}>
@@ -122,45 +118,32 @@ function Browse(props) {
         <div
         className={styles.video__bottom}
         >
-        {/* {
-    movieList.length ? <section className={styles.lists}>
-    {[movieList].map((item, key)=>(
-      <MovieRow key={key} title="My List" items={item} />
-    ))}
-   </section> : <></>
-    } */}
+       
         </div>
       </div>
     </div>
+          {
+          movies.length ? <section className="lists">
+          {movies.map((item, key)=>(
+            <MovieRow isTvShow={true} key={key}  title={item.title}  items={item.data} />
+          ))}
+        </section> : <></>
+        }
 
-    
-    
-  
-  
-    {
-    movies.length ? <section className="lists">
-    {movies.map((item, key)=>(
-      <MovieRow isTvShow={true} key={key}  title={item.title}  items={item.data} />
-    ))}
-  </section> : <></>
-   }
-
-    {
-    series.length ? <section className="lists">
-    {[series].map((item, key)=>(
-      <MovieRow key={key} isTvShow={true}  title={"Series"}  items={item} />
-    ))}
-  </section> : <></>
-   }
-
-
-
- <HomeFooter />
-     
+          {
+          series.length ? <section className="lists">
+          {[series].map((item, key)=>(
+            <MovieRow key={key} isTvShow={true}  title={"Series"}  items={item} />
+          ))}
+        </section> : <></>
+        }
+       {/* <HomeFooter /> */}
     </div>
-  );
+    : <Search/>
+    }
+     </MainLayout>
+ );
 }
-
 export default Browse;
 
 

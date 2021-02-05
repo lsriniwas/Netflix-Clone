@@ -3,12 +3,24 @@ import RegisterLayout from './RegisterLayout'
 import styles from '../Styles/Register.module.css'
 import { v4 as uuidv4 } from 'uuid';
 import Axios from 'axios'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { makeRegisterRequest, registerReset } from '../Redux/Register/action';
+import { Redirect, useHistory } from 'react-router-dom';
+
 const Payment = (props) => {
     const {email,password,plan} = props.location.state
+    const {isAuth} = useSelector(state=>state.login)
+    const history = useHistory()
+    
+    if(isAuth){
+      history.push("/profiles")
+    }
+    
     console.log(email,password)
-  
+
+
+
+    
     console.log(plan);
     const dispatch = useDispatch();
     const handlePayment = async (e) => {
@@ -52,7 +64,9 @@ const Payment = (props) => {
         rzp1.open();
     }
 
+    const token = localStorage.getItem("token")
     return (
+      token ? <Redirect to="/profiles" /> : 
         <RegisterLayout>
             <div className={styles.register_payment_container}>
                 <img src="/images/lock.png" alt="secure"/>

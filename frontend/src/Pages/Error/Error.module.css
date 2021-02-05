@@ -5,7 +5,6 @@
 .header__logo img {
     height: 120%;
 }
-
 .header{
     background-color: #181818 !important;
     height: 70px;
@@ -15,7 +14,6 @@
     padding: 0 25px;
     position: fixed;
 }
-
 .root{
     background-image: url('https://assets.nflxext.com/ffe/siteui/pages/errors/bg-lost-in-space.png') ;
     width: 100%;
@@ -26,7 +24,6 @@
     color: #fff;
     text-align: center;
     background-size: cover;
-  
 }
 .error__body{
 margin: 0 auto;
@@ -40,7 +37,6 @@ margin: 0 auto;
     margin-top: 0;
     text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
     z-index: 1;
-    
 }
 .error__body p{
     color: inherit;

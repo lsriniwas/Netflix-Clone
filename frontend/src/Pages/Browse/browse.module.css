@@ -78,6 +78,12 @@
 .synopsis p {
   font-size: 1.2vw;
 }
+
+@media (min-width:600px){
+  .synopsis p {
+    font-size: 1.5vw;
+  } 
+}
 .synopsis i {
   margin-right: 10.5px;
   font-size: 18px;

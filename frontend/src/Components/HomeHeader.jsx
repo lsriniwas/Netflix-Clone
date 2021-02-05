@@ -3,23 +3,35 @@ import styles from '../Styles/Home.module.css'
 import TextField from '@material-ui/core/TextField';
 import validator from 'email-validator'
 import { NavLink, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const HomeHeader = () => {
     const [email, setEmail] = useState('')
-    const [emailValidate, setEmailValidate] = useState(false)
+    const [errorMsg,setErrorMsg] = useState("");
+    const [emailValidate, setEmailValidate] = useState(false);
+    
     const history = useHistory()
 
     const handleSubmit = () => {
+
+       
         if (validator.validate(email)) {
-            history.push({
-                pathname: '/signup',
-                state: { email }
+            axios.post(`${process.env.REACT_APP_BASE_URL}/api/userExists`,{
+                email
+            }).then(res=>{
+                history.push({
+                    pathname: '/signup',
+                    state: { email }
+                })
+            }).catch(err=>{
+                setErrorMsg("Email alrady taken please login")
             })
         } else {
             setEmailValidate(true)
         }
     }
 
+   
     const handleClick = () => {
         history.push("/login")
     }
@@ -46,10 +58,18 @@ const HomeHeader = () => {
                             color='secondary' 
                             type='email' 
                             value={email}
-                            onChange={(e) => setEmail(e.target.value)} />
+                            onChange={(e) =>
+                            {
+                                
+                                setEmail(e.target.value)
+                                setErrorMsg("")
+                            }}
+                                
+                             />
                     </div>
                     <button onClick={() => handleSubmit()}>GET STARTED &gt;</button>
                 </div>
+                {errorMsg && <div className={styles.error}>{errorMsg}</div>}
                 { emailValidate &&  <div className={styles.error}>Please enter a valid email address.</div>}
             </div>
         </div>

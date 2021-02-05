@@ -18,7 +18,7 @@ header.black {
 
 .header--logo {
     height: 25px;
-    margin-left: 30px;
+    margin-left: 0.1vw;
 }
 .header--logo img {
     height: 120%;

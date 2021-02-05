@@ -31,14 +31,13 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
       }, []);
-    
-     
    
     let settings = {
         dots: false,
         infinite: false,
         arrows:true,
         speed: 1000,
+        
         slidesToShow: width > 900 ? 5 : width > 700 ? 3 :  width > 600 ? 2 : 2 ,
         slidesToScroll:  5,
         cssEase: "linear"
@@ -99,3 +98,5 @@ export const ShowMovies = ({items,tile,isTvShow}) => {
         </>
     )
 }
+
+

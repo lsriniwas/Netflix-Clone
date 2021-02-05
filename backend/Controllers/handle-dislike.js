@@ -12,6 +12,7 @@ const dislikeShowController = async (req, res, next) => {
     const profile = await Profile.findOne({ _id: profileId });
 
     const isDisliked = profile.likes && profile.dislikes.includes(showId);
+    const isLiked = profile.likes && profile.likes.includes(showId);
 
     const option = isDisliked ? "$pull" : "$addToSet";
 
@@ -21,6 +22,14 @@ const dislikeShowController = async (req, res, next) => {
       { [option]: { dislikes: showId } },
       { useFindAndModify: false, returnOriginal: false }
     );
+
+    if (isLiked) {
+      newProfile = await Profile.findByIdAndUpdate(
+        profileId,
+        { $pull: { likes: showId } },
+        { useFindAndModify: false, returnOriginal: false }
+      );
+    }
 
     newProfile = await Profile.populate(newProfile, "myList");
 

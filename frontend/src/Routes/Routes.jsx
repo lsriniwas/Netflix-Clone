@@ -24,12 +24,12 @@ const Routes = () => {
                 <Route path="/signup/planform" exact render={(props) => <RegisterPlan {...props}/>} />
                 <Route path="/signup/payment" exact  render={(props) => <Payment {...props} />} />
                 <Route path = "/login" exact component = {Login}/>
-                <Route path = "/browse" exact component = {Browse}/>
-                <Route path = "/video/:id" exact component = {VideoPlayer}/>
-                <PrivateRoute path = "/myList" exact component = {MyList}/>
                 <PrivateRoute exact path = "/profiles" Component={ProfilePage}/>
-                <Route  render={(props) => <Error/>} />
-
+                <PrivateRoute path = "/browse" exact component = {Browse}/>
+                <PrivateRoute path = "/video/:id" exact component = {VideoPlayer}/>
+                
+                <PrivateRoute exact path = "/myList" Component={MyList}/>
+                <Route exact  render={()=><Error/>}/>
             </Switch>
        
     )

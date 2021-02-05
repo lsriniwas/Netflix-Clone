@@ -20,10 +20,10 @@ const highlightStyle = {backgroundColor:"white",color:"black"}
 
 export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvShow,applyClass=""}) => {
         const {currentProfile} = useSelector(state=>state.profiles);
+        const [show, setShow] = useState(false);
         
       
         const [modalOpen,setModalOpen]=useState(false);
-        // const [item,setItem]=useState();
         const handleModalButton=()=>{
             setModalOpen(true)
           
@@ -69,26 +69,26 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                         <img alt="movie poster" src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
                     </div>
                     <ul className={styles.icons}>
-                        <li onClick={()=>history.push(`/video/${item.video}`)}><PlayArrowIcon/>  </li>
+                        <li onClick={()=>history.push(`/video/${item.video}`)}><PlayArrowIcon />  </li>
                         
                         {
                           
                            inList ? 
-                           <li style={highlightStyle} onClick={()=>handleAddToList(item._id)}><CheckIcon/></li> : 
+                           <li style={highlightStyle} onClick={()=>handleAddToList(item._id)}><CheckIcon /></li> : 
                            <li onClick={()=>handleAddToList(item._id)}><CheckIcon/> </li> 
                        }
                        {
                           
                            liked ?   
                            <li style={highlightStyle} onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> : 
-                           <li onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> 
+                           <li onClick={()=>handleLike(item._id)}><ThumbUpAltIcon   /> </li> 
                        }
 
                         {
                             
                            disliked ?   
-                           <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> : 
-                           <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> 
+                           <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon  /> </li> : 
+                           <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon /> </li> 
                        }
 
                      
@@ -110,7 +110,7 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                         </div>
                         <div className = {styles.btm}>
                             <div className = {styles.btmleft}>
-                                <div style = {{marginBottom: "10px"}} > 
+                                <div  > 
                                     Votes: {item.vote_average}
                                 </div>
                                 <div>
@@ -136,7 +136,7 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                 timeout: 500,
                 }}
             >   
-                     <div className={styles.root} >
+                     <div className={styles.root}  >
                      <MovieModal handleLike={handleLike} handleDislike={handleDislike} handleAddToList= {handleAddToList} liked={liked} disliked={disliked} inList={inList} handleClose={handleClose} Movie={item}/>
                      </div>
                     

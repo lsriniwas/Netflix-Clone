@@ -2,6 +2,7 @@ const express = require("express");
 const Joi = require("joi");
 
 const registerUser = require("../Controllers/register-controller");
+const checkUserExists = require("../Controllers/check-user-exists");
 
 const validateUser = require("../Middleware/validateUser");
 
@@ -15,6 +16,7 @@ const schema = Joi.object({
     .required(),
 });
 
+router.post("/userExists", checkUserExists);
 router.post("/register", validateUser(schema), registerUser);
 
 module.exports = router;

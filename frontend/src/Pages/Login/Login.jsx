@@ -3,11 +3,11 @@ import { useDispatch } from 'react-redux';
 import { fetchLoginSuccess } from '../../Redux/Login/actions/loginActions';
 import styles from "./Login.module.css"
 import axios from "axios"
-import {Link, useHistory} from "react-router-dom"
+import {Link, Redirect, useHistory} from "react-router-dom"
 import * as EmailValidator from "email-validator"
 
 export const Login = () => {
-
+    const token = localStorage.getItem("token")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [emailErr, setEmailErr] = useState(false)
@@ -79,10 +79,11 @@ export const Login = () => {
 
 
     return (
+        token ? <Redirect to="/browse" /> :
         <div className = {styles.full}> 
             <div className = {styles.layer} >
-
-                <img className = {styles.logo} src = "http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" alt="cover" />
+         
+                <img className = {styles.logo}  src="https://www.freepnglogos.com/uploads/netflix-logo-0.png" alt="cover" />
                 <div className = {styles.box}>
                     <div>
                         <h2>Sign in</h2>
@@ -113,7 +114,7 @@ export const Login = () => {
                     </div>
                     <div className = {styles.new} >
                         <div className = {styles.new1}>New To Netflix?</div>
-                        <div onClick = {() =>history.push("/register")} className = {styles.new2}>Sign up now.</div>
+                        <div onClick = {() =>history.push("/")} className = {styles.new2}>Sign up now.</div>
                     </div>
                     <div className = {styles.secure}>
                         <div>This page is protected by Google reCAPTCHA to ensure you're not a bot. <div className = {styles.blue}>Learn more.</div> </div>

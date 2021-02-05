@@ -8,14 +8,14 @@ const RegisterLayout = (props) => {
         history.push("/")
     }
     return (
-        <div>
+        <div style={{display:"flex",flexDirection:"column",height:"100vh"}}>
             <header className={styles.register_layout_header}>
                 <div className={styles.register_layout_logo} onClick={returnToHome}>
                     <img src="/images/logo_big.png" alt="logo"/>
                 </div>
-                <Link to="/signin">Sign In</Link>
+                <Link to="/login">Sign In</Link>
             </header>
-            <div className={styles.register_layout_mid}>
+            <div style={{flex:1}} className={styles.register_layout_mid}>
                 {props.children}
             </div>
             <footer className={styles.register_layout_footer}>

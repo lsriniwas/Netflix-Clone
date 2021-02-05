@@ -1,19 +1,23 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import styles from '../Styles/Register.module.css'
 import RegisterLayout from './RegisterLayout'
 
 const RegisterContinue = (props) => {
     const history = useHistory();
-    const {email,password} = props.location.state
-    console.log(email,password)
-    const handleContinue = () => {
+    
+   let email = props.location.state?.email || ""
+    console.log(email)
+   const handleContinue = () => {
+       
         history.push({
             pathname: '/signup/regform',
-            state: { email,password }
+            state: {email}
         })
     }
+    const token = localStorage.getItem("token")
     return (
+      token ? <Redirect to="/browse" /> :
         <RegisterLayout>
             <div className={styles.register_step_one_wrapper}>
                 <img src="/images/devices.png" alt="devices"/>
