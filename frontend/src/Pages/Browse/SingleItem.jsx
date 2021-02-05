@@ -18,13 +18,17 @@ import { MovieModal } from "./MovieModal";
 
 const highlightStyle = {backgroundColor:"white",color:"black"}
 
-export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvShow}) => {
+export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvShow,applyClass=""}) => {
         const {currentProfile} = useSelector(state=>state.profiles);
         const [show, setShow] = useState(false);
+        
+      
         const [modalOpen,setModalOpen]=useState(false);
         const handleModalButton=()=>{
             setModalOpen(true)
-        }       
+          
+        }
+                
         const history = useHistory();
 
         const handleClose = () => {
@@ -41,19 +45,25 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
             return currentProfile.dislikes.includes(id) 
          }
 
-         const inList = (id)=>{
+         const isInList = (id)=>{
            const index = currentProfile.myList.findIndex(list=>list._id===id)
            return index > -1 ? true : false
          }
 
-        useEffect(()=>{
+         const liked =  isLiked(item._id)
+         const disliked = isDisLiked(item._id) 
+         const inList =   isInList(item._id) 
+        
+        
+         useEffect(()=>{
            
           
         },[currentProfile])
 
 
     return (
-        <div className= {styles.card_wrapper}>
+        <>
+        <div   className= {`${styles.card_wrapper} ${applyClass}`}>
                 <div className={styles.card}>
                     <div  className= {styles.card_image} >
                         <img alt="movie poster" src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} />
@@ -63,20 +73,20 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                         
                         {
                           
-                           inList(item._id) ? 
+                           inList ? 
                            <li style={highlightStyle} onClick={()=>handleAddToList(item._id)}><CheckIcon/></li> : 
                            <li onClick={()=>handleAddToList(item._id)}><CheckIcon/> </li> 
                        }
                        {
                           
-                           isLiked(item._id) ?   
+                           liked ?   
                            <li style={highlightStyle} onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> : 
                            <li onClick={()=>handleLike(item._id)}><ThumbUpAltIcon/> </li> 
                        }
 
                         {
                             
-                           isDisLiked(item._id) ?   
+                           disliked ?   
                            <li style={highlightStyle} onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> : 
                            <li onClick={()=>handleDislike(item._id)}><ThumbDownAltIcon/> </li> 
                        }                    
@@ -113,7 +123,9 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                     </div>
                 </div>
 
-                <Modal
+              
+            </div>
+            <Modal
                 open={modalOpen}
                 onClose={handleClose}
                 closeAfterTransition
@@ -122,10 +134,12 @@ export const SingleItem = ({item,handleLike,handleDislike,handleAddToList,isTvSh
                 timeout: 500,
                 }}
             >   
-                    <MovieModal handleClose={handleClose} Movie={item}/>
+                     <Paper className={styles.root} elevation={24} >
+                     <MovieModal handleLike={handleLike} handleDislike={handleDislike} handleAddToList= {handleAddToList} liked={liked} disliked={disliked} inList={inList} handleClose={handleClose} Movie={item}/>
+                     </Paper>
                     
             </Modal>
-            </div>
+            </>
     )
 }
 

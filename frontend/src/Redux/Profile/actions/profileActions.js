@@ -79,11 +79,15 @@ export const addProfile = ({ name, token }) => (dispatch) => {
   };
 
   axios(config)
-    .then((res) => dispatch(addProfileSuccess(res.data)))
+    .then((res) => {
+      console.log(res.data.newProfile);
+      dispatch(addProfileSuccess(res.data.newProfile));
+    })
     .catch((err) => dispatch(addProfileFail(err)));
 };
 
 export const setCurrentProfile = (user) => {
+  localStorage.setItem("currentProfile", JSON.stringify(user));
   return {
     type: CURRENT_PROFILE,
     payload: user,

@@ -12,7 +12,7 @@ export const ProfilePage = () => {
     const [open, setOpen] = useState(false)
     const [name, setName] = useState("")
     const [err, setErr] = useState("")
-
+   
     const customStyles = {
 
         overlay : {
@@ -43,12 +43,17 @@ export const ProfilePage = () => {
     const dispatch = useDispatch()
     const history = useHistory()
     const token = localStorage.getItem("token")
-    const profiles = useSelector((state) => state.profiles.profile)
-
+    const {profile:profiles} = useSelector((state) => state.profiles)
+    
     useEffect(() => {
         dispatch(getProfiles(token))
     }, [])
 
+    useEffect(()=>{
+
+    },[profiles])
+
+    console.log(profiles)
     const handleAddProfile = (e) => {
         e.preventDefault();
 

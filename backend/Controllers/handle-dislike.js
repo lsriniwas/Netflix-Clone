@@ -16,11 +16,15 @@ const dislikeShowController = async (req, res, next) => {
     const option = isDisliked ? "$pull" : "$addToSet";
 
     //Insert user like; pull delets and addToSet adds unique values to the likes array
-    const newProfile = await Profile.findByIdAndUpdate(
+    let newProfile = await Profile.findByIdAndUpdate(
       profileId,
       { [option]: { dislikes: showId } },
       { useFindAndModify: false, returnOriginal: false }
     );
+
+    newProfile = await Profile.populate(newProfile, "myList");
+
+    newProfile = await Profile.populate(newProfile, "myList.genre_ids");
 
     //Insert post like; pull delets and addToSet adds adds unique values to the likes array
 

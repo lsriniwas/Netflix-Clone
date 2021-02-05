@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import styles from './browse.module.css'
-import Tmdb from './Tmdb';
+;
 
 import {useDispatch, useSelector} from 'react-redux'
 import MovieRow from './components/MovieRow';
-import FeaturedMovie from './components/FeaturedMovie';
-import {Header} from "./components/Header"
+
+import Header from "./components/Header"
 import VolumeUpIcon from '@material-ui/icons/VolumeUp';
 import VolumeOffIcon from '@material-ui/icons/VolumeOff';
-import axios from 'axios';
+
 import { makeGetMoviesRequest } from '../../Redux/Movies/action.js';
 import { makeGetSeriesRequest } from '../../Redux/TvShows/action';
 import { Search } from '../Search/Search';
 import { Redirect } from 'react-router-dom';
+import { getProfiles, setCurrentProfile } from '../../Redux/Profile/actions/profileActions';
+import HomeFooter from '../../Components/HomeFooter';
 
 
 const links = ["Home", "TV Shows", "Movies", "My List"];
@@ -23,17 +25,40 @@ function Browse(props) {
   const [movieList, setMovieList] = useState([]);
   const [featuredData, setFeaturedData] = useState(null);
   const [blackHeader, setBlackHeader] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [mute, setMute] = useState(true);
   const [play,setPlay]=useState(true);
   const dispatch = useDispatch();
   const {movies} = useSelector(state=>state.movies)
   const {series} = useSelector(state=>state.series)
 const searchList=useSelector((state)=>state.search.searchResults)
+  const {currentProfile} = useSelector(state=>state.profiles)
+
 
   useEffect(()=>{
     dispatch(makeGetMoviesRequest())
     dispatch(makeGetSeriesRequest())
+
+    if(!currentProfile){
+      let token = localStorage.getItem("token")
+      dispatch(getProfiles(token))
+
+      
+      dispatch(setCurrentProfile(JSON.parse(localStorage.getItem("currentProfile"))))
+  }
+    // const loadAll = async () => {
+    //   // Pegando a lista TOTAL
+    //   let list = await Tmdb.getHomeList();
+    //  console.log(list)
+
+    //   // Pegando o Featured
+    //   let originals = list.filter(i=>i.slug === 'originals');
+    //   let randomChosen = Math.floor(Math.random() * (originals[0].items.results.length - 1));
+    //   let chosen = originals[0].items.results[randomChosen];
+    //   let chosenInfo = await Tmdb.getMovieInfo(chosen.id, 'tv');
+    //   setFeaturedData(chosenInfo);
+    // }
+
+    // loadAll();
   }, []);
 
   useEffect(()=>{
@@ -138,13 +163,12 @@ const searchList=useSelector((state)=>state.search.searchResults)
          <Search/>
   </>
 
-}
- 
-     
-    </div>
-  );
-}
 
+}
+    <HomeFooter />
+ </div>
+ );
+}
 export default Browse;
 
 
