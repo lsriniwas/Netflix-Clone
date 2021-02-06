@@ -6,10 +6,12 @@ import Axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux';
 import { makeRegisterRequest } from '../Redux/Register/action';
 import { Redirect, useHistory } from 'react-router-dom';
+import Loader from './Loader/Loader';
 
 const Payment = (props) => {
     const {email,password,plan} = props.location.state
-    const {isAuth} = useSelector(state=>state.login)
+    const {isAuth,isLoading:loginLoading} = useSelector(state=>state.login)
+    const {isLoading:registerLoading} = useSelector(state=>state.register)
     const history = useHistory()
     
     if(isAuth){
@@ -59,6 +61,7 @@ const Payment = (props) => {
 
     const token = localStorage.getItem("token")
     return (
+      registerLoading || loginLoading ? <Loader/> :
       token ? <Redirect to="/profiles" /> : 
         <RegisterLayout>
             <div className={styles.register_payment_container}>
