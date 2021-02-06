@@ -81,7 +81,7 @@ export const Login = (props) => {
 
 
     return (
-        token ? <Redirect to="/browse" /> :
+        token ? <Redirect to="/profiles" /> :
         <div className = {styles.full}> 
             <div className = {styles.layer} >
          
