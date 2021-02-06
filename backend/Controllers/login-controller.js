@@ -13,7 +13,8 @@ const handleLogin = async (req, res) => {
     if (!user) {
       res.status(400).json({
         error: true,
-        message: "Email does not exist",
+        message:
+          "Sorry, we can't find an account with this email address. Please try again or",
       });
       return;
     }
@@ -32,7 +33,7 @@ const handleLogin = async (req, res) => {
       res.status(400).json({
         error: true,
         success: false,
-        message: "Wrong Password enterd",
+        message: "Incorrect password. Please try again",
       });
       return;
     }
@@ -40,7 +41,7 @@ const handleLogin = async (req, res) => {
     res.status(400).json({
       error: true,
       success: false,
-      message: "Somthing went wrong",
+      message: "Something went wrong",
     });
   }
 };

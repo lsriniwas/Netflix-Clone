@@ -1,0 +1,30 @@
+
+
+.page{
+    background-color: #111;
+}
+
+
+a{
+  text-decoration: none;
+}
+
+  .slick-list{
+    padding-left: 5vw !important;
+  }
+  .slick-slide {
+    margin: 0 -40px;
+  }
+
+  .slick-prev {
+    left: 3% !important;
+    z-index: 1;
+  }
+  .slick-next {
+    right: 3% !important;
+    z-index: 1;
+  }
+ 
+ul{
+    list-style: none !important;
+} 

@@ -1,0 +1,70 @@
+.header__logo {
+    height: 25px;
+    margin-left: 15px;
+}
+.header__logo img {
+    height: 120%;
+}
+.header{
+    background-color: #181818 !important;
+    height: 70px;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 0 25px;
+    position: fixed;
+}
+.root{
+    background-image: url('https://assets.nflxext.com/ffe/siteui/pages/errors/bg-lost-in-space.png') ;
+    width: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    text-align: center;
+    background-size: cover;
+}
+.error__body{
+margin: 0 auto;
+}
+.error__body h1{
+    color: inherit;
+    text-align: center;
+    font-size: 4em;
+    font-weight: 700;
+    margin-bottom: 2vw;
+    margin-top: 0;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
+    z-index: 1;
+}
+.error__body p{
+    color: inherit;
+    font-size: 2em;
+    font-weight: 300;
+    margin-top: 0;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 57%);
+}
+.error__body button{
+    border:none;
+    outline: none;
+    padding: 20px;
+    width: 170px;
+    border-radius: 5px;
+    background-color: #fff;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #181818 !important;
+    text-decoration: none !important;
+}
+.error__body__error_code span{
+    margin-top: 10px;
+    border-left: 2px solid #e50914;
+    font-size: 2.4em;
+    font-weight: 100;
+    letter-spacing: .1em;
+    line-height: 2.2em;
+    padding: 0 1vw;
+}

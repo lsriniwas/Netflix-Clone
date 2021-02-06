@@ -14,6 +14,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+
     profiles: [{ type: Schema.Types.ObjectId, ref: "Profile" }],
   },
   {

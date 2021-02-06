@@ -1,0 +1,206 @@
+.full {
+    background-image: url("https://dkr0pu7ej5xex.cloudfront.net/wp-content/uploads/2017/04/24135159/Netflix-Background.jpg");
+    min-height: 100vh;
+    color: white;
+    position: relative;
+}
+
+.layer {
+    background-color: rgba(5, 5, 5, 0.582);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.full h2 {
+    text-align: left;
+    font-size: 2.1rem;
+    margin-left: 20px;
+}
+
+.box {
+    height: 525px;
+    border-radius: 10px;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(0, 0, 0, 0.658);
+    margin-top: 90px;
+    padding: 30px 50px 100px 50px;
+}
+
+.full input {
+    width: 80%;
+    padding: 16px 14px;
+    background-color: #333333;
+    border: none;
+    margin: 10px 10px 0px 10px;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1rem;
+    padding-left: 20px;
+}
+
+.full input::placeholder {
+    color: #8c8c8c !important;
+}
+
+.signin {
+    background-color: #e63631;
+    width: 90%;
+    padding: 15px 50px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: white;
+    font-weight: 550;
+    margin-top: 30px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.full input:focus {
+    background-color: white;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    font-size: 13px;
+    color: rgb(219, 215, 215);
+}
+
+.forgot {
+    display: flex;
+    flex-direction: row;
+}
+
+.forgot div {
+    margin-top: 0px;
+}
+
+.help {
+    margin-left: 120px;
+    cursor: pointer;
+}
+
+.help:hover {
+    text-decoration: underline;
+}
+
+.full input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin: 0px 5px 0px 10px !important;
+}
+
+.fb {
+    margin: 40px 0px 10px 20px;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+}
+
+.fb div {
+    color: grey;
+    font-size: 13.5px;
+    line-height: 23px;
+}
+
+.fb > img {
+    width: 22px;
+    margin-right: 10px;
+}
+
+.new {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px 10px 20px;
+    font-weight: 550;
+    font-size: 16px;
+}
+
+.new1 {
+    color: grey;
+    margin-right: 5px;
+}
+
+.logo {
+    position: static;
+    width: 120px;
+    float: left;
+    margin-left: 20px;
+    margin-top: 0px !important;
+}
+
+.new2:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.secure {
+    font-size: 13px;
+    text-align: left;
+    color: grey;
+    flex-wrap: nowrap;
+    margin: 10px 0px 10px 20px;
+}
+
+.blue {
+    color: rgb(55, 106, 247);
+}
+
+.blue:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.error {
+    color: rgb(247, 134, 6);
+    display: flex;
+    flex-direction: column;
+    margin-top: 0px !important;
+    padding: 0px 20px;
+}
+
+.inputbox {
+    background-color: white;
+}
+
+.inputbox::placeholder {
+    transform: translateY(-25);
+}
+
+.line {
+    width: 100%;
+    height: 0px;
+    background-color: rgb(247, 134, 6);
+    border: 1px solid rgb(247, 134, 6);
+    border-radius: 5px;
+}
+
+.errtext {
+    font-size: 12px;
+    text-align: left;
+    letter-spacing: 0.2px;
+    margin-top: 3px;
+}
+
+.error1 {
+    background-color: rgb(247, 134, 6);
+    font-size: 14px;
+    margin-top: 0px !important;
+    padding: 10px 20px;
+    color: white;
+    margin: 0px 20px;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.full a{
+    color: white;
+
+}

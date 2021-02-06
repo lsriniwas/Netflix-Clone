@@ -1,0 +1,256 @@
+/* Register Layout Start */
+
+.register_layout_header {
+    display: flex;
+    position: unset;
+    align-items: center;
+    justify-content: space-between;
+    font-family: sans-serif;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.261);
+}
+
+.register_layout_logo img {
+    margin-left: 1rem;
+    width: 180px;
+    cursor: pointer;
+}
+
+.register_layout_header a {
+    margin-right: 2rem;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    font-size: 18px;
+}
+
+.register_layout_header a:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.register_layout_mid {
+    margin: 2rem auto;
+    width: 70%;
+    padding: 4rem;
+    flex:1
+}
+
+.register_layout_footer {
+    background-color: #ddd;
+    
+    bottom: 0;
+    width: 100%;
+    
+    border-top: 1px solid rgba(128, 128, 128, 0.261);
+    color: #757575;
+    font-size: 16px;
+}
+
+.register_layout_footer_content {
+    margin: 2rem;
+    width: 60%;
+}
+
+.register_layout_footer_links {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.register_layout_footer_links p:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+/* @media (max-width: 950px) {
+    .register_layout_footer_content {
+        width: 90%;
+    }
+} */
+
+/* Register Layout End */
+
+/* Register Continue Start*/
+
+.register_step_one_wrapper {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: sans-serif;
+}
+.register_step_one_wrapper img {
+    width: 80%;
+}
+.register_step_one_wrapper button {
+    width: 100%;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.register_step_one_wrapper button:focus {
+    outline: none;
+}
+
+/* Register Continue End*/
+
+/* Register Form Start */
+
+.register_form {
+    text-align: left;
+    font-family: sans-serif;
+    width: 50%;
+    margin: auto;
+}
+.register_form * {
+    margin: 0;
+}
+.register_form > p:first-child {
+    font-size: small;
+}
+.register_form h3 {
+    margin-bottom: 0.7rem;
+}
+.register_form_input {
+    background-color: #fff;
+    border-radius: 2px;
+    margin: 0.5rem 0rem;
+    border: 1px solid grey;
+}
+.register_form_input input {
+    background-color: #fff;
+}
+.register_form button {
+    width: 100%;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.register_form button:focus {
+    outline: none;
+}
+
+/* Register Form End */
+
+/* Register Plan Start */
+
+.register_planform {
+    margin-top: -4rem;
+    font-family: sans-serif;
+}
+.register_planform p:first-child {
+    font-size: small;
+}
+.plan_table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.plan_table th,
+.plan_table td {
+    border-bottom: 1px solid rgba(165, 165, 165, 0.419);
+    padding: 1rem;
+}
+.plan_table_th {
+    background-color: red;
+    text-align: center;
+    color: white;
+    width: 100px;
+    height: 100px;
+}
+
+@media (max-width:600px){
+    .plan_table_th {
+        
+       
+    }   
+}
+.plan_table_th:hover {
+    cursor: pointer;
+}
+.plan_table_td {
+    text-align: center;
+    color: #757575;
+}
+.register_planform_p {
+    font-size: small;
+    color: grey;
+}
+.register_planform_button {
+    width: 50%;
+    margin: auto;
+}
+.plan_table thead tr th {
+    
+    top: 10px;
+    z-index: 1000;
+}
+.register_planform_button button {
+    width: 100%;
+    background-color: red;
+    margin: 1rem auto;
+    border: none;
+    color: white;
+    font-size: 20px;
+    padding: 8px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+/* @media (max-width: 950px) {
+    .plan_table_th {
+        width: 50px;
+        height: 50px;
+    }
+} */
+
+/* Register Plan End */
+
+/* Payment Page Start */
+
+.register_payment_container {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.register_payment_container h3 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.register_payment_container img {
+    width: 50px;
+}
+.register_payment_p {
+    font-size: small;
+}
+.register_payment_base {
+    margin: 2.5rem 0rem;
+    padding: 3px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid rgb(220, 220, 220);
+    border-radius: 5px;
+    cursor: pointer;
+}
+.register_payment_base img {
+    width: 250px;
+}
+/* @media (max-width: 950px) {
+    .register_payment_container {
+        width: 80%;
+    }
+    .register_payment_base {
+        flex-direction: column;
+    }
+} */
+/* Payment Page End */

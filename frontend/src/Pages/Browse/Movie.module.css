@@ -1,0 +1,424 @@
+
+.highlight{
+  background:white !important;
+  color:black
+}
+
+.close{
+    position: absolute;
+    right: 1%;
+    top:2%;
+    background-color: #181818;
+    color: rgb(255, 250, 250);
+    border-radius: 100%;
+    padding: 5px;
+    display: grid;
+    cursor: pointer;
+    place-items: center;
+}
+.reactplayer{
+    position: relative;
+    width: 100%;
+    max-height: 440px;
+    overflow: hidden;
+    background-color: #181818;
+    box-shadow: inset 20px 50px 10px rgba(0, 0, 0,0.5);
+}
+  .synopsis {
+    color: white;
+    display: flex;
+    width: 100%;
+
+  }
+  .synopsis button {
+    background-color: rgba(51, 51, 51, 0.8);
+    border: 1px solid white;
+    padding: 0.75em 2.3em;
+    border-radius: 0.2vw;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+    font-size: 1.1vw;
+    color: white;
+    margin-right: 15px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+  }
+  .synopsis i {
+    margin-right: 10.5px;
+    font-size: 18px;
+  }
+  .synopsis .play_btn {
+    color: black;
+    background-color: white;
+  }
+  .synopsis_tooltips{
+    flex-grow: 1;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-around;
+    align-content: center;        
+    align-items: center; 
+  }
+  .synopsis_tooltips_single{
+    border:1px solid rgb(199, 199, 197);
+    border-radius: 100%;
+    padding: 10px;
+    display: grid;
+    background-color: rgba(0, 0, 0,0.2);
+    place-items: center;
+    align-items: center;
+  }
+  .synopsis_tooltips_single:hover{
+    border:1px solid rgb(226, 226, 226);
+    background-color: rgba(0, 0, 0,0.5);
+  }
+ 
+  .video__info{
+    position: absolute;
+    top: 0;
+    bottom: 22%;
+    left: 4%;
+    width: 36%;
+    z-index: 10;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-end;        
+    align-items: flex-end;   
+  }
+  .video__info__right{
+    position: absolute;
+    top: 0;
+    bottom: 22%;
+    right: 4%;
+    width: 36%;
+    z-index: 10;
+    right:100;
+    display: flex;
+    flex-flow:row-reverse;
+    align-content: flex-end;        
+    align-items: flex-end; 
+  }
+ 
+  .video__info__right_volume{
+      border:1px solid grey;
+      border-radius: 100%;
+      padding: 10px;
+      display: grid;
+      place-items: center;
+      align-items: center;
+  }
+  .video__info__right_volume:hover{
+      border:1px solid #fff;
+      background-color: grey;
+  }
+  .wrapper{
+    background-color: #181818;
+    padding: 0px 40px 40px 40px;
+    min-height: 300px !important;
+  }
+  .movie_info{
+      background-color: #181818;
+      display: flex;
+  }
+
+  .movie_info_left{
+    margin-right: 20px ;
+  }
+  .movie_info_right{
+    font-family: sans-serif;
+    padding: 10px;
+    word-wrap: break-word;
+  }
+.movie_info_left__first{
+    display: flex;
+}
+
+.movie_info_left__first p{
+    font-size: 18px;
+    line-height: 27px;
+    font-family: sans-serif;
+    color: #fff;
+}
+  .movie_info_left__first_green{
+    margin-right: 10px;
+    color: #46D369 !important;
+  }
+
+  .movie_info_right span{
+    font-size: 14px;
+    color: #777;
+  }
+  .movie_info_right_links{
+    font-size: 14px;
+      color:#fff !important;
+  }
+
+  .episode_selector{
+      padding: 1px 0px;
+      display:flex;
+      justify-content: space-between;
+      place-items: center;
+      align-items: center;
+      position: relative;
+  } 
+  /* .episode_selector_left{
+
+  } */
+  .episode_selector_left h2{
+      color: #fff;
+  }
+/* .episode_selector_right{
+} */
+  .episode_selector_right button {
+      color: #fff;
+      border: 1px solid #333333;
+      border-radius: 5px;
+      padding: 5px 20px;
+      font-weight: 700;
+
+  }
+  .episode_selector_right button::after {
+    content: "";
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+    border-top: 0.4em solid rgb(255, 255, 255);
+    margin-left: 2em;
+}
+.episode_selector_right_ul{
+    width: 250px;
+    right: 1px; 
+    height: 400px;
+    overflow: scroll;
+    position: absolute;
+    top:78%;
+    z-index: 100;
+    color: white;
+    
+}
+.episode_selector_right_ul ul{
+    border: 1px solid rgb(77, 77, 77);
+    background-color: rgb(36, 36, 36);
+    margin-top: 1.4em;
+    padding: 0!important;
+    margin: 0 !important;
+    list-style: none !important;
+
+}
+.episode_selector_right_ul li{
+    padding: 10px 5px;
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    place-items: center;
+    place-content: center;
+    align-items: center;
+    text-align: center;   
+}
+.episode_selector_right_ul li h3{
+    font-size: 18px;
+    padding: 0px;
+    padding:0;
+    margin: 0 10px 0 0;
+
+    
+}
+.episode_selector_right_ul li p{
+    font-size: 16px;
+    padding: 0;
+    margin: 0 ;
+}
+
+.episode_selector_right_ul li:hover {
+    background-color: rgb(77, 77, 77);
+}
+
+.episodelist ul{
+  padding: 0px !important;
+}
+
+.episodelist ul li{
+    border-top: 1px solid #404040;
+    display: flex;
+    padding: 16px;
+    cursor: pointer;
+    align-items: center;
+    transition: .3s all;
+}
+.episodelist ul li:hover{
+  background-color: rgb(77, 77, 77);
+ 
+}
+.episodelist_ul_li_h1{
+    color: #d2d2d2;
+    margin-right: 15px;
+    font-size: 12px;
+}
+.episodelist_ul_li_img{
+    width: 200px;
+    margin-right: 15px;
+
+}
+.episodelist_ul_li_img img{
+    width: 100%;
+    height: 100%;
+}
+.episodelist_ul_li_info h4{
+    color: #fff;
+}
+.episodelist_ul_li_info p {
+    color: #d2d2d2;
+    font-size: 14px;
+}
+
+.footer h1{
+  background-color: #181818;
+    color: #fff;
+    margin: 0px;
+    padding: 20px 0px;
+}
+
+@media screen and (max-width:515px){
+  .movie_info_left{
+    margin-right: 15px ;
+  }
+  .movie_info_left__first p{
+    font-size: 12px;
+    line-height: 20px;
+}
+  .movie_info_right span{
+    font-size: 10px;
+  }
+  .synopsis button {
+    padding: 3px 10px !important;
+    border-radius: 0.2vw !important;
+    font-size: 1vw !important;
+    margin-right: 10px !important;
+    letter-spacing: 0.2px !important;
+    width: 100px !important;
+
+  }
+  .reactplayer{
+    position: relative;
+    width: 100%;
+    max-height: 240px !important;
+    overflow: hidden;
+}
+
+.synopsis_tooltips_single{
+  padding: 5px;
+  display: grid;
+}
+
+.video__info{
+  bottom: 5%;
+  left: 4%;
+}
+.video__info__right{
+  bottom: 5%;
+  right: 4%;
+}
+
+.video__info__right_volume{
+    padding: 5px;
+}
+
+.episode_selector{
+  padding: 1px 0px;
+  display:flex;
+  justify-content: space-between;
+  place-items: center;
+  align-items: center;
+  position: relative;
+} 
+
+.episode_selector_left h2{
+  color: #fff;
+  font-size: 15px;
+}
+.episode_selector_right button {
+  color: #fff;
+  border: 1px solid #333333;
+  border-radius: 5px;
+  padding: 1px 10px;
+  font-weight: 500;
+
+}
+.episode_selector_right button::after {
+content: "";
+border-left: 0.3em solid transparent;
+border-right: 0.3em solid transparent;
+border-top: 0.4em solid rgb(255, 255, 255);
+margin-left: 1em;
+}
+.episode_selector_right_ul{
+width: 150px;
+right: 1px; 
+height: 200px;
+overflow: scroll;
+position: absolute;
+top:78%;
+z-index: 100;
+color: white;
+
+}
+.episode_selector_right_ul ul{
+border: 1px solid rgb(77, 77, 77);
+background-color: rgb(36, 36, 36);
+margin-top: 1em;
+
+
+}
+.episode_selector_right_ul li{
+padding: 5px 1px;
+  
+}
+.episode_selector_right_ul li h3{
+font-size: 14px !important;
+padding: 0px;
+padding:0;
+margin: 0 5px 0 0;
+}
+.episode_selector_right_ul li p{
+font-size: 12px !important;
+padding: 0;
+margin: 0 ;
+}
+
+
+.episodelist ul{
+padding: 0px !important;
+}
+
+.episodelist ul li{
+
+padding: 12px;
+
+}
+.episodelist ul li:hover{
+background-color: rgb(77, 77, 77);
+
+}
+.episodelist_ul_li_h1{
+color: #d2d2d2;
+margin-right: 13px;
+font-size: 8px;
+}
+.episodelist_ul_li_img{
+width: 200px;
+margin-right: 15px;
+
+}
+.episodelist_ul_li_img img{
+width: 100%;
+height: 100%;
+}
+.episodelist_ul_li_info h4{
+color: #fff;
+font-size: 12px;
+}
+.episodelist_ul_li_info p {
+color: #d2d2d2;
+font-size: 8px;
+}
+}
