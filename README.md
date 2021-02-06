@@ -24,9 +24,8 @@ You can watch as much as you want, whenever you want, without a single ad – al
 
 
 ## <code>Landing Page</code>
-  <div style="height:240px;overflow:scroll">
-<img height="100%" src="././screenshots/landingPage.png"/>  
-  </div>
+![img](./screenshots/landingPage.png)
+
 ## <code>Applicant Register Page</code>
 ![gif](./screenshots/browsePage.png)
 
