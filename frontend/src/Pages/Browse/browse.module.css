@@ -91,6 +91,7 @@
 .synopsis .play_btn {
   color: black;
   background-color: white;
+  margin-bottom: 10px;
 }
 .video__info{
   position: absolute;

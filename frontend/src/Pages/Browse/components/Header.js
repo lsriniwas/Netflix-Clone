@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Header.css";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { useDispatch, useSelector } from "react-redux";
@@ -11,6 +11,24 @@ import {
   getSearchSuccess,
   makeGetSearchRequest,
 } from "../../../Redux/Search/action";
+import { Search } from "../../Search/Search";
+import Button from "@material-ui/core/Button";
+import ClickAwayListener from "@material-ui/core/ClickAwayListener";
+import Grow from "@material-ui/core/Grow";
+import Paper from "@material-ui/core/Paper";
+import Popper from "@material-ui/core/Popper";
+import MenuItem from "@material-ui/core/MenuItem";
+import MenuList from "@material-ui/core/MenuList";
+import { makeStyles } from "@material-ui/core/styles";
+
+// const useStyles = makeStyles((theme) => ({
+//   root: {
+//     display: "flex",
+//   },
+//   paper: {
+//     marginRight: theme.spacing(2),
+//   },
+// }));
 
 function Header({ black }) {
   const [searchBox, setSearchBox] = useState(false);
@@ -21,6 +39,7 @@ function Header({ black }) {
   const profiles = useSelector((state) => state.profiles.profile);
   const currentProf = useSelector((state) => state.profiles.currentProfile);
 
+  const params = useParams();
 
   const [search, setSearch] = useState(
     history.location.search.split("=")[1] || ""
@@ -30,6 +49,37 @@ function Header({ black }) {
   });
 
   const [open, setOpen] = useState(false);
+
+  const [openMenu, setOpenMenu] = React.useState(false);
+  const anchorRef = React.useRef(null);
+
+  const handleToggle = () => {
+    setOpenMenu((prevOpen) => !prevOpen);
+  };
+
+  const handleClose = (event) => {
+    if (anchorRef.current && anchorRef.current.contains(event.target)) {
+      return;
+    }
+
+    setOpenMenu(false);
+  };
+
+  function handleListKeyDown(event) {
+    if (event.key === "Tab") {
+      event.preventDefault();
+      setOpenMenu(false);
+    }
+  }
+
+  // return focus to the button when we transitioned from !open -> open
+  const prevOpen = React.useRef(openMenu);
+  React.useEffect(() => {
+    if (prevOpen.current === true && open === false) {
+      anchorRef.current.focus();
+    }
+    prevOpen.current = openMenu;
+  }, [openMenu]);
 
   const toggleSearchBox = () => {
     if (searchBox) {
@@ -74,25 +124,72 @@ function Header({ black }) {
             />
           </Link>
         </div>
-        <Link
-          to="/browse"
-          onClick={() => dispatch(getSearchSuccess([]))}
-          className="nav-bar-text-1"
-        >
-          Home
-        </Link>
-        <Link to="" className="nav-bar-text">
-          TV Shows
-        </Link>
-        <Link to="" className="nav-bar-text">
-          Movies
-        </Link>
-        <Link to="" className="nav-bar-text">
-          New & Popular
-        </Link>
-        <Link to="/myList" className="nav-bar-text">
-          My List
-        </Link>
+        <div className={"nav_lg"}>
+          <Link
+            to="/browse"
+            onClick={() => dispatch(getSearchSuccess([]))}
+            className="nav-bar-text-1"
+          >
+            Home
+          </Link>
+          <Link to="" className="nav-bar-text">
+            TV Shows
+          </Link>
+          <Link to="" className="nav-bar-text">
+            Movies
+          </Link>
+          <Link to="" className="nav-bar-text">
+            New & Popular
+          </Link>
+          <Link to="/myList" className="nav-bar-text">
+            My List
+          </Link>
+        </div>
+
+        <div>
+          <Button
+            className={"nav_sm"}
+            ref={anchorRef}
+            aria-controls={openMenu ? "menu-list-grow" : undefined}
+            aria-haspopup="true"
+            onClick={handleToggle}
+            color={"secondary"}
+          >
+            Browse
+          </Button>
+          <Popper
+            open={openMenu}
+            anchorEl={anchorRef.current}
+            role={undefined}
+            transition
+            disablePortal
+          >
+            {({ TransitionProps, placement }) => (
+              <Grow
+                {...TransitionProps}
+                style={{
+                  transformOrigin:
+                    placement === "bottom" ? "center top" : "center bottom",
+                }}
+              >
+                <Paper>
+                  <ClickAwayListener onClickAway={handleClose}>
+                    <MenuList
+                      autoFocusItem={openMenu}
+                      id="menu-list-grow"
+                      onKeyDown={handleListKeyDown}
+                    >
+                      <MenuItem onClick={handleClose}>Home</MenuItem>
+                      <MenuItem onClick={handleClose}>Tv Shows</MenuItem>
+                      <MenuItem onClick={handleClose}>Movies</MenuItem>
+                      <MenuItem onClick={handleClose}>My List</MenuItem>
+                    </MenuList>
+                  </ClickAwayListener>
+                </Paper>
+              </Grow>
+            )}
+          </Popper>
+        </div>
         <div className="search-bar-right">
           <div className={`${searchBox ? "searchBox" : "searchIcon"}`}>
             <span className="icon" onClick={() => toggleSearchBox()}>
