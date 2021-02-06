@@ -26,7 +26,7 @@ You can watch as much as you want, whenever you want, without a single ad – al
 ## <code>Landing Page</code>
 ![img](./screenshots/landingPage.png)
 
-## <code>Applicant Register Page</code>
+## <code>Home Page</code>
 ![gif](./screenshots/browsePage.png)
 
 ## Sneak peek
@@ -88,5 +88,5 @@ Clone down this repository. You will need node and npm installed globally on you
 
 ### Acknowledgments
 <div>
-  We take all the responsiblity for every single line of code. The design inspired from Shine.com
+  We take all the responsiblity for every single line of code. The design inspired from Netflix
 </div>
