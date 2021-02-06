@@ -79,7 +79,6 @@ Clone down this repository. You will need node and npm installed globally on you
     <li>styled-components</li>
   </ul>
 
-## <a href="https://pentagon-shine.vercel.app/">Project link</a>
 
 ## Contributors
 <h3>Nishtha</h3>👨‍- <a href="https://github.com/nishthaarya" >Nishtha</a>
