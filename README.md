@@ -16,18 +16,22 @@ You can watch as much as you want, whenever you want, without a single ad – al
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"></code>
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png"></code>
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/redux/redux.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/express/express.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png"></code>
+<code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png"></code>
 
 
 
 
 ## <code>Landing Page</code>
-![gif](./screenshots/landingPage.png)
-
+  <div style="height:240px;overflow:scroll">
+<img height="100%" src="././screenshots/landingPage.png"/>  
+  </div>
 ## <code>Applicant Register Page</code>
 ![gif](./screenshots/browsePage.png)
 
 ## Sneak peek
-![gif](./screenshots/recruiter.gif)
+
 
 ### Installation and Setup Instructions
 
@@ -36,7 +40,7 @@ Clone down this repository. You will need node and npm installed globally on you
 ## Tech Library used:
   <ul>
   <li>React APP</li>
-  <li>AXIOS</li>
+  <li>Axios</li>
   <li>Material UI</li>
   <li>antd Design</li>
 <li>bcrypt</li>
@@ -52,6 +56,28 @@ Clone down this repository. You will need node and npm installed globally on you
 <li>react-router-dom</li>
 <li>request</li>
 <li>uuid</li>
+  <li>@fortawesome/fontawesome-svg-core</li>
+    <li>@fortawesome/free-solid-svg-icons</li>
+    <li>@fortawesome/react-fontawesome</li>
+    <li>email-validator</li>
+    <li>node-sass</li>
+    <li>react</li>
+    <li>react-debounce-input</li>
+    <li>react-dom</li>
+    <li>react-elastic-carousel</li>
+    <li>react-icons</li>
+    <li>react-jw-player</li>
+    <li>react-modal</li>
+    <li>react-redux</li>
+    <li>react-router-dom</li>
+    <li>react-scripts</li>
+    <li>react-slick</li>
+    <li>react-youtube</li>
+    <li>redux</li>
+    <li>redux-devtools-extension</li>
+    <li>redux-thunk</li>
+    <li>slick-carousel</li>
+    <li>styled-components</li>
   </ul>
 
 ## <a href="https://pentagon-shine.vercel.app/">Project link</a>
