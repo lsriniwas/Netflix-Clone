@@ -1,11 +1,11 @@
-# Netflix-Clone
+# Team Triangle
 
-#  Team Pentagon - Shine.com Clone
-
+# Netflix- Clone
+  
 <div>
-  <h4>
 In the project directory, tried to clone Netflix.  
-    </h4>
+Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries and more – on thousands of internet-connected devices.
+You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!
  </div>
 
 ## Tech Stack used:
@@ -39,6 +39,19 @@ Clone down this repository. You will need node and npm installed globally on you
   <li>AXIOS</li>
   <li>Material UI</li>
   <li>antd Design</li>
+<li>bcrypt</li>
+<li>bcryptjs</li>
+<li>concurrently</li>
+<li>cors</li>
+<li>dotenv</li>
+<li>express</li>
+<li>joi</li>
+<li>jsonwebtoken</li>
+<li>mongoose</li>
+<li>razorpay</li>
+<li>react-router-dom</li>
+<li>request</li>
+<li>uuid</li>
   </ul>
 
 ## <a href="https://pentagon-shine.vercel.app/">Project link</a>
