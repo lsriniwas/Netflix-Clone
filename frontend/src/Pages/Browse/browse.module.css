@@ -1,0 +1,140 @@
+.root{
+  /* border: 10px solid gray; */
+}
+.navbar {
+  position: fixed;
+  height: 68px;
+  z-index: 99;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.navbar ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none !important;
+}
+.navbar li {
+  margin-right: 20px;
+}
+.navbar a {
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  color: #e5e5e5;
+}
+.navbar a.active {
+  color: white;
+  font-weight: 500;
+}
+.navbar ul.right i {
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
+}
+.blackBackGround {
+  background-color: #141414;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(10%, rgba(0, 0, 0, 0.7)), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, rgba(0, 0, 0, 0));
+  transition: .5s all;
+}
+.backgroundTransparent {
+  background: transparent;
+  transition: .5s all;
+}
+.reactplayer{
+  position: relative;
+  top: 0px;
+  left: 0;
+  width: 100%;
+}
+.synopsis {
+  color: white;
+}
+.synopsis button {
+  background-color: rgba(51, 51, 51, 0.8);
+  border: 1px solid white;
+  padding: 0.75em 2.3em;
+  border-radius: 0.2vw;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  font-size: 1.1vw;
+  color: white;
+  margin-right: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+.synopsis p {
+  font-size: 1.2vw;
+}
+
+@media (min-width:600px){
+  .synopsis p {
+    font-size: 1.5vw;
+  } 
+}
+.synopsis i {
+  margin-right: 10.5px;
+  font-size: 18px;
+}
+.synopsis .play_btn {
+  color: black;
+  background-color: white;
+  margin-bottom: 10px;
+}
+.video__info{
+  position: absolute;
+  top: 0;
+  bottom: 35%;
+  left: 4%;
+  right: 4%;
+  width: 36%;
+  z-index: 10;
+  left:100;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-content: flex-end;        
+  align-items: flex-end;          
+}
+.video__info__right{
+  position: absolute;
+  top: 0;
+  bottom: 35%;
+  right: 4%;
+  width: 36%;
+  z-index: 10;
+  right:100;
+  display: flex;
+  flex-flow:row-reverse;
+  align-content: flex-end;        
+  align-items: flex-end; 
+}
+.video__bottom{
+  position: absolute;
+  bottom: 0;
+  margin-top: 100px !important;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  overflow: scroll;
+}
+
+.lists{
+    background-color: #141414;
+    display: none;
+}
+
+::-webkit-scrollbar {width: 0px; height: 0px; background: none; }
+::-webkit-scrollbar-thumb { background-color: #000000 }
