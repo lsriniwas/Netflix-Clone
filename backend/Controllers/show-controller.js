@@ -46,6 +46,36 @@ const handleFetchShows = async (req, res) => {
         data: [],
       };
 
+      let adventureData = {
+        title: "Adventure",
+        type: "Movie",
+        data: [],
+      };
+
+      let animationData = {
+        title: "Animation",
+        type: "Movie",
+        data: [],
+      };
+
+      let dramaData = {
+        title: "Drama",
+        type: "Movie",
+        data: [],
+      };
+
+      let familyData = {
+        title: "Family",
+        type: "Movie",
+        data: [],
+      };
+
+      let scienceFictionData = {
+        title: "Science Fiction",
+        type: "Movie",
+        data: [],
+      };
+
       shows.forEach((data) => {
         const genere = data.genre_ids.map((genere) => genere.name);
         if (genere.includes("Action")) {
@@ -60,8 +90,39 @@ const handleFetchShows = async (req, res) => {
         if (genere.includes("Horror")) {
           horrorData.data.push(data);
         }
+        if (genere.includes("Adventure")) {
+          adventureData.data.push(data);
+        }
+        if (genere.includes("Animation")) {
+          animationData.data.push(data);
+        }
+        if (genere.includes("Drama")) {
+          dramaData.data.push(data);
+        }
+        if (genere.includes("Family")) {
+          familyData.data.push(data);
+        }
+        if (genere.includes("Science Fiction")) {
+          scienceFictionData.data.push(data);
+        }
       });
-      let results = [actionData, horrorData, comedyData, romanceData];
+
+      adventureData.data.reverse();
+      comedyData.data.reverse();
+      dramaData.data.reverse();
+      scienceFictionData.data.reverse();
+
+      let results = [
+        actionData,
+        romanceData,
+        comedyData,
+        adventureData,
+        familyData,
+        dramaData,
+        horrorData,
+        animationData,
+        scienceFictionData,
+      ];
 
       res.status(200).json(results);
     })

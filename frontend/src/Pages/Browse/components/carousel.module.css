@@ -30,7 +30,7 @@
     position: absolute;
     bottom: 350px;
     padding: 0;
-    font-size: 3.5vw;
+    font-size: 4vw;
     margin-left: 6vw;
     
     color: #fff;
@@ -38,7 +38,7 @@
 
 @media (min-width:750px){
     .genereh2{
-        font-size:  2vw;
+        font-size:  1.5vw;
     }
 }
 
