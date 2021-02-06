@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import RegisterLayout from './RegisterLayout'
 import RegisterPlanTable from './RegisterPlanTable'
 import styles from '../Styles/Register.module.css'
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 
 const RegisterPlan = (props) => {
     const history = useHistory()
@@ -15,8 +15,10 @@ const RegisterPlan = (props) => {
         })
     }
 
+    const token = localStorage.getItem("token")
     return (
-        <RegisterLayout>
+      token ? <Redirect to="/browse" /> : 
+      <RegisterLayout>
             <div className={styles.register_planform}>
                 <p>STEP <strong>2</strong> OF <strong>3</strong></p>
                 <h3>Choose the plan that's right for you</h3>

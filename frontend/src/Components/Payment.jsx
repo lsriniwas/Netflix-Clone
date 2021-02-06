@@ -10,8 +10,8 @@ import Loader from './Loader/Loader';
 
 const Payment = (props) => {
     const {email,password,plan} = props.location.state
-    const {isAuth,isLoading:loginLoading} = useSelector(state=>state.login)
-    const {isLoading:registerLoading} = useSelector(state=>state.register)
+    const {isAuth} = useSelector(state=>state.login)
+   
     const history = useHistory()
     
     if(isAuth){
@@ -61,7 +61,7 @@ const Payment = (props) => {
 
     const token = localStorage.getItem("token")
     return (
-      registerLoading || loginLoading ? <Loader/> :
+     
       token ? <Redirect to="/profiles" /> : 
         <RegisterLayout>
             <div className={styles.register_payment_container}>
