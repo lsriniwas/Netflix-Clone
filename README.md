@@ -82,10 +82,14 @@ Clone down this repository. You will need node and npm installed globally on you
 
 
 ## Contributors
-<h3>Nishtha</h3>👨‍- <a href="https://github.com/nishthaarya" >Nishtha</a>
-<h3>Mahen</h3>👨‍- <a href="https://github.com/MahenParameshwar" >Mahen</a>
-<h3>Amal Biju</h3>👨‍ -  <a href="https://github.com/amal-biju">Amal</a> 
-<h3>Lanka Sriniwas</h3> 👨‍ - <a href="https://github.com/lsriniwas">Sriniwas</a>
+<div><a href="https://github.com/nishthaarya" >Nishtha</a></div>
+<div> <a href="https://github.com/MahenParameshwar" >Mahen</a></div>
+<div><a href="https://github.com/amal-biju">Amal</a> </div>
+<div><a href="https://github.com/lsriniwas">Sriniwas</a></div>
+
+
+
+
 
 ### Acknowledgments
 <div>
