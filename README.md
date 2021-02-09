@@ -42,7 +42,6 @@ Clone down this repository. You will need node and npm installed globally on you
   <li>React APP</li>
   <li>Axios</li>
   <li>Material UI</li>
-  <li>antd Design</li>
 <li>bcrypt</li>
 <li>bcryptjs</li>
 <li>concurrently</li>
