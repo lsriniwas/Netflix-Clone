@@ -27,6 +27,8 @@ You can watch as much as you want, whenever you want, without a single ad – al
 ## Sneak peek
 ![gif](./screenshots/first.gif)
 
+<hr/>
+
 ![gif](./screenshots/second.gif)
 
 
