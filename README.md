@@ -8,6 +8,8 @@ Netflix is a streaming service that offers a wide variety of award-winning TV sh
 You can watch as much as you want, whenever you want, without a single ad – all for one low monthly price. There's always something new to discover, and new TV shows and movies are added every week!
  </div>
 
+## <a href="https://masai-netflix.netlify.app/">Demo</a>
+
 ## Tech Stack used:
 
 <code><img height="40" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"></code>
@@ -23,7 +25,10 @@ You can watch as much as you want, whenever you want, without a single ad – al
 
 
 ## Sneak peek
-![gif](./screenshots/captured.png)
+![gif](./screenshots/first.gif)
+
+![gif](./screenshots/second.gif)
+
 
 ## <code>Landing Page</code>
 ![img](./screenshots/landingPage.png)
